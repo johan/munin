@@ -1,3 +1,8 @@
+munin (work)
+
+  * Adapt linux/apt plugin to work properly with Debian testing/unstable
+    (patch from Rune N. Skillingstad).
+
 munin (1.0.3)
 
   * Fixed bug in munin-limits when using ranges with only one number
