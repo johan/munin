@@ -5,6 +5,8 @@ munin (work)
     of the 1min load average.
   * Expand man-page macros properly on man-page generation (Deb#286399).
   * Fix bug when encountering strange environment (Deb#285173).
+  * Fix template variable escaping and other XHTML errors (based on patch
+    by Tommi Virtanen, Deb#287435).
    
 munin (1.0.4)
 
