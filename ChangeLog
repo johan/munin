@@ -12,6 +12,8 @@ munin (1.0.1)
   * linux/sensors_temp now understand temp lines without hyst or max settings
     (Deb#256380).
   * Made linux/sensors_volt work with negative voltages (Deb#256734).
+  * Made generic/hddtemp2 understand environment variables with quotes
+    (Deb#265022).
 
 munin (1.0.0)
 
