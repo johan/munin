@@ -5,6 +5,9 @@
 # $Id$
 #
 # $Log$
+# Revision 1.8.2.3  2004/10/22 14:49:32  jimmyo
+# Fixed cronmail-bug in munin-update when client disconnects prematurely.
+#
 # Revision 1.8.2.2  2004/06/08 15:26:04  jimmyo
 # The server programs now open the log file at an earlier point.
 #
@@ -563,7 +566,7 @@ sub config_node {
   my $fetchdomain;
   chomp($clientdomain) if $clientdomain;
   if (!$clientdomain) {
-      logger("Got unknown reply from client: '$clientdomain' skipping");
+      logger("Got unknown reply from client \"$domain\" -> \"name\" skipping");
       return 0;
   }
   $clientdomain =~ s/\#.*(?:lrrd|munins) (?:client|node) at //;
