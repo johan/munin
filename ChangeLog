@@ -5,6 +5,8 @@ munin (work)
   * Fixed bug in munin-update, to stop trying to read closed filehandles.
   * Fixed typo in linux/fw_forwarded_local (Deb#275535).
   * Fixed typo in linux/fw_packets (Deb#275537).
+  * Plugin generic/acpi now autodetects even if the acpi version does not
+    contain the acpi_available program (Deb#275538).
    
 munin (1.0.2)
 
