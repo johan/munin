@@ -2,6 +2,7 @@ munin (work)
 
   * Fixed bug in munin-limits when using ranges with only one number
   * Fixed cronmail-bug in munin-update when client disconnects prematurely.
+  * Fixed bug in munin-update, to stop trying to read closed filehandles.
    
 munin (1.0.2)
 
