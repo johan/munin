@@ -1,3 +1,15 @@
+munin (1.0.5-1) unstable; urgency=low
+
+  * New upstream release:
+      - Expands @@ macros in man pages, closes: #286399.
+      - Fixes bug in munin-run %ENV untainting, closes: #285173.
+      - Fixes template variable escaping and other XHTML errors, closes: #287435
+        (based on patch by Tommi Virtanen <tv@debian.org>).
+      - hddtemp plugin calls hddtemp -n to avoid having to parse its output,
+        closes: #282021.
+ 
+ --
+
 munin (1.0.4-1) unstable; urgency=low
 
   * New upstream release.
