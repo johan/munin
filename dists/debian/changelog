@@ -7,7 +7,9 @@ munin (1.0.5-1) unstable; urgency=low
         (based on patch by Tommi Virtanen <tv@debian.org>).
       - hddtemp plugin calls hddtemp -n to avoid having to parse its output,
         closes: #282021.
- 
+  * Add Suggests: for programs and perl modules needed by plugins but not
+    the services they monitor, closes: #272148, #270090.
+
  --
 
 munin (1.0.4-1) unstable; urgency=low
