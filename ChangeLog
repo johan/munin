@@ -5,6 +5,8 @@ munin (1.0.1)
   * Applied patch from Matthieu Lochegnies to munin-graph, and fixed the
     same problem elsewhere in the code (Deb#250982, SF#924561).
   * Fixed generic/ipac-ng plugin (it wouldn't run properly).
+  * Force LANG=C in plugin/hddtemp2, to remove problems in parsing of hddtemp
+    output (Deb#253497).
 
 munin (1.0.0)
 
