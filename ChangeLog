@@ -4,6 +4,7 @@ munin (work)
   * Fixed cronmail-bug in munin-update when client disconnects prematurely.
   * Fixed bug in munin-update, to stop trying to read closed filehandles.
   * Fixed typo in linux/fw_forwarded_local (Deb#275535).
+  * Fixed typo in linux/fw_packets (Deb#275537).
    
 munin (1.0.2)
 
