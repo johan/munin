@@ -1,3 +1,7 @@
+munin (work)
+
+  * Minor documentation bugfix.
+
 munin (1.0.0)
 
   * Noise reduction in munin-update, when plugins say strange things (only
