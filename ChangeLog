@@ -1,7 +1,9 @@
-munin (work)
+munin (1.0.1)
 
   * Minor documentation bugfix.
   * Added missing shebang in iostat_ios (Deb#262708).
+  * Applied patch from Matthieu Lochegnies to munin-graph, and fixed the
+    same problem elsewhere in the code (Deb#250982, SF#924561).
 
 munin (1.0.0)
 
