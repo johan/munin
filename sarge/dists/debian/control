@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Munin Debian Maintainers <munin-deb-maint@linpro.no>
 Uploaders: Tore Anderson <tore@debian.org>, Dagfinn Ilmari Mannsaker <ilmari@ilmari.org>
 Build-Depends-Indep: debhelper (>> 4.0.0), perl, htmldoc, html2text
-Standards-Version: 3.6.1.0
+Standards-Version: 3.6.1.1
 
 Package: munin-node
 Architecture: all
