@@ -1,3 +1,7 @@
+munin (work)
+
+  * Removed use of $HOSTNAME in linux/cps_.
+   
 munin (1.0.4)
 
   * Adapt linux/apt plugin to work properly with Debian testing/unstable
