@@ -9,7 +9,7 @@ proc="getattr setattr lookup access readlink read write create mkdir symlink mkn
 rpc="rpc"
 
 if [ "$1" = "autoconf" ]; then
-	if [ -x "$NFS" ]; then
+	if [ -e "$NFS" ]; then
 		echo yes
 		exit 0
 	else

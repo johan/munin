@@ -3,6 +3,9 @@
 # Plugin created by Alexandre Dupouy, with the assistance of Mike Fedyk
 #
 # $Log$
+# Revision 1.2.2.2  2004/09/23 15:14:19  ilmari
+# check for existence, not executability of /proc/net/rpc/nfs(d)
+#
 # Revision 1.2.2.1  2004/09/23 15:06:04  ilmari
 # Fix the vlabel of the nfs plugins
 #
@@ -22,7 +25,7 @@ proc="getattr setattr lookup access readlink read write create mkdir symlink mkn
 rpc="rpc"
 
 if [ "$1" = "autoconf" ]; then
-	if [ -x "$NFSD" ]; then
+	if [ -e "$NFSD" ]; then
 		echo yes
 		exit 0
 	else
