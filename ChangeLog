@@ -1,4 +1,4 @@
-munin (work)
+munin (1.0.4)
 
   * Adapt linux/apt plugin to work properly with Debian testing/unstable
     (patch from Rune N. Skillingstad).
