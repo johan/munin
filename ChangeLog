@@ -9,6 +9,7 @@ munin (work)
     by Tommi Virtanen, Deb#287435).
   * Fixed generic/hddtemp to call hddtemp -n to avoid having to parse its
     output (Deb#282021).
+  * Made some plugins ({generic,linux}/df*, generic/samba) more portable.
    
 munin (1.0.4)
 
