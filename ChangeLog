@@ -3,6 +3,7 @@ munin (work)
   * Removed use of $HOSTNAME in linux/cps_.
   * Fixed bug in plugin linux/load, so it graphs the 5min load average instead
     of the 1min load average.
+  * Expand man-page macros properly on man-page generation (Deb#286399).
    
 munin (1.0.4)
 
