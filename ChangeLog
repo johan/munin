@@ -1,4 +1,4 @@
-munin (work)
+munin (1.0.3)
 
   * Fixed bug in munin-limits when using ranges with only one number
   * Fixed cronmail-bug in munin-update when client disconnects prematurely.
