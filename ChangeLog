@@ -1,6 +1,7 @@
 munin (work)
 
   * Minor documentation bugfix.
+  * Added missing shebang in iostat_ios (Deb#262708).
 
 munin (1.0.0)
 
