@@ -1,3 +1,7 @@
+munin (work)
+
+  * Fixed bug in munin-limits when using ranges with only one number
+   
 munin (1.0.2)
 
   * Better error handling when fetching data from RRD files.
