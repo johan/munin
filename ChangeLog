@@ -3,6 +3,8 @@ munin (work)
   * Adapt linux/apt plugin to work properly with Debian testing/unstable
     (patch from Rune N. Skillingstad).
   * Applied the munin-limits fix to munin-nagios, which is actually used.
+  * Fixed typo in generic/sendmail_mailstats (patch by Lupe Christoph,
+    SF#1058128).
 
 munin (1.0.3)
 
