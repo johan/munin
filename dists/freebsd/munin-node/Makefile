@@ -6,13 +6,12 @@
 #
 
 PORTNAME=	munin
-PORTVERSION=	1.0.0.p3
-PORTREVISION=	1
+PORTVERSION=	1.0.0.p5
 CATEGORIES=	sysutils perl5
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE}
 MASTER_SITE_SUBDIR=	munin
 PKGNAMESUFFIX=	-node
-DISTNAME=	munin_1.0.0pre3
+DISTNAME=	munin_1.0.0pre5
 
 MAINTAINER=	lupe@lupe-christoph.de
 COMMENT=	Node-specific part of Munin
@@ -28,7 +27,7 @@ RUN_DEPENDS+=	${SITE_PERL}/Net/Domain.pm:${PORTSDIR}/net/p5-Net
 
 USE_GMAKE=	yes
 PATCH_STRIP=	-p1
-WRKSRC=		${WRKDIR}/munin-1.0.0pre3
+WRKSRC=		${WRKDIR}/munin-1.0.0pre5
 PKGMESSAGE=	${WRKDIR}/pkg-message
 ALL_TARGET=	DATADIR=${DATADIR} build build-man
 INSTALL_TARGET=	DATADIR=${DATADIR} install-node install-node-plugins
@@ -47,8 +46,6 @@ post-install:
 		${INSTALL_DATA} ${WRKSRC}/plugins.conf ${PREFIX}/etc/munin/plugin-conf.d/plugins.conf; \
 	fi
 	@${CAT} ${PKGMESSAGE}
-	@${INSTALL_MAN} -d ${PREFIX}/man/man5
-	@${INSTALL_MAN} -d ${PREFIX}/man/man8
 	@${INSTALL_MAN} -C ${WRKSRC}/build/doc/munin-node.conf.5 ${PREFIX}/man/man5
 	@${INSTALL_MAN} -C ${WRKSRC}/build/doc/munin-node-configure.8 ${PREFIX}/man/man8
 	@${INSTALL_MAN} -C ${WRKSRC}/build/doc/munin-node.8 ${PREFIX}/man/man8
