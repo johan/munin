@@ -4,7 +4,7 @@ munin (work)
   * Fixed bug in plugin linux/load, so it graphs the 5min load average instead
     of the 1min load average.
   * Expand man-page macros properly on man-page generation (Deb#286399).
-  * Fix bug when encountering strange environment.
+  * Fix bug when encountering strange environment (Deb#285173).
    
 munin (1.0.4)
 
