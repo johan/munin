@@ -2,7 +2,7 @@
 # Date created:				25 Januar 2004
 # Whom:					Lupe Christoph <lupe@lupe-christoph.de>
 #
-# $FreeBSD: ports/sysutils/munin-main/Makefile,v 1.6 2004/11/16 13:39:54 vs Exp $
+# $FreeBSD: ports/sysutils/munin-main/Makefile,v 1.7 2004/12/14 01:43:10 sem Exp $
 #
 
 PORTNAME=	munin
@@ -44,11 +44,11 @@ pre-install:
 	@PKG_PREFIX=${PREFIX} ${SH} pkg-install ${PKGNAME} PRE-INSTALL
 
 post-install:
-	@if [ ! -f ${PREFIX}/www/data-dist/munin/style.css ]; then \
-		${INSTALL_DATA} ${PREFIX}/etc/munin/templates/style.css ${PREFIX}/www/data-dist/munin/style.css; \
+	@if [ ! -f ${PREFIX}/www/data/munin/style.css ]; then \
+		${INSTALL_DATA} ${PREFIX}/etc/munin/templates/style.css ${PREFIX}/www/data/munin/style.css; \
 	fi
-	@if [ ! -f ${PREFIX}/www/data-dist/munin/logo.png ]; then \
-		${INSTALL_DATA} ${PREFIX}/etc/munin/templates/logo.png ${PREFIX}/www/data-dist/munin/logo.png; \
+	@if [ ! -f ${PREFIX}/www/data/munin/logo.png ]; then \
+		${INSTALL_DATA} ${PREFIX}/etc/munin/templates/logo.png ${PREFIX}/www/data/munin/logo.png; \
 	fi
 	@${INSTALL_MAN} -C ${WRKSRC}/build/doc/munin.conf.5 ${PREFIX}/man/man5
 	@${INSTALL_MAN} -C ${WRKSRC}/build/doc/munin-cron.8 ${PREFIX}/man/man8

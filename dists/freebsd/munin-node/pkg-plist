@@ -79,8 +79,16 @@ sbin/munin-run
 @unexec echo
 @unexec echo '********************************************************************'
 @unexec echo "If you want to *completely* remove munin-node, you have to"
-@unexec echo "    rm -rf %D/var/munin %D/etc/munin %D/www/data/munin"
-@unexec echo "They have to be left on the system because you may be performing"
-@unexec echo "an update. This process can't tell."
+@unexec echo
+@unexec echo "    rm -rf %D/var/munin/plugin-state %D/etc/munin/VERSION.node \\"
+@unexec echo "           %D/etc/munin/munin-node.conf %D/etc/munin/plugins \\"
+@unexec echo "           /var/log/munin-node.log*"
+@unexec echo
+@unexec echo "If you have already deinstalled munin-main, you can also"
+@unexec echo
+@unexec echo "    rmdir %D/etc/munin %D/var/munin"
+@unexec echo
+@unexec echo "These files and directories have to be left on the system because"
+@unexec echo "you may be performing an update. This process can't tell."
 @unexec echo '********************************************************************'
 @unexec echo

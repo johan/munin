@@ -2,7 +2,7 @@
 # Date created:				25 Januar 2004
 # Whom:					Lupe Christoph <lupe@lupe-christoph.de>
 #
-# $FreeBSD: ports/sysutils/munin-node/Makefile,v 1.10 2004/11/16 15:16:37 leeym Exp $
+# $FreeBSD: ports/sysutils/munin-node/Makefile,v 1.12 2004/12/14 01:43:10 sem Exp $
 #
 
 PORTNAME=	munin
@@ -40,19 +40,18 @@ MAN8=		munin-node-configure.8 munin-node.8 munin-run.8
 .if ${OSVERSION} < 500000
 PKGMSG=${FILESDIR}/pkg-message.4
 STARTSTOP_SRC=${FILESDIR}/munin-node.sh
-STARTSTOP_DST=${PREFIX}/etc/rc.d/munin-node.sh
 .else
 PKGMSG=${FILESDIR}/pkg-message
 STARTSTOP_SRC=${FILESDIR}/munin_node.sh
-STARTSTOP_DST=/etc/rc.d/munin_node
 .endif
+STARTSTOP_DST=${PREFIX}/etc/rc.d/munin-node.sh
 
 pre-install:
 	@${SED} 's@%%PREFIX%%@${PREFIX}@g' ${PKGMSG} > ${PKGMESSAGE}
 	@PKG_PREFIX=${PREFIX} ${SH} pkg-install ${PKGNAME} PRE-INSTALL
 
 post-install:
-	@${SED} 's@%PREFIX%@${LOCALBASE}@g' ${STARTSTOP_SRC} > ${STARTSTOP_DST}
+	@${SED} 's@%PREFIX%@${PREFIX}@g' ${STARTSTOP_SRC} > ${STARTSTOP_DST}
 	@${CHMOD} +x ${STARTSTOP_DST}
 	${INSTALL_DATA} ${WRKSRC}/build/node/munin-node.conf ${PREFIX}/etc/munin/munin-node.conf.sample
 	${INSTALL_DATA} ${WRKSRC}/plugins.conf ${PREFIX}/etc/munin/plugin-conf.d/plugins.conf.sample
