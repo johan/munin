@@ -3,6 +3,9 @@
 # $Id$
 #
 # $Log$
+# Revision 1.5.2.3  2004/06/08 15:26:04  jimmyo
+# The server programs now open the log file at an earlier point.
+#
 # Revision 1.5.2.2  2004/06/08 14:55:41  jimmyo
 # Noise reduction in munin-update, when plugins say strange things (only log, don\'t complain on stderr).
 #
@@ -260,7 +263,7 @@ sub logger {
  
     if ($log->opened)
     {
-	print $log "$now - $comment";
+	print $log "$now - $comment\n";
     }
     else
     {
@@ -268,17 +271,17 @@ sub logger {
 	{
 	    if (open ($log, ">>$config->{logdir}/munin-html.log"))
 	    {
-		 print $log "$now - $comment";
+		 print $log "$now - $comment\n";
 	    }
 	    else
 	    {
 		 print STDERR "Warning: Could not open log file \"$config->{logdir}/munin-html.log\" for writing: $!";
-		 print STDERR "$now - $comment";
+		 print STDERR "$now - $comment\n";
 	    }
 	}
 	else
 	{
-	    print STDERR "$now - $comment";
+	    print STDERR "$now - $comment\n";
 	}
     }
 }
