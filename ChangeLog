@@ -1,3 +1,7 @@
+munin (work)
+
+  * Better error handling when fetching data from RRD files.
+  
 munin (1.0.1)
 
   * Minor documentation bugfix.
