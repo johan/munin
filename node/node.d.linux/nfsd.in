@@ -3,6 +3,9 @@
 # Plugin created by Alexandre Dupouy, with the assistance of Mike Fedyk
 #
 # $Log$
+# Revision 1.2.2.1  2004/09/23 15:06:04  ilmari
+# Fix the vlabel of the nfs plugins
+#
 # Revision 1.2  2004/05/06 21:55:18  jimmyo
 # Added patch to contrib-plugin linux/nfsd, to graph rpc count (Alexandre Dupouy).
 #
@@ -32,7 +35,7 @@ if [ "$1" = "config" ]; then
 
 	echo 'graph_title NFS Server'
 	echo 'graph_args --base 1000 -l 0'
-	echo 'graph_vlabel proc detail'
+	echo 'graph_vlabel requests per second'
 	for a in $rpc ; do echo "$a.label $a" ; echo "$a.type COUNTER" ; done
 	for a in $proc ; do echo "$a.label $a" ; echo "$a.type COUNTER" ; done
 	exit 0
