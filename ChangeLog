@@ -1,6 +1,8 @@
 munin (work)
 
   * Removed use of $HOSTNAME in linux/cps_.
+  * Fixed bug in plugin linux/load, so it graphs the 5min load average instead
+    of the 1min load average.
    
 munin (1.0.4)
 
