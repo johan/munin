@@ -4,6 +4,7 @@ munin (1.0.1)
   * Added missing shebang in iostat_ios (Deb#262708).
   * Applied patch from Matthieu Lochegnies to munin-graph, and fixed the
     same problem elsewhere in the code (Deb#250982, SF#924561).
+  * Fixed generic/ipac-ng plugin (it wouldn't run properly).
 
 munin (1.0.0)
 
