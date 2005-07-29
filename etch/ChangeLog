@@ -1,0 +1,833 @@
+munin (1.2.3)
+
+  * Main: Remove stdout output (Deb#302502).
+  * Node: Added support for optional "user" settings in node.
+  * Node: Allow "root" for the per-plugin "group" directive.
+  * Plugins: sort drives in generic/hddtemp_smartcl (SF#1174847).
+  * Plugins: Fix autoconf for linux/{nfsd,nfs_client}.
+  * Plugins: Make linux/sensors_ handle multiline output better (Deb#300690).
+  * Plugins: generic/postfix_mailstats now treats reject-lines better
+    (Deb#302220).
+  * Plugins: Made generic/postfix_mailvolume autoconf less eager.
+
+munin (1.2.2)
+
+  * Plugins: Correct history loss in linux/{df,df_inode}.
+  * Plugins: Avoid negative spike in generic/exim_mailstats.
+
+munin (1.2.1)
+  * Main: fix the file vs. pipe check in munin-limits.
+  * Main: place the munin-limits lock file in rundir, not dbdir.
+  * Main: Make sure all rrd-tunes are correct after an upgrade (Deb#296454,
+    Deb#296645).
+  * Main: Better handling of broken connections (Deb#298108).
+  * Main: HTML cleanup (Deb#296676).
+  * Main: Re-enable width/height attributes to img tags.
+  * Main: Escape regexps more properly (Deb#296575).
+  * Main: Correct expires-headers in CGI output (SF#1159742).
+  * Node: munin-node-configure now properly respect user plugins.
+  * Plugin: generic/amavis now has configurable logfile location (Deb#296533).
+  * Plugin: linux/irqstats should no longer fail on some systems (Deb#296452).
+  * Plugin: modified graph_args of generic/apache_processes, to work around
+    an rrdtool bug (Deb#296528).
+  * Plugins: All plugins using logtail now properly detect its format
+    (Deb#297628).
+  * Plugins: sunos/memory repaired (SF#1143610).
+  * Plugins: Made linux/if_ work with more versions of iwlist (SF#1150954).
+  * Plugins: generic/mailman now handles regular mailman (Deb#297904).
+  * Plugins: New contrib plugin generic/mbmon_ from Arne Schwabe.
+  * Plugins: Made linux/df work properly with tmpfs and devmapper (Deb#298442).
+  * Plugins: Thanks to Stephen Gran, generic/exim_mailstats now graphs rejects
+    (Deb#295799).
+  * Docs: Fixed erronous cgiurl docs (SF#1159722).
+
+munin (1.2.0)
+
+  * Main: Yet another rewrite of munin-limits open call (SF#1115434).
+  * Node: munin-node didn't treat default_plugin_user properly (Deb#295366).
+  * Plugins: linux/if* now treats ra* interfaces as wireless.
+  * Plugins: minor bugfix in generic/bind9.
+  * Plugins: generic/sendmail_mailqueue handles bigger queues (fix by Mickey
+    Everts).
+  * Plugins: Made contrib-plugins generic/amavis and generic/mailstats more
+    secure.
+  * Plugins: Minor bugfix in linux/if_, with info fields.
+  * Plugins: Added warning note in linux/if_ output.
+  * Plugins: generic/smart_ exit value no longer triggers criticals.
+  * Plugins: linux/df* now ignores bind mounts.
+  * Docs: Added man page for munin-node-configure-snmp.
+  * Docs: Brushed up the comments in the default munin.conf a bit (Deb#294060).
+  * Docs: Fixed erronous cgiurl docs (SF#1159722).
+  * Installation: Create CIGdir if nonexistant.
+
+munin (1.2.0rc2)
+
+  * Main: Fix bug with calculation of "Avg:" field when using graph_sums.
+  * Main: Make munin-limits work properly with perl <5.8 (SF#1109039).
+  * Main: Bugfix in munin-cgi-graph with hostnames including - (SF#1111510).
+  * Main: Added category_order, to complete the *_order options.
+  * Plugins: Fix sendmail_mail{stats,traffic} autoconf handling.
+  * Plugins: Fix linux/users #! line.
+  * Plugins: Changed default log for generic/postfix_mailstats from syslog to
+    mail.log. Downgraded it from auto to manual. (Deb#291720).
+  * Plugins: Made generic/amavis autodetect logtail format (Deb#284638,
+    Deb#288395).
+  * Plugins: generic/named probes for more log files before giving up
+    (Deb#291849).
+  * Plugins: New wildcard plugin generic/courier_ by Micah Anderson 
+    (Deb#291854). 
+  * Plugins: New plugin generic/perdition by Micah Anderson (Deb#291855).
+  * Plugins: Plugin generic/squid_cache now handles multiple caches
+    (Deb#288579).
+  * Plugins: Improved graph_title of generic/postfix_* (Deb#292083).
+  * Plugins: Turn on graph_scale for generic/postfix_mailvolume.
+  * Plugins: Make generic/postfix_mailstats catch more formats (Deb#292110).
+  * Plugins: Added plugin generic/hddtemp_smartctl, made by Lupe Christoph.
+    Made it the default hddtemp plugin.
+  * Plugins: Added madwifi support to linux/if_* plugins.
+  * Docs: Documented minimum requirements for use of graph_sums (SF#1109040).
+  * Installation: Make the single python plugin use @@PYTHON@@ again.
+
+munin (1.2.0rc1)
+
+  * Main: Allow dots in PNG paths (patch by Jacques Caruso).
+  * Main: Properly size table below graphs in service-view.
+  * Main: Fix bug which lead to some graphs failing with STACK error.
+  * Main: Added limit message option "strtrunc".
+  * Main: "contacts" can now be set to "none".
+  * Main: Bugfix with graphs using both "graph_sums" and data aliases.
+  * Main: Tables in service-view now sorted according to graph_order.
+  * Main: Tables in service-view now containt the correct "Type" when using
+    data aliases.
+  * Plugins: generic/sendmail_mail{stats,traffic} updated.
+  * Plugins: Made generic/samba more portable (fixes by Nicolas Stransky).
+  * Plugins: Fixed typo in generic/loggrep breaking implicit labeling.
+  * Plugins: Bugfix in generic/amavis.
+
+munin (1.1.9)
+
+  * Main: Optimised munin-cgi-graph a bit.
+  * Main: Internal name (for use in munin.conf) added to the table in
+    service view.
+  * Main: Added option cgiurl_graph.
+  * Main: Bugfix when using long labels and CGI graphing.
+  * Node: Fix bug when encountering strange environment (Deb#285173).
+  * Node: Remove hardcoding of default user/group to run the plugin as
+    (SF#1083251).
+  * Packaging: Expand man-page macros properly on man-page generation 
+    (Deb#286399).
+  * Plugin: Added plugin generic/dhcpd3, created by Rune N. Skillingstad.
+  * Plugin: Patch generic/bind9 to report "unnamed" as "other" (Nicolas 
+    Stransky).
+  * Plugin: linux/apt* has been forced to LANG=C, to get predictable output.
+  * Plugin: Removed hardcoded host_name in linux/cps_.
+  * Plugin: Added plugin linux/users, created by Michael Kaiser.
+  * Plugin: Cleaned up generic/samba a bit (SF#1087961).
+
+munin (1.1.8)
+
+  * Munin-limits: Log less noise.
+  * Munin-limits: Notify correctly in all situations.
+  * Munin-graph: Treat CDEFs in fields with long names properly.
+  * Munin-graph: Log an illegal STACK in the first field better (SF#1081903).
+  * Munin-run: Now behaves properly when running invalid plugins (SF#1074242).
+  * Munin-node: host_name in plugin-conf.d now overrides plugin output.
+  * Munin-graph: Added "graph_period" option, to make "graph_sums" usable.
+  * Munin-update: Fix bug when setting min to 0.
+  * Munin-node-configure: Fix bug with underscore in wildcard plugins.
+  * Plugin: New version of generic/smart_ by plugin creator (Nicolas
+    Stransky) (SF#1072459).
+  * Plugin: generic/uptime was re-classified as linux/uptime (SF#1074576).
+  * Plugin: Renamed generic/folding@home to generic/foldingathome (SF#1074241).
+  * Plugin: Modify generic/ping_ so it's compatible with Solaris ping
+    (SF#1074545).
+  * Plugin: Fixed broken autoconf in generic/sendmail_mailtraffic (SF#1074528).
+  * Plugin: Patched sunos/cpu to work on Solaris 9 (SF#1077899).
+  * Plugin: Major improvements to sunos/io_ops,bytes,busy, by Lupe Christoph
+    (SF#1077898).
+  * Plugin: Portability enhancementes to sunos/fs_df (SF#1077903).
+  * Plugin: linux/fw_forwarded_local now initialises properly (Deb#284673).
+  * Plugin: Added more sensible autoconf to generic/sybase_space.
+  * Plugin: Added more sensible autoconf to generic/munin_graph,munin_update.
+  * Plugin: Added two new plugins contributed by Jacques Caruso,
+    generic/exim_mailqueue_alt and generic/mailscanner.
+  * Plugin: New version of generic/pm3users_ by plugin creator Jacques Caruso.
+  * Plugin: generic/bind9 now handles syslog format as well (by xavier).
+  * Plugin: Two new contrib plugins generic/foldingathome_*, by xavier.
+  * Plugin: generic/named a bit more portable (by Will Froning).
+  * Plugin: Sort fields in df*-plugins alphabetically.
+  * Plugin: Added plugin generic/bind9_rndc, by Facq Laurent.
+  * Plugin: Two network ups tool plugins (generic/nut_*) contributed by xavier.
+  * Plugin: Added plugin generic/mhttping by Greg Connor.
+  * Plugin: linux/cps_ plugin now groks high numbers.
+
+munin (1.1.7)
+
+  * Allow floating point values in warning/critical limits.
+  * Bugfix in munin-html, when using groups/host names with more than one dot.
+  * Updated RPM package creation with regards to the 1.2 series.
+  * Created RPM package creation for SuSE with regards to the 1.2 series.
+  * Added --stdout-option to all programs (SF#1073148).
+  * Log updates of nonexisting fields better (SF#1073172).
+  * Force plugin linux/apt to use C locale (SF#1072470).
+
+munin (1.1.6)
+
+  * Failsafe entry for @@PYTHON@@.
+  * Bugfix in munin-limits (it didn't work properly).
+  * Added separate makefile target to take care of SNMP-only items.
+
+munin (1.1.5)
+
+  - Munin main package:
+    * Treat long field names properly. Sadly, this will lead to data loss
+      for fields that earlier had their field names truncated. :-(
+    * Small interface improvements in the HTML output.
+    * Changes of min and max values now causes corresponding changes in 
+      the RRD files.
+    * Added new option "graph_sums" which creates summarised graphs.
+    * Munin-update adapts to field type changes (loss-free conversion from
+      COUNTER->DERIVE et al.)
+    * Added new config option "local_address", to specify which local address
+      outgoing connections (from munin-update) should be used.
+    * Added "comparison" views, to view a whole hostgroup at once.
+    * Bugfix in munin-limits.
+    * Draw min/max ranges in all graphs with only one visible field.
+    * Replaced notification system. Munin can now send warning/critical
+      messages to whatever process/file that is needed.
+    * Removed the munin-nagios program, as it is no longer needed.
+    * Use column headers for min/max/cur/avg if label is too long.
+    * Minor template modifications, so the output HTML validates correctly
+      (SF#1039850).
+    * Added new field option "line", which draws HRULEs.
+
+  - Munin-node:
+    * The node now changes dir to /, to make sure it's in a directory
+      readable by all users.
+    * Added per-plugin timeouts, contributed by Chan Wilson (SF#881044).
+
+  - Plugins
+    * SNMP plugin "df" properly strips the label and serial number from
+      Windows drive labels.
+    * SNMP plugins now honour the "host" environment variable if they can't
+      deduce the hostname from $0.
+    * Use @@PERL@@ in all perl shebang lines.
+    * Added new SNMP plugins for sensors, reading info from System-Informant on
+      Windows boxes.
+    * New wildcard plugin generic/ping_ to graph ping times.
+    * Replace "rpc" field with "total" in NFS and NFSD plugins.
+    * Added new plugin linux/apt_all, contributed by xavier.
+    * Added new plugins generic/courier_mta*, contributed by Rune N.
+      Skillingstad.
+    * Plugin generic/acpi now autodetects even if the acpi version does not
+      contain the acpi_available program.
+    * Added plugin linux/irqstast, showing individual interrupt rates.
+    * Fixed typo in linux/fw_forwarded_local (Deb#275535).
+    * Fixed typo in linux/fw_packets (Deb#275537).
+    * Added SNMP plugins for temperature and fan info provided by the
+      Fujitsu Siemens ServerView agents.
+    * Adapt linux/apt plugin to work properly with Debian testing/unstable
+      (patch from Rune N. Skillingstad).
+    * Added new plugin generic/apc_nis to monitor APC UPS, contributed by
+      xavier.
+    * Made graph_title a parameter for generic/exim_mailqueue (patch by Torstein
+      T. Svendsen, SF#1060834).
+    * Fixed typo in generic/sendmail_mailstats (patch by Lupe Christoph,
+      SF#1058128).
+    * Applied patch from Torstein T. Svendsen to generic/exim_mailstats, to
+      handle logfiles with timestamps in the name (SF#1055214).
+    * Applied patch from Nicolas Stransky to generic/hddtemp, to fetch temp more
+      elegantly (SF#1052845).
+    * Added new plugin linux/hddtemp_smartctl, made by Peter Gervai
+      (SF#1032727).
+    * Fixed linux/if_(err_) braindamage affecting hosts with vlans or
+      multi-digit interface numbers.
+    * Added wildcard plugin generic/smart_, contributed by Nicolas Stransky.
+    * Added plugin generic/loggrep for generic log grepping.
+    * Fixed bug in generic/sendmail_mailqueue, when queue is empty.
+    * Fixed bug in generic/hddtemp2, patch by arturaz (SF#1037002).
+    * Added new plugin linux/forks, to graph forks per second.
+    * The linux/iostat plugin now ignores devices without traffic (Deb#267195).
+    * Changed a lot of plugins so they use DERIVE instead of COUNTER.
+    * Upped generic/ntp_ to auto family.
+    * Upped generic/sendmail_mailstats and generic/sendmail_mailtraffic to
+      auto family.
+    * Fixed linux/sensors_ plugin to report warning and critical values
+      for temperatures and voltages if 'sensors' reports them.
+
+  - Installation
+    * Changed variable name of ARCH to OSTYPE, to avoid name crash on newer
+      FreeBSDs (SF#1068238).
+    * Added variable PYTHON, as we now have our first Python plugin.
+
+munin (1.1.4)
+
+  * Better error handling when fetching data from RRD files.
+  * Fixed bug in munin-graph when choosing colours (Deb#267185).
+  * Added plugin linux/df_abs
+  * Sanitise incoming fieldnames a bit better.
+  * Small layout improvements.
+  * Added new options "graph_height" and "graph_width", to beter control size.
+  * Added support for SNMP probing.
+  * SNMP plugin "if" now accepts PPP interfaces as well as ethernet
+    interfaces.
+  * SNMP plugin "df" now understands Windows SNMP daemon.
+  
+munin (1.1.3)
+
+  * Applied patch from Jacques Caruso to make HTML output standards
+    compliant.
+  * Munin-graph: fixed bug when combining graph_order aliases with
+    "normal" fields, as reported by Jacques Caruso.
+  * Plugin bugfixes from Jacques Caruso, in linux/iostat_ios and
+    generic/ipacng.
+  * Munin-nagios: Only state number of OKs when something is in warning or
+    critical state.
+  * Munin-graph: Added 'graph_sources' option. This is (in effect) the same as
+    graph_order, but with a default of 'graph no'.
+  * Applied patch from Matthieu Lochegnies to munin-graph, and fixed the
+    same problem elsewhere in the code (Deb#250982, SF#924561).
+  * Force LANG/LC_ALL=C in generic/hddtemp2, to remove problems in parsing of
+    hddtemp output (Deb#253497).
+  * Force LANG/LC_ALL=C in linux/sensors_, to remove problems in parsing of
+    sensors output (SF#972749, SF#972748, Deb#255312).
+  * linux/sensors_temp now understand temp lines without hyst or max settings
+    (Deb#256380).
+  * Made linux/sensors_volt work with negative voltages (Deb#256734).
+  * Made generic/hddtemp2 understand environment variables with quotes
+    (Deb#265022).
+  * Added plugin generic/uptime contributed by Nicolas Salles (SF#998665).
+  * Added plugin generic/hddtempd contributed by Stein Magnus Jodal
+    (SF#958762).
+
+munin (1.1.2)
+
+  * The server programs now open the log file at an earlier point.
+  * Munin-limits added to distro.
+  * Warnings and criticals now show up in nodeview and overview.
+  * Makefile no longer stopping when complaining about htmldoc errors
+  * Added contributed plugin generic/cupsys_pages, contributed by Rune N.
+    Skillingstad.
+  * Minor documentation bugfix.
+  * Added automatic "graph no" to negative field when using negatives.
+  * Added options to munin-graph to skip locking and stats generation.
+  * Added --cron option to munin-graph. This is used internally for 
+    special case checking when run from cron.
+  * Added dist-directory for Solaris packages.
+  * Created munin-cgi-graph, which creates dynamic graphs. 
+  * Added munin.conf option "graph_strategy (cgi|cron)" which defaults to
+    cron.
+  * Bugfix in cdef calculations.
+
+munin (1.1.1)
+
+  * Added a table in the service view page, with information about each 
+    field.
+  * Added plugin options "graph_info" and "<field>.info", which can be used
+    to describe the graph/fields in the above mentioned table.
+  * Bugfix in the linux/df_inode plugin, regarding filesystems withouth
+    inodes.
+  * Added warning and critical statuses to the info table in the service view.
+  * Added "info"-fields to linux/cpu and linux/load plugins, to demonstrate
+    how it works.
+  * Linux/ip_ wildcard plugin contributed by Mathy Vanvoorden (SF#954851).
+  * Added a definition file (definitions.html) to the server distribution.
+  * Use "sed 1d" instead of "tail +2" in df plugins (patch by Olivier
+    Delhomme).
+  * Tuned cdef-code to make it work properly after clean-up.
+  * Added "graph_category" option, to categorise plugins.
+  * Set categories to most of the plugins.
+
+munin (1.1.0)
+
+  * Bug regarding logo namechange from logo.gif to logo.png, when installing.
+  * Allow/deny in munin-node can now be configured per plugin, in addition
+    to "globally" for the whole node.
+  * "Upped" som plugins from contrib/manual to manual or auto.
+  * Code cleanups.
+
+munin (1.0.0pre4)
+
+  * Munin-update now properly ignores node with "update no".
+  * The generic/apache_* plugins now have defined max values.
+  * New plugins generic/{sendmail*,amavis,apc_envunit} contributed by Xavier
+    Redon.
+  * Turned off scaling of values for cpu-graphs (no more nano-percentages).
+  * New plugin linux/iostat_ios to graph the number of I/O operations.
+    Contributed by Per A. Buer.
+  * Added user configuration for generic/postfix* (SF#895680).
+  * Fixed links in HTML templates (Deb#236792).
+  * Fixed broken autoconf in apache-* plugins (Deb#236144).
+  * Fixed bug in mysql-plugins (Deb#233762).
+  * Fixed a problem in the node when running as a non-root user and
+    using sudo to run the plugins (Deb#236694).
+  * Clarified the vlabels in the apache-plugins (Deb#238594).
+  * Patched temp and voltage parts of linux-pugin sensors_* with better 
+    regexp (Deb#245289, SF#906868).
+  * Changed default ARCH variable in Makefile.config, to support
+    older tr-s (SF#898814).
+  * Make "graph_scale no" affect y-axis as well as numbers below the graph
+    (Deb#236834).
+  * New SNMP plugins: df, if_err, processes, fc_if (fibre-channel), fc_if_err,
+    users, load.
+  * Cleaned up Solaris plugins (SF#944389, ++)
+  * New logo by Bianca Pfingsten, sponsored by Mediahaus Biering Grafischer
+    Betrieb GmbH. (Thanks :-)
+  * Made solaris plugin fs_df work without GNU df (SF#944389).
+  * New solaris plugin temperature, by Richard van den Berg.
+  * Two new linux firewall plugins; fw_packets (by S. Banerian),
+    fw_conntrack (by Nicolai Langfeldt), and fw_forwarded_local (by Xavier).
+  * Modified sunos/cpu, linux/cpu and freebsd/cpu to take "scaleto100"-
+    parameter.
+  * Added patch to contrib-plugin linux/nfsd, to graph rpc count (Alexandre
+    Dupouy).
+  * Added plugin linux/nfs_client, contributed by Alexandre Dupouy.
+  * Added plugin ipac-ng, contributed by Arturas Slajus.
+  * Added plugin hddtemp2, contributred by Andrew Radke, modified by Lupe
+    Christoph.
+  * Added Folding@home plugin, contributed by Xavier.
+  * Fixed problem with sunos/memory, when memory was reported in gigabytes
+    (SF#930964)
+  * New plugin (pm3users) and a bunch of patches from Jacques Caruso.
+
+munin (1.0.0pre3)
+
+  * Munin-graph had a perl 5.005_03 compatabilty problem, which slipped
+    through to version pre2.
+  * Added mkdir to install-man target. (SF#888545)
+  * Added better logging of plugin failures in the node. (SF#881045)
+  * Make install: Fix problems with systems that do not have getent.
+    (SF#881046)
+  * Remove dependency on pgrep (use process groups instead). (SF#881049)
+  * Documentation updates.
+  * Make the iostat plugin work properly.
+  * Munin-graph now escapes ':' in labels properly.
+  * Fixed bug in munin-graph where it caused a flood of cron-mail.
+  * Linux/iostat now shows only disks also on machines without devfs.
+  * Generic/apache-plugins have been modified to properly to report the
+    correct autoconf value. Also, bugfixes in _processes and _volume.
+  * Added new wildcard plugin linux/sensors_ that replaces the i2c plugins
+    (SF#890952).
+  * Made client timeouts configurable (not per plugin).
+  * Improved timeout-handling in node (Deb#224480).
+
+munin (1.0.0pre2)
+
+  * Plugin mysql_queries bugfix from Dagfinn I. Mannsåker (SF#876443,
+    SF#865125).
+  * FreeBSD-plugin load bugfix from Robert Lindgren (SF#865928).
+  * Fixed Node/run bug when changing groups.
+  * Added support for multiple groups to run the plugin as.
+  * Added support for optional groups.
+  * Munin-html: Added support for domain_order.
+  * Fixed pod typos patched by Lupe Christoph (SF#884092)
+  * Made Munin compatible with perl 5.005_03 (patch by Lupe Christoph)
+    (SF#884622)
+  * Removed sunos/io_-plugin (SF#882357)
+  * Bugfix, apache_processes now takes port numbers into account. (SF#882263)
+  * Changed wildcard plugin ps_ so it can use "env.regex" in plugin-conf.d/
+    (SF#882131)
+  * Made plugins apache_* compatible with older versions of LWP::UserAgent
+    (SF#881411).
+  * Bugfix in plugin mysql_queries - insertions were no longer graphed.
+    (SF#881483).
+  * Disabled plugins df and df_inode on Solaris (SF#882274).
+  * Make vmstat plugin more portable (SF#882352).
+  * Moved generic netstat to linux-dir, as it is too spesific. Added Solaris
+    version of the plugin as well. (SF#882354)
+  * Fixed bad debug output (forgotten linebreaks) in munin-node-configure
+    (SF#882385).
+  * Generic plugins now use printf instead of echo -n, as this is more
+    portable (SF#885564)
+  * Added a new plugin generic/multips to count several procs in one graph.
+    (SF#885579)
+  * More timeouts in munin-update (Deb#222674).
+  * Added max value to generic/vmstat plugin (Deb#225489).
+  * Bugfix in install-doc Makefile target (SF#884074).
+  * Code tidying in munin-graph (SF#884625).
+  * Added generic plugins ntp_ and ntp_states to manual family (SF#887000).
+  * Bugfix; munin-html wrote bad html, as reported by Adam Heath. (Deb#230322)
+  * Rewrite of linux/iostat by Mike Fedyk (Deb##223373,224113).
+  * Linux/cpu now graphs all values on a 2.6 kernel (Deb#227946).
+  * Added new plugins linux/nfsd and acpi, contributed by Alexandre Dupouy.
+
+munin (1.0.0pre1)
+
+  * Renamed from LRRD to Munin.
+  
+lrrd (0.9.9r6)
+
+  * Added BSDish install-sh to make the installation work
+    on both BSD and SysV variants (SF#840744).
+  * Plugin linux/iostat modified. Now runs on 2.6, and now "mirrors" i/o like
+    eth* et al. (Deb#224113, Deb#223373)
+  * Lrrd-client: Don't try to change uid/gid if not running as root.
+    (Deb#224300)
+  * Lrrd-graph: Only log graphing errors (== less cron-mail).
+  * Plugin linux/memory has been improved greatly by Mike Fedyk (Deb#223346)
+  * Some plugins fail more gracefully when using uninstalled perl modules.
+  * Lrrd-client-configure now prints the reason for suggesting to not use
+    a plugin, as long as the plugins gives one.
+  * Lrrd-client: Do a fake clean of the environment because of the taint
+    checking.
+  * Lrrd-client: added configuration option "ignore_file", which takes regex
+    for files to ignore (e.g. rpmnew/save) (Deb#224265).
+  * New plugin: Alexandre Dupouy contributed "hddtemp".
+  * New plugin: Nicolai Langfeldt contributed "bind9".
+  * Lrrd-server: dots supported in plugin names.
+  * New plugin: snmp wildcard plugin for interface graphing.
+
+lrrd (0.9.9r5)
+
+  * lrrd-nagios: enable/disable notifications.
+  * Plugin: mysq_isam_space_ bugfix when printing "value".
+  * lrrd-client/lrrd-run: Two bugfixes.
+  * LRRD.pm: Change \1 to $1 to make lrrd-update shut up.
+  * lrrd-update: Fix bug with timeout handling of children.
+
+lrrd (0.9.9r4)
+
+  * Plugin: changes from Mike Fedyk (Deb#222838, Deb#222841).
+  * lrrd-cron: Check if files are executable before runinng (Deb#221691).
+  * lrrd-update: Added max_processes variable. 
+  * lrrd-update: No more zombies.
+  * lrrd-update: Better handling of dying children and timeouts. (Deb#222674)
+  
+lrrd (0.9.9r3)
+
+  * New plugins (contrib): postfix_mailqueue and named contributed 
+    by Nicolai Langfeldt.
+  * New plugins (contrib): postfix_mailstats and postfix_mailvolume.
+  * LRRD.pm: make sure only legal configuration lines are written to
+    datafile.
+  * lrrd-html: Minor bugfixes (fixes by Chan Wilson).
+  * lrrd-graph: Bugfix when aliasing fields (reported by Chan Wilson).
+
+lrrd (0.9.9r2)
+
+  * LRRD.pm: minor bugfix - no noise about "extinfo".
+  * lrrd-graph: A couple of minor bugfixes.
+   
+lrrd (0.9.9)
+
+  * New plugin: sybase_space. Keeps track of sybase database space usage.
+  * New plugin: psu_ wildcard plugin, by Andras Korn (Deb#214210)
+  * Lrrd-client: addressed uid/gid-issues from Deb#214277
+  * Lrrd-update: client port number now configurable (Deb#214114)
+  * Squid-plugins: now rewritten to use new config format (Deb#214186)
+  * Lrrd-update: each node now has its own lockfile.
+  * Squid-plugins: Modified them to autoconf. Prettier graphs. Now auto.
+  * Lrrd-client: Don't mess with environment. Not my problem.
+  * Lrrd-client: host_name can now be set in the plugin configuration.
+  * Lrrd-client: plugin configuration format changed slightly.
+  * Lrrd-client: added parameter (conffile and cli) to turn paranoia on/off.
+    Default is now off. (Deb#214186, Deb#216401)
+  * New plugin for linux: entropy, graphs available entropy.
+  * Lrrd-client-configure: Remove "use" of Config::General (Deb#216176)
+  * SunOS-plugins: Enhancement submitted by Lupe Christoph. (SF#825937)
+  * SunOS-portability: Various bugfixes reported by Lupe Cristoph. 
+    (SF#825909, SF#825911, SF#825926, SF#825936, SF#826670, SF#826356)
+  * FreeBSD-plugins: Bugfixing patches by Lupe Cristoph applied. (SF#826352,
+    SF#837014)
+  * Lrrd-server: New format for server.conf.
+  * Mysql-plugins: Make mysqladmin/mysqlshow locations configurable.
+    (SF#825974)
+  * Plugins: New plugins by Lupe Cristoph (SF#834529, SF#826002, SF#835208)
+  * Lrrd-server: Only require installed Config::General if using old config
+    format.
+  * Mysql-queries-plugin: rewritten by Per A. Buer.
+  * Lrrd-nagios: Be nice to Nagios, don't DOS it with thousands of services.
+  * Lrrd-client-configure: Check what to do with new plugins when upgrading.
+  * Plugins: contributions by Finn-Arne Johansen (SF#839210, SF#839212,
+    SF#839209, SF#842703, SF#845692)
+  * Lrrd-update: More graceful handling of dead hosts. (SF#841345)
+  * Plugins: graph_noscale redefined to graph_scale.
+  * New plugin surfboard contributed by Andrew Ryder.
+   
+lrrd (0.9.8)
+
+  jo:
+
+  * Plugin bugfix: Applied suggestion from Antti Salmela considering
+    plugins df and df_inode (SF#800984)
+  * Lrrd-update now forks off one process for each host, doing the data
+    downloading in parallel.
+  * Network timeout made configurable via both configuration file, and
+    command-line parameter. default increased to 180 seconds.
+  * Command-line option and configuration file option for not forking
+    added.
+  * Added command-line option to show log lines on stdout as well.
+  * Lrrd-update bugfix: Move socket and pidfile to proper place.
+    (Deb#203173)
+  * Lrrd-update bugfix: Now handles corrupt datafile properly.
+    (Deb#202191)
+  * Plugin bugfix: mysql_isam_space now behaves properly when MySQL is
+    down. (Applied patch from Nicolas Francois resolving Deb#202637)
+  * Lrrd-client now runs with perl -T (taint checking).
+  * Lrrd-html bugfix. (Deb#205999)
+  * Lrrd-update bugfix, patch from Torstein Svendsen, alarm/sigalrm was
+    forgotten on a network read. (Deb#209329)
+  * Lrrd-update bugfix. Move all possible sigalrm-calls into eval-blocks,
+    to avoid hangs and segfaults. _Really_ fixes bug Deb#209329. 
+  * Lrrd-client now drops privileges when running a plugin. The plugin is
+    run as user nobody, group nogroup/nobody as default. This can be
+    overridden in .../client.d/<plugin>.auth.
+  * Mysql-plugins can now use a config file. (Deb#202643)
+  * Bugfix in mysq_isam_space_ plugin. (Deb#202639)
+  * Plugins for FreeBSD 4.8 contributed by Patrick Domack (SF#802895)
+  * Plugin "swap" on Linux modified so it works on 2.6 as well as 2.4.
+  * Lrrd-client now uses conf/auth-file in .../lrrd/client-conf.d/. Passes 
+    config options to clients via environment.
+  * Lrrd-graph bugfix: Cur/Min shown as 0 when using special_*.
+  * Lrrd-update now has "use_default_name"-option, for use when fetching data
+    from a client which may change name.
+  * Lrrd-plugin "memory" ported to perl. (Deb#205019)
+  * Added "--version" option.
+  * Added "graph_total" option, for summarising stacks 
+  * Lrrd-graph now understands "graph_noscale true/yes/1", which drops scaling
+    of Cur/Min/Avg/Max numbers.
+  * New client program "lrrd-run" to run a plugin as the correct user.
+  * Lrrd-client minor bugfix; should now get ARGV after HUP.
+  * Lrrd-client-configure completely rewritten.
+  
+lrrd (0.9.7)
+
+ tore:
+ 
+  * Applied a patch from Don Armstrong which makes the server ignore invalid
+    pidfiles.
+  * Massive changes in the Makefile to allow for more flexible installs.
+  * Hardcode as little as possible.  Use @@foo@@ in the scripts, which will
+    be replaced with whatever 'foo' is set to in Makefile.config.
+  * Added some AIX plugins contributed by Mike Discenza.
+  * Merged the client and server changelogs into this one.
+  * Improved vlabel and title in the port_ wildcard plugin.
+
+lrrd (0.9.6)
+
+ tore:
+
+  * First upload to the Debian archive, had to create an .orig.tar.gz.
+
+lrrd (0.9.5-2)
+
+  * Bugfix: Resolved running-as-root-issue. (#695163)
+  * Bugfix: Resolved lrrd-nagios --force issue (#701671)
+  * Bugfix: Resolved lrrd-nagios --removeok --host issue (#701671)
+  * Bugfix: Resolved lrrd-html logo.gif and style.css-issue (#693939)
+
+lrrd (0.9.5-1)
+
+  * Small bugfixes
+  * Bugfix: plugins lrrd_* now treats hostnames with dashes correctly
+    (#727074)
+
+lrrd (0.9.3-2)
+
+  * lrrd-nagios now has a longer timeout.
+  * lrrd-html now creates much prettier html-pages.
+  * Pod-documentation for /usr/lib/server/lrrd-*, /usr/sbin/lrrd-cron, and
+    /etc/lrrd/server.conf
+  * lrrd-graph now understands <field>_special_sum and _stack.
+  * lrrd-graph now has extended syntax on graph_order-lines.
+  * Field type represented in filename of rrd-file.
+  * All fields in the .rrd-files now have the same name.
+  * lrrd-graph now reuses colours when there are a lot of fields.
+  * lrrd-nagios now reuses send_nsca handles.
+  * lrrd-update can now handle .extinfo-fields.
+  * lrrd-nagios can now handle .extinfo-fields.
+  * Bugfixes, continuing Tore's movment of files
+  * Parameterization of lrrd-*
+  * Installation script for tarball.
+
+lrrd (0.9.3-1)
+
+  * New configtype
+  * Timeouts on server
+
+lrrd (0.9.2-4)
+
+  * Added new node- and service-level option "update", which will replace
+    "fetch_data".
+  * Added new field-level option "graph", which will replace "skipdraw".
+  * Some plugins now have config-files: exim_mail*
+  * ps-plugin made faster (use pgrep instead of ps).
+  * Bugfix in 'iostat'-plugin.
+  * Added 'suggest' and 'autoconf'-parameters to the plugins.
+  * Removed startup check for lrrd-client on '<plugin> config'-output.
+  * "apt"-plugin rewritten for perl. It now uses .extinfo-fields.
+  * Install script for tarball.
+  * lrrd-client now understands --config --help --debug (then latter for 
+    later use).
+  * Created pod-documentation for lrrd-client and client.conf.
+
+lrrd (0.9.2-3)
+
+  * Bugfix; lrrd-nagios didn't treat 0-limits properly. 
+
+lrrd (0.9.2-2)
+
+  * Added graph_vlabel-option.
+  * lrrd-nagios: bugfix when specifying only a minimum warning or critical
+    value.
+  * Proper timeouting also done when 'config'-command issued.
+  * Some clients now use 'graph_vlabel'-option.
+  * Comment changes in some plugins
+  * Bugfix in plugin: 'iostat config'
+
+lrrd (0.9.2-1)
+
+  * Lazy-option to lrrd-graph. 
+    Graphs will only be drawn when needed.
+  * Cleaned up the timeout code a bit.
+
+lrrd (0.9.1-5)
+
+  * Attempt to set exim-variables in the exim_mail*-plugins at install-time,
+    in an attempt to avoid timeouts on high-load systems.
+  * Properly reap plugins that timeout (and their children).
+
+lrrd (0.9.1-4)
+
+  * Bugfix. Numbers with decimals (e.g. load) and "U" are now allowed.
+  * Fixed bug in cronjob for apt
+
+lrrd (0.9.1-3)
+
+  * Fixed small bug in lrrd-graph that caused some glitches in some
+    graphs
+  * Cronjob for apt
+
+lrrd (0.9.1-2)
+
+  * Fixed a bug in lrrd-update that caused rrds not to be updated
+  * Small bug in apt-client
+
+lrrd (0.9.1-1)
+
+  * All networkservices converted from bytes (B) to bits (b)
+  * More bugfixes
+  * Added cronjob to go with apt-service
+
+lrrd (0.9-12)
+
+  * Bugfixes in templates
+  * More logging
+  * More intelligence in lrrd-nagios
+  * Cronjob to remove .ok files once a day
+
+lrrd (0.9-11)
+
+  * Last small fixes with warning and critical-nagiosLast small fixes 
+    with warning and critical-nagios
+  * Skipped a version to sync with server
+  * Included warning and critical on som of the services
+
+lrrd (0.9-10)
+
+  * Fixed logging and logrotate
+
+lrrd (0.9-9)
+
+  * More Nagios Support, now extracted into lrrd-nagios
+  * Fixed logging + logrotate
+
+lrrd (0.9-8)
+
+  * Nagios-support
+  * Do not depend on libnet-io on woody (included in perl5.6)
+
+lrrd (0.9-7)
+
+  * Fixing string under 19 characters
+
+lrrd (0.9-6)
+
+  * We have to substr the other way 
+  * Upping version number
+
+lrrd (0.9-5)
+
+  * Bugfixes. New configfile
+  * Bugfixes in df-services added -P for posix standard 
+
+lrrd (0.9-4)
+
+  * Total rewrite of client
+  * Bugfixes. Memory service gargled
+  * Bugfixes. mailstat service gargled
+
+lrrd (0.9-3)
+
+  * Adapt to new version of client
+  * Bugfixes to clients and a new configfile
+
+lrrd (0.9-2)
+
+  * Fixed host_name 
+
+lrrd (0.9-1)
+
+  *  The new version
+
+lrrd (0.7-1)
+
+  * Total rewrite. Much prettier. Perl er brukt.
+  * Bugfix in postinst (make_html when upgrading). 
+  * Lots of new lrrd-d-modules. Tuning and fixing.
+  * Debconf is out. Added searching for old-name config-files.
+
+lrrd (0.6-8)
+
+  * Renamed mrtgd til lrrd.
+  * Daemon now runs lrrd.d-scripts properly.
+  * Added modules: load memory
+  
+lrrd (0.6-7)
+
+  * make_graph has proper colours.
+  * make_html creates a nicer index.html.
+  * Debconf in use.
+  * Minor bugfixes: init.d-restart
+
+lrrd (0.6-5)
+
+  * make_html makes sure there's an index.html.
+  * Bugfix. Config-file now read earlier.
+
+lrrd (0.6-4)
+
+  * Several bugfixes.
+  * Cron-entry now uses logfiles.
+  * Added config-file.
+
+lrrd (0.6-3)
+
+  * Added debian-dependencies.
+
+lrrd (0.6-2)
+
+  * Added monitoring for apache httpd daemons.
+  * The daemon now backgrounds itself.
+  * The init.d-script now "stop"s.
+
+lrrd (0.6-1)
+
+  * Slightly tested. Going out.
+
+lrrd (0.5-4)
+
+  * Now ready for production environments.
+
+lrrd (0.5-3)
+
+  * Quite a few changes. Beginning to get ready for release.
+
+lrrd (0.5-2)
+
+  * New test.
+
+lrrd (0.5-1)
+
+  * Initial Release.
+

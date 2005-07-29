@@ -1,0 +1,133 @@
+#!@@PERL@@
+#
+# $Log$
+# Revision 1.5  2004/12/10 18:51:43  jimmyo
+# linux/apt* has been forced to LANG=C, to get predictable output.
+#
+# Revision 1.4  2004/12/10 10:47:47  jimmyo
+# Change name from ${scale} to ${graph_period}, to be more consistent.
+#
+# Revision 1.3  2004/12/09 22:12:55  jimmyo
+# Added "graph_period" option, to make "graph_sums" usable.
+#
+# Revision 1.2  2004/11/21 00:16:56  jimmyo
+# Changed a lot of plugins so they use DERIVE instead of COUNTER.
+#
+# Revision 1.1  2004/01/02 18:50:00  jimmyo
+# Renamed occurrances of lrrd -> munin
+#
+# Revision 1.1.1.1  2004/01/02 15:18:07  jimmyo
+# Import of LRRD CVS tree after renaming to Munin
+#
+# Revision 1.1  2003/11/10 18:51:50  jimmyo
+# Initial entries
+#
+#
+
+$statefile = $ENV{statefile} || "@@PLUGSTATE@@/munin-spamstats.state";
+$pos   = undef;
+$ham = 0;
+$spam = 0;
+
+$logfile = $ENV{logdir} || "/var/log/";
+$logfile .= $ENV{logfile} || "syslog";
+
+if (-f "$logfile.0")
+{
+    $rotlogfile = $logfile . ".0";
+}
+elsif (-f "$logfile.1")
+{
+    $rotlogfile = $logfile . ".1";
+}
+elsif (-f "$logfile.01")
+{
+    $rotlogfile = $logfile . ".01";
+}
+else
+{
+    $rotlogfile = $logfile . ".0";
+}
+
+if ( $ARGV[0] and $ARGV[0] eq "config" )
+{
+    print "host_name $ENV{FQDN}\n";
+    print "graph_title SpamAssassin throughput\n";
+    print "graph_args --base 1000 -l 0\n";
+    print "graph_vlabel mails/\${graph_period}\n";
+    print "graph_order ham spam\n";
+    print "ham.label ham\n";
+    print "ham.type DERIVE\n";
+    print "ham.min 0\n";
+    print "ham.draw AREA\n";
+    print "spam.label spam\n";
+    print "spam.type DERIVE\n";
+    print "spam.min 0\n";
+    print "spam.draw STACK\n";
+    exit 0;
+}
+
+if (! -f $logfile and ! -f $rotlogfile)
+{
+    print "ham.value U\n";
+    print "spam.value U\n";
+    exit 0;
+}
+
+if (-f "$statefile")
+{
+    open (IN, "$statefile") or exit 4;
+    if (<IN> =~ /^(\d+):(\d+):(\d+)/)
+    {
+	($pos, $ham, $spam) = ($1, $2, $3);
+    }
+    close IN;
+}
+
+$startsize = (stat $logfile)[7];
+
+if (!defined $pos)
+{
+    # Initial run.
+    $pos = $startsize;
+}
+
+if ($startsize < $pos)
+{
+    # Log rotated
+    parselogfile ($rotlogfile, $pos, (stat $rotlogfile)[7]);
+    $pos = 0;
+}
+
+parselogfile ($logfile, $pos, $startsize);
+$pos = $startsize;
+
+print "ham.value $ham\n";
+print "spam.value $spam\n";
+
+open (OUT, ">$statefile") or exit 4;
+print OUT "$pos:$ham:$spam\n";
+close OUT;
+
+sub parselogfile 
+{    
+    my ($fname, $start, $stop) = @_;
+    open (LOGFILE, $fname) or exit 3;
+    seek (LOGFILE, $start, 0) or exit 2;
+
+    while (tell (LOGFILE) < $stop) 
+    {
+	my $line =<LOGFILE>;
+	chomp ($line);
+
+	if ($line =~ m/clean message/) 
+	{
+	    $ham++;
+	} 
+	elsif ($line =~ m/identified spam/)
+	{
+	    $spam++;
+	}
+    }
+    close(LOGFILE);    
+}

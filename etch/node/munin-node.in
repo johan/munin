@@ -1,0 +1,1011 @@
+#!@@PERL@@ -wT
+#
+# Copyright (C) 2004 Audun Ytterdal, Jimmy Olsen
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; version 2 dated June,
+# 1991.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+#
+#
+# $Id$
+#
+# $Log$
+# Revision 1.20.2.4  2005/03/16 19:55:34  ilmari
+# Allow root for the per-plugin group directive.
+#
+# Revision 1.20.2.3  2005/03/16 16:50:40  ilmari
+# Fix mis-merge of optional user support
+#
+# Revision 1.20.2.2  2005/03/13 12:46:04  jimmyo
+# Added support for optional user settings in node.
+#
+# Revision 1.20.2.1  2005/02/16 17:12:03  jimmyo
+# munin-node didn't treat default_plugin_user properly (Deb#295366).
+#
+# Revision 1.20  2004/12/22 21:33:48  jimmyo
+# Remove hardcoding of default user/group to run the plugin (SF#1083251).
+#
+# Revision 1.19  2004/12/09 20:03:25  jimmyo
+# Added two new plugins contributed by Jacques Caruso, generic/exim_mailqueue_alt and generic/mailscanner.
+#
+# Revision 1.18  2004/12/09 19:34:54  jimmyo
+# host_name in plugin-conf.d now overrides plugin output.
+#
+# Revision 1.17  2004/11/20 23:17:47  jimmyo
+# Added per-plugin timeouts, contributed by Chan Wilson (SF#881044).
+#
+# Revision 1.16  2004/11/16 20:00:42  jimmyo
+# License cleanups.
+#
+# Revision 1.15  2004/11/10 15:34:18  jimmyo
+# Added new plugin generic/apc_nis to monitor APC UPS, contributed by xavier.
+#
+# Revision 1.14  2004/05/12 20:33:28  jimmyo
+# Made the allow/deny syntax more flexible.
+#
+# Revision 1.13  2004/05/10 21:16:11  jimmyo
+# Allow/deny in munin-node can now be configured per plugin, in addition to "globally" for the whole node.
+#
+# Revision 1.12  2004/04/27 21:18:33  jimmyo
+# Fixed a problem in the node when running as a non-root user and using sudo to run the plugins (Deb#236694).
+#
+# Revision 1.11  2004/02/05 18:05:59  jimmyo
+# Improved timeout-handling in node (Deb#224480).
+#
+# Revision 1.10  2004/02/05 17:35:41  jimmyo
+# Made client timeouts configurable (not per plugin).
+#
+# Revision 1.9  2004/02/01 21:34:59  jimmyo
+# Remove dependency on pgrep (use process groups instead). (SF#881049)
+#
+# Revision 1.8  2004/02/01 20:46:29  jimmyo
+# Added better logging of plugin failures in the node. (SF#881045)
+#
+# Revision 1.7  2004/01/29 19:39:00  jimmyo
+# Generic plugins now use printf instead of echo -n, as this is more portable (SF#885564)
+#
+# Revision 1.6  2004/01/29 18:07:52  jimmyo
+# Bugfix from bug introduced 30 minutes ago
+#
+# Revision 1.5  2004/01/29 17:36:19  jimmyo
+# Updated copyright information
+#
+# Revision 1.4  2004/01/29 16:56:54  jimmyo
+# Fixed "group" bug. Added support for multiple and optional groups
+#
+# Revision 1.3  2004/01/17 22:04:29  toreanderson
+# Change the name in process listing to contain only the path to the munin-node
+# executable, without '/usr/bin/perl -wT' prepending it.
+#
+# Revision 1.2  2004/01/15 15:20:01  jimmyo
+# Making things workable after name change. Upping for test verwion.
+#
+# Revision 1.1  2004/01/02 18:50:00  jimmyo
+# Renamed occurrances of lrrd -> munin
+#
+# Revision 1.1.1.1  2004/01/02 15:18:06  jimmyo
+# Import of LRRD CVS tree after renaming to Munin
+#
+# Revision 1.28  2003/12/18 18:51:37  jimmyo
+# added configuration option "ignore_file", which takes regex for files to ignore (e.g. rpmnew/save) (Deb#224265).
+#
+# Revision 1.27  2003/12/18 17:58:18  jimmyo
+# Do a fake clean of the environment because of the taint checking.
+#
+# Revision 1.26  2003/12/17 21:29:26  jimmyo
+# Don\'t try to change uid/gid if not running as root. (Deb#224300)
+#
+# Revision 1.25  2003/12/10 15:30:02  jimmyo
+# Set path before trying to get hostname
+#
+# Revision 1.24  2003/12/10 15:11:40  jimmyo
+# A couple of bugfixes.
+#
+# Revision 1.23  2003/11/17 09:23:08  jimmyo
+# Fix taint checking for getting hostname
+#
+# Revision 1.22  2003/11/17 09:20:09  jimmyo
+# Fix for machines which don't have "host".
+#
+# Revision 1.21  2003/11/07 17:43:16  jimmyo
+# Cleanups and log entries
+#
+#
+
+package MyPackage;
+
+use strict;
+use vars qw(@ISA);
+use Getopt::Long;
+use Net::Server::Fork; # any personality will do
+
+chdir ("/");
+
+# "Clean" environment to disable taint-checking on the environment. We _know_
+# that the environment is insecure, but we want to let admins shoot themselves
+# in the foot with it, if they want to.
+foreach my $key (keys %ENV)
+{
+        $ENV{$key} =~ /^(.*)$/;
+        $ENV{$key} = $1;
+}
+
+$0 =~ /^(.*)$/; # for some strange reason won't "$0 = $0;" work.
+$0 = $1;
+
+@ISA = qw(Net::Server::Fork);
+my @ORIG_ARGV = @ARGV;
+my %services;
+my %nodes;
+my $servicedir="@@CONFDIR@@/plugins";
+my $sconfdir="@@CONFDIR@@/plugin-conf.d";
+my $conffile="@@CONFDIR@@/munin-node.conf";
+my $FQDN="";
+my $do_usage = 0;
+my $DEBUG = 0;
+my $do_version = 0;
+my $VERSION="@@VERSION@@";
+my $defuser = getpwnam ("@@PLUGINUSER@@");
+my $defgroup= getgrnam ("@@GROUP@@");
+my $paranoia= 0;
+my @ignores = ();
+my %sconf   = ('timeout' => 10);
+my $caddr   = "";
+
+$do_usage=1  unless 
+GetOptions ( "config=s"     => \$conffile,
+             "debug!"       => \$DEBUG,
+             "version!"     => \$do_version,
+             "paranoia!"    => \$paranoia,
+             "help"         => \$do_usage );
+
+if ($do_usage)
+{
+    print "Usage: $0 [options]
+
+Options:
+    --help              View this message.
+    --config <file>     Use <file> as configuration file. 
+                        [/etc/munin/munin-node.conf]
+    --[no]paranoia      Only run plugins owned by root. Check permissions.
+                        [--noparanoia]
+    --debug             View debug messages.
+    --version           View version information.
+
+";
+    exit 0;
+}
+
+if ($do_version)
+{
+	print "munin-node (munin-node) version $VERSION.
+Written by Audun Ytterdal, Jimmy Olsen, Tore Anderson / Linpro AS
+
+Copyright (C) 2002-2004
+This is free software released under the GNU Public License. There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+";
+	exit 0;
+}
+
+# Reset ARGV (for HUPing)
+@ARGV = @ORIG_ARGV;
+
+# Check permissions of configuration
+
+if (!&check_perms ($servicedir) or !&check_perms ($conffile))
+{
+	die "Fatal error. Bailing out.";
+}
+
+if (! -f $conffile) {
+  print "ERROR: Cannot open $conffile\n";
+  exit 1;
+}
+
+# A hack to overide the hostname if everyhing thing else fails
+open FILE,$conffile or die "Cannot open $conffile\n";
+while (<FILE>) {
+  chomp;
+  s/#.*//;                # no comments
+  s/^\s+//;               # no leading white
+  s/\s+$//;               # no trailing white
+  next unless length;     # anything left?
+  /(^\w*)\s+(.*)/;
+  if (($1 eq "host_name" or $1 eq "hostname") and $2)
+  {
+      $FQDN=$2;
+  }
+  elsif (($1 eq "default_plugin_user" or $1 eq "default_client_user") and $2)
+  {
+      my $tmpid = $2;
+      $defuser = &get_uid ($tmpid);
+      if (! defined ($defuser))
+      {
+	  die "Default user defined in \"$conffile\" does not exist ($tmpid)";
+      }
+  }
+  elsif (($1 eq "default_plugin_group" or $1 eq "default_client_group") and $2)
+  {
+      my $tmpid = $2;
+      $defgroup = &get_gid ($tmpid);
+      if (! defined ($defgroup))
+      {
+	  die "Default group defined in \"$conffile\" does not exist ($tmpid)";
+      }
+  }
+  elsif (($1 eq "paranoia") and defined $2)
+  {
+	  if ("$2" eq "no" or "$2" eq "false" or "$2" eq "off" or "$2" eq "0")
+	  {
+		  $paranoia = 0;
+	  }
+	  else
+	  {
+		  $paranoia = 1;
+	  }
+  }
+  elsif (($1 eq "ignore_file") and defined $2)
+  {
+      push @ignores, $2;
+  }
+  elsif (($1 eq "timeout") and defined $2)
+  {
+      $sconf{'timeout'} = $2;
+  }
+}
+
+$FQDN ||= &get_fq_hostname;
+
+$ENV{FQDN}=$FQDN;
+
+MyPackage->run(conf_file => $conffile,
+	       pid_file => "@@STATEDIR@@/munin-node.pid");
+exit;
+
+
+
+
+### over-ridden subs below
+
+sub pre_loop_hook {
+    my $self = shift;
+	print STDERR "In pre_loop_hook.\n" if $DEBUG;
+    &load_services;
+    $self->SUPER::pre_loop_hook;
+}
+
+sub show_version {
+  print "munins node on $FQDN version: $VERSION\n"
+}
+
+sub show_nodes {
+  for my $node (keys %nodes) {
+    print "$node\n";
+  }
+  print ".\n";
+}
+
+sub get_fq_hostname {
+    my $hostname;
+    eval {
+        require Net::Domain;
+        $hostname = Net::Domain::hostfqdn();
+    };
+    return $hostname if $hostname;
+
+    $hostname = `hostname`;  # Fall$
+    chomp($hostname);
+    $hostname =~ s/\s//g;
+    return $hostname;
+}
+
+sub load_services {
+    if (opendir (DIR,$sconfdir))
+    {
+FILES:
+	for my $file (grep { -f "$sconfdir/$_" } readdir (DIR))
+	{
+	    next if $file =~ m/^\./; # Hidden files
+	    next if $file !~ m/^([-\w.]+)$/; # Skip if any weird chars
+	    $file = $1; # Not tainted anymore.
+	    foreach my $regex (@ignores)
+	    {
+		next FILES if $file =~ /$regex/;
+	    }
+	    if (!&load_auth_file ($sconfdir, $file, \%sconf))
+	    {
+		warn "Something wicked happened while reading \"$servicedir/$file\". Check the previous log lines for spesifics.";
+	    }
+	}
+	closedir (DIR);
+    }
+    
+    opendir (DIR,$servicedir) || die "Cannot open plugindir: $servicedir $!";
+FILES:
+    for my $file (grep { -f "$servicedir/$_" } readdir(DIR)) {
+	next if $file =~ m/^\./; # Hidden files
+	next if $file =~ m/.conf$/; # Config files
+	next if $file !~ m/^([-\w.]+)$/; # Skip if any weird chars
+	$file = $1; # Not tainted anymore.
+	foreach my $regex (@ignores)
+	{
+	    next FILES if $file =~ /$regex/;
+	}
+	next if (! -x "$servicedir/$file"); # File not executeable
+	print "file: '$file'\n" if $DEBUG;
+	$services{$file}=1;
+	my @rows = &run_service($file,"config", 1);
+	my $node = &get_var (\%sconf, $file, 'host_name');
+
+	for my $row (@rows) {
+	  print "row: $row\n" if $DEBUG;
+	  if ($row =~ m/^host_name (.+)$/) {
+	    print "Found host_name, using it\n" if $DEBUG;
+	    $node = $1;
+	  }
+	} 
+	$node ||= $FQDN;
+	$nodes{$node}{$file}=1;
+    }
+    closedir DIR;
+}
+
+sub print_service {
+  my (@lines) = @_;
+  for my $line (@lines) {
+    print "$line\n";
+  }
+  print ".\n";
+}
+
+sub list_services {
+    my $node = $_[0] || $FQDN;
+    print join " ", grep { &has_access ($_); } keys %{$nodes{$node}};
+    #print join " ", keys %{$nodes{$node}};
+    print "\n";
+}
+
+sub has_access {
+	my $serv   = shift;
+	my $host   = $caddr;
+	my $rights = &get_var_arr (\%sconf, $serv, 'allow_deny');
+
+	unless (@{$rights})
+	{
+		return 1;
+	}
+	print STDERR "DEBUG: Checking access: $host;$serv;\n" if $DEBUG;
+	foreach my $ruleset (@{$rights})
+	{
+		foreach my $rule (@{$ruleset})
+		{
+			print STDERR "DEBUG: Checking access: $host;$serv;", $rule->[0], $rule->[1], ";\n" if $DEBUG;
+#			if ($rule->[1] =~ /\//)
+#			{ # CIDR
+#				print "DEBUG: CIDR $host;$serv;$rule->[1];\n";
+#				return 1;
+#			}
+#			else
+#			{ # regex
+				if ($host =~ m($rule->[1]))
+				{
+					if ($rule->[0] eq "allow")
+					{
+						return 1;
+					}
+					else
+					{
+						return 0;
+					}
+				}
+#			}
+		}
+	}
+	return 1;
+}
+
+sub logger {
+    my $text  = shift;
+    my @date  = localtime (time);
+
+    printf STDERR ("%d/%02d/%02d-%02d:%02d:%02d %s\n", $date[5]+1900, $date[4]+1, 
+	    $date[3], $date[2], $date[1], $date[0], $text);
+}
+
+sub reap_children {
+  my $child = shift;
+  my $text = shift;
+  return unless $child;
+  if (kill (0, $child)) 
+    { 
+      print ("# timeout pid $child - killing..."); 
+      logger ("Plugin timeout: $text (pid $child)");
+      kill (-1, $child); sleep 2; 
+      kill (-9, $child);
+      print ("done\n");
+    } 
+}
+
+sub run_service {
+  my ($service,$command,$autoreap) = @_;
+  $command ||="";
+  my @lines = ();;
+  my $timed_out = 0;
+  if ($services{$service} and ($caddr eq "" or &has_access ($service))) {
+    my $child = 0;
+    my $timeout = get_var (\%sconf, $service, 'timeout');
+    $timeout = $sconf{'timeout'} 
+    	unless defined $timeout and $timeout =~ /^\d+$/;
+
+    if ($child = open (CHILD, "-|")) {
+      eval {
+	  local $SIG{ALRM} = sub { $timed_out=1; die "$!\n"};
+	  alarm($timeout);
+	  while(<CHILD>) {
+	    push @lines,$_;
+	  }
+      };
+      if( $timed_out ) {
+	  reap_children($child, "$service $command: $@");
+	  close (CHILD);
+          return ();
+      }
+      unless (close CHILD)
+      {
+	  if ($!)
+	  {
+	      # If Net::Server::Fork is currently taking care of reaping,
+	      # we get false errors. Filter them out.
+	      unless (defined $autoreap and $autoreap) 
+	      {
+		  logger ("Error while executing plugin \"$service\": $!");
+	      }
+	  }
+	  else
+	  {
+	      logger ("Plugin \"$service\" exited with status $?. --@lines--");
+	  }
+      }
+    }
+    else {
+      if ($child == 0) {
+	# New process group...
+	POSIX::setsid();
+        # Setting environment
+	$sconf{$service}{user}    = &get_var (\%sconf, $service, 'user');
+	$sconf{$service}{group}   = &get_var (\%sconf, $service, 'group');
+	$sconf{$service}{command} = &get_var (\%sconf, $service, 'command');
+	&get_var (\%sconf, $service, 'env', \%{$sconf{$service}{env}});
+	
+	if ($< == 0) # If root...
+	{
+		# Giving up gid egid uid euid
+		my $u  = (defined $sconf{$service}{'user'}?
+			$sconf{$service}{'user'}:
+			$defuser);
+		my $g  = $defgroup;
+		my $gs = "$g $g" .
+			(defined $sconf{$service}{'group'}?" $sconf{$service}{group}":"");
+
+		print "# Want to run as euid/egid $u/$g\n" if $DEBUG;
+
+		$( = $g    unless $g == 0;
+		$) = $gs   unless $g == 0;
+		$< = $u    unless $u == 0;
+		$> = $u    unless $u == 0;
+
+		if ($> != $u or $g != (split (' ', $)))[0])
+		{
+			print "# Can't drop privileges. Bailing out. (wanted uid=",
+			    ($sconf{$service}{'user'} || $defuser), " gid=\"",
+			    $gs, "\"($g), got uid=$> gid=\"$)\"(", 
+			    (split (' ', $)))[0], ").\n";
+			logger ("Plugin \"$service\" Can't drop privileges. ".
+			    "Bailing out. (wanted uid=".
+			    ($sconf{$service}{'user'} || $defuser). " gid=\"".
+			    $gs. "\"($g), got uid=$> gid=\"$)\"(". 
+			    (split (' ', $)))[0]. ").\n");
+			exit 1;
+		}
+	}
+	print "# Running as uid/gid/euid/egid $</$(/$>/$)\n" if $DEBUG;
+	if (!&check_perms ("$servicedir/$service"))
+	{
+	    print "# Error: unsafe permissions. Bailing out.";
+	    logger ("Error: unsafe permissions. Bailing out.");
+	    exit 2;
+	}
+
+	# Setting environment...
+	if (exists $sconf{$service}{'env'} and
+			defined $sconf{$service}{'env'})
+	{
+	    foreach my $key (keys %{$sconf{$service}{'env'}})
+	    {
+		print "# Setting environment $key=$sconf{$service}{env}{$key}\n" if $DEBUG;
+		$ENV{"$key"} = $sconf{$service}{'env'}{$key};
+	    }
+	}
+	if (exists $sconf{$service}{'command'} and 
+		defined $sconf{$service}{'command'})
+	{
+	    my @run = ();
+	    foreach my $t (@{$sconf{$service}{'command'}})
+	    {
+		if ($t =~ /^%c$/)
+		{
+		    push (@run, "$servicedir/$service", $command);
+		}
+		else
+		{
+		    push (@run, $t);
+		}
+	    }
+	    print STDERR "# About to run \"", join (' ', @run), "\"\n" if $DEBUG;
+	    print "# About to run \"", join (' ', @run), "\"\n" if $DEBUG;
+	    exec (@run) if @run;
+	}
+	else
+	{
+	    print "# Execing...\n" if $DEBUG;
+	    exec ("$servicedir/$service", $command);
+	}
+      }
+      else {
+	print "# Unable to fork.\n";
+	logger ("Unable to fork.");
+      }
+    }
+    wait;
+    alarm(0);
+  }
+  else {
+    print "# Unknown service\n";
+  }
+  chomp @lines;
+  return (@lines);
+}
+
+sub process_request {
+  my $self = shift;
+  $caddr = $self->{server}->{peeraddr};
+  print "# munin node at $FQDN\n";
+  local $SIG{ALRM} = sub { logger ("Connection timed out."); die "timeout" };
+  alarm($sconf{'timeout'});
+  while( <STDIN> ){
+    alarm($sconf{'timeout'});
+    chomp;
+    if (m/^list\s*([0-9a-zA-Z\.\-]+)?/) {
+      &list_services($1);
+    }
+    elsif (/^quit/ || /^\./) {
+      exit 1;
+    }
+    elsif (/^version/) {
+      &show_version;
+	}
+    elsif (/^nodes/) {
+      &show_nodes;
+    }
+    elsif (/^fetch\s?(\S*)/) {
+      print_service (&run_service($1)) 
+    }
+    elsif (/^config\s?(\S*)/) {
+      print_service (&run_service($1,"config"));
+    } else  {
+      print "# Unknown command. Try list, nodes, config, fetch, version or quit\n";
+    }
+  }
+}
+
+sub get_uid
+{
+    my $user = shift;
+    return undef if (!defined $user);
+
+    if ($user !~ /\d/)
+    {
+	$user = getpwnam ($user);
+    }
+    return $user;
+}
+
+sub get_gid
+{
+    my $group = shift;
+    return undef if (!defined $group);
+
+    if ($group !~ /\d/)
+    {
+	$group = getgrnam ($group);
+    }
+    return $group;
+}
+
+sub load_auth_file 
+{
+    my ($dir, $file, $sconf) = @_;
+    my $service = $file;
+
+    if (!defined $dir or !defined $file or !defined $sconf)
+    {
+	return undef;
+    }
+
+    return undef if (!&check_perms ($dir));
+    return undef if (!&check_perms ("$dir/$file"));
+
+    if (!open (IN, "$dir/$file"))
+    {
+	warn "Could not open file \"$dir/$file\" for reading ($!), skipping plugin\n";
+	return undef;
+    }
+    while (<IN>)
+    {
+	chomp;
+	s/#.*$//;
+	next unless /\S/;
+	s/\s+$//g;
+	print "DEBUG: Config: $service: $_\n" if $DEBUG;
+	if (/^\s*\[([^\]]+)\]\s*$/)
+	{
+	    $service = $1;
+	}
+	elsif (/^\s*user\s+(\S+)\s*$/)
+	{
+ 	    my $optional = 0;
+ 	    my $user = $1;
+ 
+ 	    if ($user =~ /^\(([^)]+)\)$/)
+ 	    {
+ 		$optional = 1;
+ 		$user = $1;
+ 	    }
+ 
+ 	    my $u = &get_uid ($user);
+ 	    if (!defined $u and !$optional)
+  	    {
+ 		warn "User \"$user\" in configuration file \"$dir/$file\" nonexistant. Skipping plugin.";
+  		return undef;
+  	    }
+ 	    elsif (!defined $u and $optional)
+ 	    {
+ 		net_write ("DEBUG: Skipping \"$user\" (optional).\n") if $DEBUG;
+ 		next;
+ 	    }
+ 	    else
+ 	    {
+ 		$sconf->{$service}{'user'} = $u;
+ 	    }
+  	}
+	elsif (/^\s*group\s+(.+)\s*$/)
+	{
+	    my $tmpid = $1;
+	    foreach my $group (split /\s*,\s*/, $tmpid)
+	    {
+		my $optional = 0;
+
+		if ($group =~ /^\(([^)]+)\)$/)
+		{
+		    $optional = 1;
+		    $group = $1;
+		}
+
+		my $g = &get_gid ($group);
+		print "DEBUG: Config: $service->gid = ", $sconf->{$service}{'group'}, "\n" 
+			if $DEBUG and defined $sconf->{$service}{'group'};
+		if (!defined $g and !$optional)
+		{
+		    warn "Group \"$group\" in configuration file \"$dir/$file\" nonexistant. Skipping plugin.";
+		    return undef;
+		}
+		elsif (!defined $g and $optional)
+		{
+		    print "DEBUG: Skipping \"$group\" (optional).\n" if $DEBUG;
+		    next;
+		}
+		if (!defined $sconf->{$service}{'group'})
+		{
+		    $sconf->{$service}{'group'} = $g;
+		}
+		else
+		{
+		    $sconf->{$service}{'group'} .= " $g";
+		}
+	    }
+	}
+	elsif (/^\s*command\s+(.+)\s*$/)
+	{
+	    @{$sconf->{$service}{'command'}} = split (/\s+/, $1);
+	}
+	elsif (/^\s*host_name\s+(.+)\s*$/)
+	{
+	    $sconf->{$service}{'host_name'} = $1;
+	}
+	elsif (/^\s*timeout\s+(\d+)\s*$/)
+	{
+	    $sconf->{$service}{'timeout'} = $1;
+	    print "DEBUG: $service: setting timeout to $1\n"
+		if $DEBUG;
+	}
+	elsif (/^\s*(allow)\s+(.+)\s*$/ or /^\s*(deny)\s+(.+)\s*$/)
+	{
+	    push (@{$sconf->{$service}{'allow_deny'}}, [$1, $2]);
+		print STDERR "DEBUG: Pushing allow_deny: $1, $2\n" if $DEBUG;
+	}
+	elsif (/^\s*env\s+([^=\s]+)\s*=\s*(.+)$/)
+	{
+	    $sconf->{$service}{'env'}{$1} = $2;
+	    print "Saving $service->env->$1 = $2...\n" if $DEBUG;
+	    warn "Warning: Deprecated format in \"$dir/$file\" under \"[$service]\" (\"env $1=$2\" should be rewritten to \"env.$1 $2\").";
+	}
+	elsif (/^\s*env\.(\S+)\s+(.+)$/)
+	{
+	    $sconf->{$service}{'env'}{$1} = $2;
+	    print "Saving $service->env->$1 = $2...\n" if $DEBUG;
+	}
+	elsif (/^\s*(\w+)\s+(.+)$/)
+	{
+	    $sconf->{$service}{'env'}{"lrrd_$1"} = $2;
+	    print "Saving $service->env->lrrd_$1 = $2...\n" if $DEBUG;
+	    warn "Warning: Deprecated format in \"$dir/$file\" under \"[$service]\" (\"$1 $2\" should be rewritten to \"env lrrd_$1=$2\").";
+	}
+	elsif (/\S/)
+	{
+	    warn "Warning: Unknown config option in \"$dir/$file\" under \"[$service]\": $_";
+	}
+
+    }
+    close (IN);
+
+    return 1;
+}
+
+sub check_perms
+{
+    my $target = shift;
+    my @stat;
+    return undef if (!defined $target);
+	return 1 if (!$paranoia);
+
+    if (! -e "$target")
+    {
+	warn "Failed to check permissions on nonexistant target: \"$target\"";
+	return undef;
+    }
+
+    @stat = stat ($target);
+    if (!$stat[4] == 0 or
+	($stat[5] != 0 and $stat[2] & 00020) or
+	($stat[2] & 00002))
+    {
+	warn "Warning: \"$target\" has dangerous permissions (", sprintf ("%04o", $stat[2] & 07777), ").";
+	return 0;
+    }
+
+    if (-f "$target") # Check dir as well
+    {
+	(my $dirname = $target) =~ s/[^\/]+$//;
+	return &check_perms ($dirname);
+    }
+
+    return 1;
+}
+
+sub get_var_arr
+{
+    my $sconf   = shift;
+    my $name    = shift;
+    my $var     = shift;
+    my $result  = [];
+
+    if (exists $sconf->{$name}{$var})
+    {
+	push (@{$result}, $sconf->{$name}{$var});
+    }
+
+    foreach my $wildservice (grep (/\*$/, reverse sort keys %{$sconf}))
+    {
+	(my $tmpservice = $wildservice) =~ s/\*$//;
+	next unless ($name =~ /^$tmpservice/);
+	print STDERR "# Checking $wildservice...\n" if $DEBUG;
+
+	if (defined $sconf->{$wildservice}{$var})
+	{
+	    push (@{$result}, $sconf->{$wildservice}{$var});
+	    print STDERR ("DEBUG: Pushing: |", join (';', @{$sconf->{$wildservice}{$var}}), "|\n")
+		if $DEBUG;
+	}
+    }
+    return $result;
+}
+
+sub get_var
+{
+    my $sconf   = shift;
+    my $name    = shift;
+    my $var     = shift;
+    my $env     = shift;
+
+    if ($var eq 'env' and !defined $env)
+    {
+	%{$env} = ();
+    }
+    
+    if ($var ne 'env' and exists $sconf->{$name}{$var})
+    {
+	return $sconf->{$name}{$var};
+    }
+    # Deciding environment
+    foreach my $wildservice (grep (/\*$/, reverse sort keys %{$sconf}))
+    {
+	(my $tmpservice = $wildservice) =~ s/\*$//;
+	next unless ($name =~ /^$tmpservice/);
+	print "Checking $wildservice...\n" if $DEBUG;
+
+	if ($var eq 'env')
+	{
+	    if (exists $sconf->{$wildservice}{'env'})
+	    {
+		foreach my $key (keys %{$sconf->{$wildservice}{'env'}})
+		{
+		    if (! exists $sconf->{$name}{'env'}{$key})
+		    {
+			$sconf->{$name}{'env'}{$key} = $sconf->{$wildservice}{'env'}{$key};
+			print "Saving $wildservice->$key\n" if $DEBUG;
+		    }
+		}
+	    }
+	}
+	else
+	{
+	    if (! exists $sconf->{$name}{$var} and
+		    exists $sconf->{$wildservice}{$var})
+	    {
+		return ($sconf->{$wildservice}{$var});
+	    }
+	}
+    }
+    return $env;
+}
+
+1;
+
+=head1 NAME
+
+munin-node - A daemon to gather information in cooperation with the main
+Munin program
+
+=head1 SYNOPSIS
+
+munin-node [--options]
+
+=head1 OPTIONS
+
+=over 5
+
+=item B<< --config <configfile> >>
+
+Use E<lt>fileE<gt> as configuration file. [/etc/munin/munin-node.conf]
+
+=item B< --[no]paranoia >
+
+Only run plugins owned by root. Check permissions as well. [--noparanoia]
+
+=item B< --help >
+
+View this help message.
+
+=item B< --debug >
+
+View debug messages.
+
+=back
+
+=head1 DESCRIPTION
+
+Munin's node is a daemon that Munin connects to fetch data. This data is
+stored in .rrd-files, and later graphed and htmlified. It's designed to
+let it be very easy to graph new datasources.
+
+Munin-node is a small perlscript listening to port 4949 using
+Net::Server. It reads all the plugins in /etc/munin/plugins/ on startup.
+The node accepts the following commands:
+
+=over 5
+
+=item B<< list [node] >>
+
+list available plugins for host. If no hostname is specified, list plugins
+on host running munin-node
+
+=item B<< nodes >>
+
+List nodes that has plugins in this munin-node.
+
+=item B<< config <plugin> >>
+
+output plugin configuration
+
+=item B<< fetch <plugin> >>
+
+output plugin values
+
+=item B<< version >>
+
+Print versionstring
+
+=item B<< quit >>
+
+disconnect
+
+=back
+
+=head2 Plugins
+
+These plugins can be in you language of choice: bash, perl, python, C. The
+plugins can be run in two modes: with and without the "config"-parameter. When
+run with "config" as parameter, the plugin should output the configuration of
+the graph. When run without parameters, the plugin should output just values
+
+	# /etc/munin/plugins/load config
+	host_name 
+	graph_title Load average
+	graph_args --base 1000 -l 0
+	graph_vlabel load
+	load.label load
+	load.draw LINE2
+	load.warning 10
+	load.critical 120
+
+	# /etc/munin/plugins/load
+	load.value 0.43
+
+For more information, see the documentation section at L<http://munin.sf.net/>.
+
+=head1 FILES
+
+	@@CONFDIR@@/munin-node.conf
+	@@CONFDIR@@/plugins/*
+	@@CONFDIR@@/plugin-conf.d/*
+	@@STATEDIR@@/munin-node.pid
+	@@LOGDIR@@/munin-node
+
+=head1 VERSION
+
+This is munin-node v@@VERSION@@
+
+=head1 AUTHORS
+
+Audun Ytterdal, Jimmy Olsen, and Tore Anderson.
+
+=head1 BUGS
+
+munin-node does, as of now, not check the syntax of the configuration file.
+
+Please report other bugs in the bug tracker at L<http://munin.sf.net/>.
+
+=head1 COPYRIGHT
+
+Copyright © 2002 Audun Ytterdal, Jimmy Olsen, and Tore Anderson / Linpro AS.
+
+This is free software; see the source for copying conditions. There is
+NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR
+PURPOSE.
+
+This program is released under the GNU General Public License
+
+=cut
+
+# vim:syntax=perl ts=8
