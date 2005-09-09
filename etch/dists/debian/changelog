@@ -1,20 +1,17 @@
 munin (1.2.3-2) unstable; urgency=low
 
-  * debian/munin.preinst (removed), debian/munin.postinst,
-    debian/munin-node.preinst (removed), debian/munin-node.postinst:
-      - Remove all code that handled upgrades from versions earlier than
-        1.2.3-1.  In a way this closes: #308008.
-
-  * debian/munin-node.cron.d:
-      - Update APT's package index files periodically if the apt_all plugin is
-        enabled, too.  Patch by Tommi Virtanen, thanks!  Closes: #317278.
+  * server/munin-graph.in:
+      - Gave up waiting for the new upstream release, and applied Robert
+        Loomans' patch to make Munin support RRDtool 1.2, closes: #324605,
+        closes: #325280.  Thanks, Robert!  Note that this breaks compability
+        with RRDtool 1.0.  Sarge users should wait for the new upstream release
+        which will support both RRDtool 1.0 and 1.2.
 
   * debian/control:
-      - Remove conflict declarations on the old LRRD packages.
-      - Make munin-node suggest ethtool, closes: #311603.
+      - Made the munin package depend on librrds-perl in versions 1.2 or above.
 
- -- Tore Anderson <tore@debian.org>  Fri, 29 Jul 2005 23:49:44 +0200
-
+ -- Tore Anderson <tore@debian.org>  Wed, 31 Aug 2005 09:11:47 +0200
+ 
 munin (1.2.3-1) unstable; urgency=medium
 
   * New upstream release, targeted at Sarge.

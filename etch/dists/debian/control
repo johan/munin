@@ -10,7 +10,8 @@ Package: munin-node
 Architecture: all
 Depends: ${perl:Depends}, libnet-server-perl, procps
 Recommends: libnet-snmp-perl
-Suggests: munin, libwww-perl, libnet-irc-perl, mysql-client, smartmontools, acpi | lm-sensors, python (>= 2.2), ethtool
+Suggests: munin, libwww-perl, libnet-irc-perl, mysql-client, smartmontools, acpi | lm-sensors, python (>= 2.2)
+Conflicts: lrrd-client (<= 0.9.9r5-1)
 Description: network-wide graphing framework (node)
  Munin is a highly flexible and powerful solution used to create graphs of
  virtually everything imaginable throughout your network, while still
@@ -35,9 +36,10 @@ Description: network-wide graphing framework (node)
 
 Package: munin
 Architecture: all
-Depends: ${perl:Depends}, perl-modules (>= 5.8.0) | libparse-recdescent-perl, librrds-perl, libhtml-template-perl, libdigest-md5-perl, libtime-hires-perl, libstorable-perl
+Depends: ${perl:Depends}, perl-modules (>= 5.8.0) | libparse-recdescent-perl, librrds-perl (>= 1.2), libhtml-template-perl, libdigest-md5-perl, libtime-hires-perl, libstorable-perl
 Recommends: munin-node, libdate-manip-perl
 Suggests: rrdtool, www-browser, httpd
+Conflicts: lrrd-server (<= 0.9.9r5-1)
 Description: network-wide graphing framework (grapher/gatherer)
  Munin is a highly flexible and powerful solution used to create graphs of
  virtually everything imaginable throughout your network, while still
