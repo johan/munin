@@ -1,3 +1,20 @@
+munin (1.2.3-3) unstable; urgency=low
+
+  * debian/munin.preinst (removed), debian/munin.postinst,
+    debian/munin-node.preinst (removed), debian/munin-node.postinst:
+      - Remove all code that handled upgrades from versions earlier than
+        1.2.3-1.  In a way this closes: #308008.
+
+  * debian/munin-node.cron.d:
+      - Update APT's package index files periodically if the apt_all plugin
+        enabled, too.  Patch by Tommi Virtanen, thanks!  Closes: #317278.
+
+  * debian/control:
+      - Remove conflict declarations on the old LRRD packages.
+      - Make munin-node suggest ethtool, closes: #311603.
+
+ -- Tore Anderson <tore@debian.org>  Fri, 09 Sep 2005 19:07:11 +0200
+
 munin (1.2.3-2) unstable; urgency=low
 
   * server/munin-graph.in:
