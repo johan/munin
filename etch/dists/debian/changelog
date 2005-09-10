@@ -1,4 +1,4 @@
-munin (1.2.3-3) unstable; urgency=low
+munin (1.2.3-3) unstable; urgency=medium
 
   * debian/munin.preinst (removed), debian/munin.postinst,
     debian/munin-node.preinst (removed), debian/munin-node.postinst:
@@ -12,6 +12,8 @@ munin (1.2.3-3) unstable; urgency=low
   * debian/control:
       - Remove conflict declarations on the old LRRD packages.
       - Make munin-node suggest ethtool, closes: #311603.
+      - Make Munin depend on rrdtool instead of merely suggesting it.  This is
+        a workaround for bug #323975 and its duplicates.
 
   * debian/munin-node.init, debian/control:
       - Reimplemented Munin-Node's init script using LSB functions.
@@ -23,7 +25,11 @@ munin (1.2.3-3) unstable; urgency=low
         954.  This re-enables support for RRDtool 1.0, so the versioned
         dependency on librrds-perl is dropped.
 
- -- Tore Anderson <tore@debian.org>  Fri, 09 Sep 2005 19:07:11 +0200
+  * server/munin-cron.in:
+      - Swallow bogus output from RRDtool, closes: #326061.  This is a
+        (hopefully temporary) workaround for bug #325353.
+
+ -- Tore Anderson <tore@debian.org>  Sat, 10 Sep 2005 10:58:08 +0200
 
 munin (1.2.3-2) unstable; urgency=low
 
