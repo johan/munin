@@ -1,9 +1,12 @@
 munin (1.2.3-3) unstable; urgency=medium
 
-  * debian/munin.preinst (removed), debian/munin.postinst,
+  * debian/munin.preinst (removed), debian/munin.postinst, debian/munin.postrm,
     debian/munin-node.preinst (removed), debian/munin-node.postinst:
       - Remove all code that handled upgrades from versions earlier than
         1.2.3-1.  In a way this closes: #308008.
+
+  * debian/munin.postrm, debian/munin-node.postrm:
+      - Replace "test -o" bashism with "||".
 
   * debian/munin-node.cron.d:
       - Update APT's package index files periodically if the apt_all plugin
@@ -14,6 +17,8 @@ munin (1.2.3-3) unstable; urgency=medium
       - Make munin-node suggest ethtool, closes: #311603.
       - Make Munin depend on rrdtool instead of merely suggesting it.  This is
         a workaround for bug #323975 and its duplicates.
+      - Add a dependency on adduser for both packages.
+      - Increment standards-version to 3.6.2.1, no changes required.
 
   * debian/munin-node.init, debian/control:
       - Reimplemented Munin-Node's init script using LSB functions.
