@@ -8,7 +8,7 @@ Standards-Version: 3.6.2.1
 
 Package: munin-node
 Architecture: all
-Depends: ${perl:Depends}, libnet-server-perl, procps, adduser, lsb-base
+Depends: ${perl:Depends}, libnet-server-perl, procps, adduser, lsb-base (>= 3.0-10)
 Recommends: libnet-snmp-perl
 Suggests: munin, libwww-perl, libnet-irc-perl, mysql-client, smartmontools, acpi | lm-sensors, python (>= 2.2), ethtool
 Description: network-wide graphing framework (node)

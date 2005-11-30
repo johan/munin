@@ -1,3 +1,13 @@
+munin (1.2.4-1) unstable; urgency=medium
+
+  * New upstream release.
+
+  * debian/munin-node.init, debian/control:
+      - Fix killproc() call, whose interface changed in lsb-base 3.0-10.
+        Version the dependency accordingly.  Closes: #339952.
+
+ -- Tore Anderson <tore@debian.org>  Wed, 30 Nov 2005 12:10:47 +0100
+  
 munin (1.2.3-3) unstable; urgency=medium
 
   * debian/munin.preinst (removed), debian/munin.postinst, debian/munin.postrm,
