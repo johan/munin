@@ -1,6 +1,9 @@
 munin (1.2.4-1) unstable; urgency=medium
 
   * New upstream release.
+      - Plugin linux/iostat now supports c#d#p#-named devices, closes: #309263.
+      - Plugin generic/postfix_mailvolume should now correctly detect a
+        Postfix installation, closes: #341265, #306591.
 
   * debian/munin-node.init, debian/control:
       - Fix killproc() call, whose interface changed in lsb-base 3.0-10.
