@@ -9,6 +9,10 @@ munin (1.2.4-1) unstable; urgency=medium
       - Fix killproc() call, whose interface changed in lsb-base 3.0-10.
         Version the dependency accordingly.  Closes: #339952.
 
+  * server/munin-cron.in, server/munin-graph.in, server/munin-limits.in:
+      - Reverted to unmodified upstream versions, as the patches applied to
+        1.2.3 has been merged into the upstream tree.
+
  -- Tore Anderson <tore@debian.org>  Wed, 30 Nov 2005 12:10:47 +0100
   
 munin (1.2.3-3) unstable; urgency=medium
