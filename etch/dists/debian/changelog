@@ -1,3 +1,11 @@
+munin (1.2.4-2) UNRELEASED; urgency=low
+
+  * debian/munin-node.init:
+      - Create the pid-file directory if it doesn't exist,
+        since it could be on a non-persistent filesystem (tmpfs).
+
+ -- Dagfinn Ilmari Mannsåker <ilmari@ilmari.org>  Thu, 16 Feb 2006 23:34:11 +0100
+
 munin (1.2.4-1) unstable; urgency=low
 
   * New upstream release.
