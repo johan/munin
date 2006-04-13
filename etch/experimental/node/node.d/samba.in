@@ -1,0 +1,47 @@
+#!/bin/sh
+# 
+# Plugin to monitor the number of open files in the system.
+#
+# Parameters:
+# 	
+# 	config   (required)
+# 	autoconf (optional - used by munin-config)
+#
+# Magic markers (Used by munin-config and some installation scripts.
+# Optional):
+#
+#%# family=contrib
+#%# capabilities=autoconf
+
+
+
+if [ "$1" = "autoconf" ]; then
+	if [ -x /usr/bin/smbstatus ]; then
+		echo yes
+		exit 0
+	else
+		echo no
+		exit 1
+	fi
+fi
+
+if [ "$1" = "config" ]; then
+
+	echo 'graph_title Samba status'
+	echo 'graph_args -l 0'
+	echo 'graph_vlabel number'
+	echo 'graph_category samba'
+	echo 'proc.label processes'
+	echo 'lock.label locked files'
+	echo 'share.label Open shares'
+	echo 'max.warning 900'
+	echo 'max.critical 960'
+	exit 0
+fi
+
+printf "proc.value "
+smbstatus -p | awk '$1 ~ /[0123456789]+/' | wc -l
+printf "lock.value "
+smbstatus -L | awk '$1 ~ /[0123456789]+/' | wc -l
+printf "share.value "
+smbstatus -S | awk '$2 ~ /[0123456789]+/ && $1 !~ /^IPC\$/ ' | wc -l

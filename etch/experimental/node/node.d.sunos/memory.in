@@ -1,0 +1,36 @@
+#!/bin/sh
+#
+#%# family=manual
+
+
+TOP=/usr/local/bin/top
+
+if [ "$1" = "config" ]; then
+
+        echo "graph_title Memory usage (in MB)"
+		echo 'graph_category system'
+	echo "real.label Physical mem"
+	echo "used.label Mem used"
+	echo "swapt.label Total swap"
+	echo "swapu.label Swap used"
+        exit 0
+fi
+
+# Linjen som grep'es ut kan se ut som dette:
+#
+# Memory: 320M real, 142M free, 129M swap in use, 1095M swap free
+
+MEMLINE=`$TOP -n -u | /bin/grep "^Memory"`
+
+REAL=`echo $MEMLINE | nawk '$2~/G$/ {sub("G","",$2);$2=$2 * 1024} $2~/M$/ {printf "%d\n", $2}'`
+FREE=`echo $MEMLINE | nawk '$4~/G$/ {sub("G","",$4);$4=$4 * 1024} $2~/M$/ {printf "%d\n", $4}'`
+SWAPU=`echo $MEMLINE | nawk '$6~/G$/ {sub("G","",$6);$6=$6 * 1024} $2~/M$/ {printf "%d\n", $6}'`
+SWAPF=`echo $MEMLINE | nawk '$10~/G$/ {sub("G","",$10);$10=$10 * 1024} $2~/M$/ {printf "%d\n", $10}'`
+
+MEMUSED=`expr $REAL - $FREE`
+SWAPTOT=`expr $SWAPU + $SWAPF`
+
+echo "real.value $REAL"
+echo "used.value $MEMUSED"
+echo "swapt.value $SWAPTOT"
+echo "swapu.value $SWAPU"

@@ -1,0 +1,125 @@
+#!/bin/sh
+#
+# Plugin to monitor CPU usage.
+#
+# Usage: Place in /etc/munin/node.d/ (or link it there  using ln -s)
+#
+# Parameters understood:
+#
+# 	config   (required)
+# 	autoconf (optional - used by munin-config)
+#
+# Magic markers - optional - used by installation scripts and
+# munin-config:
+#
+#%# family=auto
+#%# capabilities=autoconf
+
+
+
+if [ "$1" = "autoconf" ]; then
+	if [ -r /proc/stat ]; then
+		echo yes
+		exit 0
+	else
+		echo no
+		exit 1
+	fi
+fi
+
+extinfo=""
+
+if (`egrep '^cpu +[0-9]+ +[0-9]+ +[0-9]+ +[0-9]+ +[0-9]+ +[0-9]+ +[0-9]+' /proc/stat 2>/dev/null >/dev/null`)
+then
+	extinfo="iowait irq softirq"
+fi
+
+if [ "$1" = "config" ]; then
+
+	NCPU=`expr \`grep '^cpu. ' /proc/stat | wc -l\` - 1`
+	PERCENT=`expr $NCPU '*' 100`
+	if [ "$scaleto100" = "yes" ]; then
+		graphlimit=100
+	else
+		graphlimit=$PERCENT
+	fi
+	SYSWARNING=`expr $PERCENT '*' 30 / 100`
+	SYSCRITICAL=`expr $PERCENT '*' 50 / 100`
+	USRWARNING=`expr $PERCENT '*' 80 / 100`
+	echo 'graph_title CPU usage'
+	echo "graph_order system user nice idle" $extinfo
+	echo "graph_args --base 1000 -r --lower-limit 0 --upper-limit $graphlimit"
+	echo 'graph_vlabel %'
+	echo 'graph_scale no'
+	echo 'graph_info This graph shows how CPU time is spent.'
+	echo 'graph_category system'
+	echo 'graph_period second'
+	echo 'system.label system'
+	echo 'system.draw AREA'
+	echo 'system.max 5000'
+	echo 'system.min 0'
+	echo 'system.type DERIVE'
+	echo "system.warning $SYSWARNING" 
+	echo "system.critical $SYSCRITICAL" 
+	echo "system.info CPU time spent by the kernel in system activities" 
+	echo 'user.label user'
+	echo 'user.draw STACK'
+	echo 'user.min 0'
+	echo 'user.max 5000'
+	echo "user.warning $USRWARNING"
+	echo 'user.type DERIVE'
+	echo 'user.info CPU time spent by normal programs and daemons'
+	echo 'nice.label nice'
+	echo 'nice.draw STACK'
+	echo 'nice.min 0'
+	echo 'nice.max 5000'
+	echo 'nice.type DERIVE'
+	echo 'nice.info CPU time spent by nice(1)d programs'
+	echo 'idle.label idle'
+	echo 'idle.draw STACK'
+	echo 'idle.min 0'
+	echo 'idle.max 5000'
+	echo 'idle.type DERIVE'
+	echo 'idle.info Idle CPU time'
+	if [ "$scaleto100" = "yes" ]; then
+		echo "system.cdef system,$NCPU,/"
+		echo "user.cdef user,$NCPU,/"
+		echo "nice.cdef nice,$NCPU,/"
+		echo "idle.cdef idle,$NCPU,/"
+	fi
+	if [ ! -z "$extinfo" ]
+	then
+		echo 'iowait.label iowait'
+		echo 'iowait.draw STACK'
+		echo 'iowait.min 0'
+		echo 'iowait.max 5000'
+		echo 'iowait.type DERIVE'
+		echo 'iowait.info CPU time spent waiting for I/O operations to finish'
+		echo 'irq.label irq'
+		echo 'irq.draw STACK'
+		echo 'irq.min 0'
+		echo 'irq.max 5000'
+		echo 'irq.type DERIVE'
+		echo 'irq.info CPU time spent handling interrupts'
+		echo 'softirq.label softirq'
+		echo 'softirq.draw STACK'
+		echo 'softirq.min 0'
+		echo 'softirq.max 5000'
+		echo 'softirq.type DERIVE'
+		echo 'softirq.info CPU time spent handling "batched" interrupts'
+		if [ "$scaleto100" = "yes" ]; then
+			echo "iowait.cdef iowait,$NCPU,/"
+			echo "irq.cdef irq,$NCPU,/"
+			echo "softirq.cdef softirq,$NCPU,/"
+		fi
+	fi
+	exit 0
+fi
+
+
+if [ ! -z "$extinfo" ]
+then
+	awk '/^cpu / { print "user.value " $2 "\nnice.value " $3 "\nsystem.value " $4 "\nidle.value " $5 "\niowait.value " $6 "\nirq.value " $7 "\nsoftirq.value " $8 }' < /proc/stat
+else
+	awk '/^cpu / { print "user.value " $2 "\nnice.value " $3 "\nsystem.value " $4 "\nidle.value " $5 }' < /proc/stat
+fi

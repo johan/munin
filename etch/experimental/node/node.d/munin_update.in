@@ -1,0 +1,50 @@
+#!/bin/sh
+#
+# Script to monitor Munin-update
+#
+# Parameters understood:
+#
+# 	config   (required)
+# 	autoconf (optional - used by munin-config)
+#
+# Magic markers (optional - used by munin-config and installation
+# scripts):
+#
+#%# family=manual
+#%# capabilities=autoconf
+
+if [ ! "$UPDATE_STATSFILE" ]; then
+	UPDATE_STATSFILE=@@DBDIR@@/munin-update.stats
+fi
+
+if [ "$1" = "autoconf" ]; then
+	if [ -f $UPDATE_STATSFILE ]; then
+	    echo "yes"
+	    exit 0
+	fi
+	echo "no (logfile not readable)"
+	exit 1
+fi
+
+if [ "$1" = "config" ]; then
+
+	echo 'graph_title Munin-update'
+	echo 'graph_vlabel seconds'
+	[ -f $UPDATE_STATSFILE ] || exit 0
+	cat $UPDATE_STATSFILE | grep "UD" | while read i; do
+		name=`echo $i | cut -d"|" -f2 |tr  '.-' '__'`
+		printf "$name.label "
+		echo $i | cut -d"|" -f2
+		echo "$name.warning 100"
+		echo "$name.critical 180"
+	done
+	exit 0
+fi
+
+[ -f $UPDATE_STATSFILE ] || exit 0
+
+cat $UPDATE_STATSFILE | grep "UD" | while read i; do
+        name=`echo $i | cut -d"|" -f2 | tr  '.-' '__'`
+	printf "$name.value "
+	echo $i | cut -d"|" -f3
+done
