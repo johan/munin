@@ -2,7 +2,7 @@ Source: munin
 Section: net
 Priority: optional
 Maintainer: Munin Debian Maintainers <munin-deb-maint@linpro.no>
-Uploaders: Tore Anderson <tore@debian.org>, Dagfinn Ilmari Mannsaker <ilmari@ilmari.org>
+Uploaders: Tore Anderson <tore@debian.org>, Dagfinn Ilmari Mannsaker <ilmari@ilmari.org>, Guido Guenther <agx@sigxcpu.org>
 Build-Depends-Indep: debhelper (>> 4.0.0), perl, htmldoc, html2text
 Standards-Version: 3.6.2.1
 
