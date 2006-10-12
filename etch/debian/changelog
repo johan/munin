@@ -6,6 +6,8 @@ munin (1.2.4-2) UNRELEASED; urgency=low
 
   * node/munin-{node,run}.in:
       - Replace calls to net_write() with print(), closes: #388789.
+      - Replace calls to Net::Domain::hostfqdn() with a combination of
+        Sys::Hostname::hostname() and gethostbyname(), closes: #307462.
 
   * debian/munin.cron.d:
       - Change the time of the daily forced munin-limits run so it doesn't
