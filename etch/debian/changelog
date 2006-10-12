@@ -1,12 +1,16 @@
 munin (1.2.4-2) UNRELEASED; urgency=low
 
   * debian/munin-node.init:
-      - Create the pid-file directory if it doesn't exist,
-        since it could be on a non-persistent filesystem (tmpfs).
-        Closes: #380434.
+      - Create the pid-file directory if it doesn't exist, since it could be on
+        a non-persistent filesystem (tmpfs).  Closes: #380434.
 
   * node/munin-{node,run}.in:
       - Replace calls to net_write() with print(), closes: #388789.
+
+  * debian/munin.cron.d:
+      - Change the time of the daily forced munin-limits run so it doesn't
+        start at the same time as the munin-cron process, which appeared to
+        cause some race condition, making munin-limits report all values as 0.
 
  -- Tore Anderson <tore@debian.org>  Thu, 12 Oct 2006 09:56:02 +0200
 
