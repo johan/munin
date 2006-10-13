@@ -4,13 +4,15 @@ munin (1.2.5-1) unstable; urgency=low
       - Replace calls to net_write() with print(), closes: #388789.
       - Replace calls to Net::Domain::hostfqdn() with a combination of
         Sys::Hostname::hostname() and gethostbyname(), closes: #307462.
-      - Reduces the global label lenght limit, closes: #361585.
       - Handle errors opening the stats file in munin-update, closes: #329204.
       - Plugin generic/multips is now sorted under Processes, closes: #312521.
+      - Improves the default fonts in RRDtool 1.2, which caused some labels to
+        line-wrap, reducing readability.  Closes: #361585.
 
-  * debian/munin-node.init:
-      - Create the pid-file directory if it doesn't exist, since it could be on
-        a non-persistent filesystem (tmpfs).  Closes: #380434.
+  * debian/munin-node.init, debian/munin.cron.d:
+      - Recreate /var/run/munin on boot if it is absent.  This is a work-around
+        for brain-damage in Ubuntu, where this directory goes AWOL every time
+        the machine is booted.  Closes: #380434.
 
   * debian/plugins.conf:
       - Run the ip_ plugin as the root user, closes: #373768.
@@ -18,7 +20,11 @@ munin (1.2.5-1) unstable; urgency=low
   * debian/munin.cron.d:
       - Change the time of the daily forced munin-limits run so it doesn't
         start at the same time as the munin-cron process, which appeared to
-        cause some race condition, making munin-limits report all values as 0.
+        cause a race condition that made munin-limits report all values as 0.
+
+  * debian/copyright:
+      - The new upstream release bundles Bitstream Vera Mono, include its
+        license.
 
  -- Tore Anderson <tore@debian.org>  Thu, 12 Oct 2006 09:56:02 +0200
 
