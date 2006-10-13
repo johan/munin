@@ -53,10 +53,6 @@ done < $CONFFILE
 
 verify_superuser() {
 	action=$1
-	# dash/ash do not provide $EUID, set it explicitly if not
-	# I can't find any way of avoiding a fork in these
-	# shells - drop me an email if you've got any suggestions
-	[ -z "$EUID" ] && EUID=$(id -u)
 	[ $EUID -eq 0 ] && return
 	log_failure_msg "Superuser privileges required for the" \
 			"\"$action\" action."
@@ -65,13 +61,18 @@ verify_superuser() {
 
 start() {
 	log_daemon_msg "Starting Munin-Node"
-	# /var/run could be a tmpfs filesystem,
-	# make sure that the pidfile directory exists
-	PIDDIR=${PIDFILE%/*}
-	if [ ! -d "$PIDDIR" ]; then
-		mkdir "$PIDDIR"
-		chmod 0755 "$PIDDIR"
-		chown munin:root "$PIDDIR"
+	# Work-around for brain-damage in Ubuntu, where /var/lib/munin
+	# vanishes after every reboot.
+	if [ ! -d /var/lib/munin ]; then
+		perms=(`/usr/sbin/dpkg-statoverride --list /var/run/munin`)
+		mkdir /var/lib/munin
+		if [ ! -z "$perms" ]; then
+			chown ${perms[0]}:${perms[1]} /var/lib/munin
+			chmod ${perms[2]} /var/lib/munin
+		else
+			chown munin:root /var/lib/munin
+			chmod 0755 /var/lib/munin
+		fi
 	fi
 	if pidofproc -p $PIDFILE $DAEMON >/dev/null; then
 		log_progress_msg "started beforehand"
