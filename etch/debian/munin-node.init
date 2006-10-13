@@ -66,13 +66,8 @@ start() {
 	if [ ! -d /var/run/munin ]; then
 		perms=(`/usr/sbin/dpkg-statoverride --list /var/run/munin`)
 		mkdir /var/run/munin
-		if [ ! -z "$perms" ]; then
-			chown ${perms[0]}:${perms[1]} /var/run/munin
-			chmod ${perms[2]} /var/run/munin
-		else
-			chown munin:root /var/run/munin
-			chmod 0755 /var/run/munin
-		fi
+		chown ${perms[0]:-munin}:${perms[1]:-root} /var/run/munin
+		chmod ${perms[2]:-0755} /var/run/munin
 	fi
 	if pidofproc -p $PIDFILE $DAEMON >/dev/null; then
 		log_progress_msg "started beforehand"
