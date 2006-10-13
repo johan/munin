@@ -71,7 +71,7 @@ start() {
 	if [ ! -d "$PIDDIR" ]; then
 		mkdir "$PIDDIR"
 		chmod 0755 "$PIDDIR"
-		chown munin:munin "$PIDDIR"
+		chown munin:root "$PIDDIR"
 	fi
 	if pidofproc -p $PIDFILE $DAEMON >/dev/null; then
 		log_progress_msg "started beforehand"
