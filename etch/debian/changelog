@@ -1,4 +1,12 @@
-munin (1.2.4-2) UNRELEASED; urgency=low
+munin (1.2.5-1) unstable; urgency=low
+
+  * New upstream release.
+      - Replace calls to net_write() with print(), closes: #388789.
+      - Replace calls to Net::Domain::hostfqdn() with a combination of
+        Sys::Hostname::hostname() and gethostbyname(), closes: #307462.
+      - Reduces the global label lenght limit, closes: #361585.
+      - Handle errors opening the stats file in munin-update, closes: #329204.
+      - Plugin generic/multips is now sorted under Processes, closes: #312521.
 
   * debian/munin-node.init:
       - Create the pid-file directory if it doesn't exist, since it could be on
@@ -11,11 +19,6 @@ munin (1.2.4-2) UNRELEASED; urgency=low
       - Change the time of the daily forced munin-limits run so it doesn't
         start at the same time as the munin-cron process, which appeared to
         cause some race condition, making munin-limits report all values as 0.
-
-  * node/munin-{node,run}.in:
-      - Replace calls to net_write() with print(), closes: #388789.
-      - Replace calls to Net::Domain::hostfqdn() with a combination of
-        Sys::Hostname::hostname() and gethostbyname(), closes: #307462.
 
  -- Tore Anderson <tore@debian.org>  Thu, 12 Oct 2006 09:56:02 +0200
 
