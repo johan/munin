@@ -1,5 +1,17 @@
 #! /bin/bash
 
+### BEGIN INIT INFO
+# Provides:          munin-node
+# Required-Start:    $local_fs $remote_fs
+# Required-Stop:     $local_fs $remote_fs
+# Should-Start:      $all
+# Should-Stop:       $all
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start/stop Munin-Node
+# Description:       Start/stop Munin-Node
+### END INIT INFO
+
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 DAEMON=/usr/sbin/munin-node
 PIDFILE=/var/run/munin/munin-node.pid
