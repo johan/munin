@@ -10,6 +10,8 @@ munin (1.2.5-1) unstable; urgency=low
         line-wrap, reducing readability.  Closes: #361585.
       - munin-node-configure-snmp now handles errors better, closes: #320455.
       - Plugin generic/multips is now sorted under Processes, closes: #312521.
+      - Plugin linux/apt_all now correctly counts held packages, and also
+        considers the distribution "stable", closes: #314610.
 
   * debian/munin-node.init, debian/munin.cron.d:
       - Recreate /var/run/munin on boot if it is absent.  This is a work-around
