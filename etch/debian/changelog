@@ -13,6 +13,10 @@ munin (1.2.5-1) unstable; urgency=low
       - Plugin linux/apt_all now correctly counts held packages, and also
         considers the distribution "stable", closes: #314610.
 
+  * debian/control, debian/rules, debian/NEWS:
+      - Add support for building a package containing the contrib plugins,
+        closes: #306861.  Patch from Marc Haber, thanks!
+
   * debian/munin-node.init, debian/munin.cron.d:
       - Recreate /var/run/munin on boot if it is absent.  This is a work-around
         for brain-damage in Ubuntu, where this directory goes AWOL every time

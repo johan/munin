@@ -1,3 +1,23 @@
+munin (1.2.5-1) unstable; urgency=low
+
+  * Thanks to Marc Haber the Debian build scripts are now able to build a
+    custom package called "munin-plugins-contrib", which will contain some
+    user-contributed plugins that aren't included in the "munin-node" package.
+
+    To enable the build of this package, the environment variable
+    DEB_BUILD_OPTIONS must contain the string "munin:build-contrib-pkg".
+    The following commands ought to do the trick for most users:
+
+      export DEB_BUILD_OPTIONS="$DEB_BUILD_OPTIONS munin:build-contrib-pkg"
+      apt-get build-dep munin
+      apt-get --build source munin
+      dpkg --install munin-plugins-contrib_*_all.deb
+
+    It is not included in the Debian distribution.  Bugs should therefore be
+    reported to the upstream bug tracker at <http://munin.projects.linpro.no/>.
+
+ -- Tore Anderson <tore@debian.org>  Sun, 15 Oct 2006 00:09:59 +0200
+
 munin (1.2.2-1) unstable; urgency=low
 
   * The "contrib" plugins are not supported from upstream, and have therefore
