@@ -171,9 +171,16 @@ case "$1" in
 	if [ $ret -eq 0 ]; then
 		log_success_msg "Munin-Node is running (PID: $pid)"
 		exit 0
-	# the LSB specifies that I in this case (daemon dead + pid file exist)
-	# should return 1, so why init-functions use 2 I don't know.  whatever.
-	elif [ $ret -eq 2 ]; then
+	# the LSB specifies that I in this case (daemon dead + pid file exists)
+	# should return 1, however lsb-base returned 2 in this case up to and
+	# including version 3.1-10 (cf. #381684).  Since that bug is present
+	# in Sarge, Ubuntu Dapper, and (at the time of writing) Ubuntu Etch,
+	# and taking into account that later versions of pidofproc() do not
+	# under any circumstance return 2, I'll keep understanding invalid
+	# return code for the time being, even though the LSB specifies it is
+	# to be used for the situation where the "program is dead and /var/lock
+	# lock file exists".  
+	elif [ $ret -eq 1 ] || [ $ret -eq 2 ]; then
 		log_failure_msg "Munin-Node is dead, although $PIDFILE exists."
 		exit 1
 	elif [ $ret -eq 3 ]; then
