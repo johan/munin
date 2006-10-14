@@ -3,11 +3,13 @@ munin (1.2.5-1) unstable; urgency=low
   * New upstream release.
       - Replace calls to net_write() with print(), closes: #388789.
       - Replace calls to Net::Domain::hostfqdn() with a combination of
-        Sys::Hostname::hostname() and gethostbyname(), closes: #307462.
+        Sys::Hostname::hostname() and gethostbyname(), closes: #307462,
+        closes: #390815.
       - Handle errors opening the stats file in munin-update, closes: #329204.
-      - Plugin generic/multips is now sorted under Processes, closes: #312521.
       - Improves the default fonts in RRDtool 1.2, which caused some labels to
         line-wrap, reducing readability.  Closes: #361585.
+      - munin-node-configure-snmp now handles errors better, closes: #320455.
+      - Plugin generic/multips is now sorted under Processes, closes: #312521.
 
   * debian/munin-node.init, debian/munin.cron.d:
       - Recreate /var/run/munin on boot if it is absent.  This is a work-around
