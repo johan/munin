@@ -30,8 +30,8 @@ Description: network-wide graphing framework (node)
  technology.
  .
  Munin is written in Perl, and relies heavily on Tobi Oetiker's excellent
- RRDtool. To see a real example of Munin in action, take a peek at
- <http://www.linpro.no/projects/munin/example/>.
+ RRDtool. To see a real example of Munin in action, you can follow a link
+ from <http://munin.projects.linpro.no/> to a live installation.
 
 Package: munin-plugins-contrib
 Architecture: all
@@ -47,8 +47,8 @@ Description: network-wide graphing framework (local contrib plugins for node)
  <http://munin.projects.linpro.no/>.
  .
  Munin is written in Perl, and relies heavily on Tobi Oetiker's excellent
- RRDtool. To see a real example of Munin in action, take a peek at
- <http://www.linpro.no/projects/munin/example/>.
+ RRDtool. To see a real example of Munin in action, you can follow a link
+ from <http://munin.projects.linpro.no/> to a live installation.
 
 Package: munin
 Architecture: all
@@ -71,5 +71,5 @@ Description: network-wide graphing framework (grapher/gatherer)
  need to be alert it, or make use of the intrinsic Nagios support.
  .
  Munin is written in Perl, and relies heavily on Tobi Oetiker's excellent
- RRDtool. To see a real example of Munin in action, take a peek at
- <http://www.linpro.no/projects/munin/example/>.
+ RRDtool. To see a real example of Munin in action, you can follow a link
+ from <http://munin.projects.linpro.no/> to a live installation.

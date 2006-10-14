@@ -22,6 +22,10 @@ munin (1.2.5-1) unstable; urgency=low
         for brain-damage in Ubuntu, where this directory goes AWOL every time
         the machine is booted.  Closes: #380434.
 
+  * debian/control:
+      - The link to the example installation was broken, instead point to the
+        home page where there'll always be a link to a live one.
+
   * debian/munin-node.init:
       - Handle pidofproc() supplying the correct return code in the situation
         where the daemon is dead while the pid file exists.  This was a bug
