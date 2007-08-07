@@ -1,3 +1,13 @@
+munin (1.2.5-2) unstable; urgency=low
+
+  * apply patch that reads the default file, closes: #370347
+  
+  * control: add Loic Dachary (OuoU) <loic@debian.org> to Uploaders
+  
+  * control: standard version 3.7.2
+  
+ -- Loic Dachary (OuoU) <loic@debian.org>  Tue, 07 Aug 2007 14:54:11 +0000
+
 munin (1.2.5-1) unstable; urgency=low
 
   * New upstream release.

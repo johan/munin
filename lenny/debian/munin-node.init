@@ -43,6 +43,7 @@ log_progress_msg () {
 }
 
 . /lib/lsb/init-functions
+[ -r /etc/default/munin-node ] && . /etc/default/munin-node
 
 if [ ! -x $DAEMON ]; then
 	log_failure_msg "Munin-Node appears to be uninstalled."
@@ -86,7 +87,7 @@ start() {
 		log_end_msg 0
 		exit 0
 	fi
-	start_daemon -p $PIDFILE $DAEMON
+	start_daemon -p $PIDFILE $DAEMON $DAEMON_ARGS
 	ret=$?
 	# start_daemon() isn't thorough enough, ensure the daemon has been
 	# started manually
