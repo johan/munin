@@ -1,6 +1,8 @@
-#!/bin/sh
+#!@@GOODSH@@
 #
 # Plugin created by Alexandre Dupouy, with the assistance of Mike Fedyk
+#
+# $Id$
 #
 #%# family=auto
 #%# capabilities=autoconf
@@ -10,11 +12,11 @@ NFSD=/proc/net/rpc/nfsd
 proc="getattr setattr lookup access readlink read write create mkdir symlink mknod remove rmdir rename link readdir readdirplus fsstat fsinfo pathconf commit"
 
 if [ "$1" = "autoconf" ]; then
-	if [ -x "$NFSD" ]; then
+	if [ -f "$NFSD" ]; then
 		echo yes
 		exit 0
 	else
-		echo no
+		echo "no (no $NFSD)"
 		exit 1
 	fi
 fi
@@ -30,12 +32,9 @@ if [ "$1" = "config" ]; then
 	exit 0
 fi
 
-i=4;
-
-for a in $proc; do
-	echo -n "$a.value "
-	grep proc3 $NFSD \
-		| cut -f $i -d ' ' \
-		| awk '{print $1}'
-	i=$(expr $i + 1)
-done
+awk '/proc3/ {
+    split("'"$proc"'", names)
+    split($0,values)
+    for (e in names)
+        printf("%s.value %d\n", names[++i], values[i+3]);
+  }' $NFSD

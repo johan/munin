@@ -19,8 +19,8 @@ build-stamp:
 	$(MAKE) install-node install-node-plugins $(MAKEOPTS) \
 		DESTDIR=debian/munin-node
 	
-	install -m0644 debian/plugins.conf \
-		$(CURDIR)/debian/munin-node/etc/munin/plugin-conf.d/munin-node
+#	install -m0644 debian/plugins.conf \
+#		$(CURDIR)/debian/munin-node/etc/munin/plugin-conf.d/munin-node
 	
 	touch build-stamp
 

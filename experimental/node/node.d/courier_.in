@@ -1,4 +1,4 @@
-#!/bin/sh
+#!@@GOODSH@@
 #
 # Plugin to graph number of courier login/logouts
 # Requires: logtail
@@ -34,19 +34,20 @@
 # Set the location of the courier logs
 COURIER_LOG=${logfile:-/var/log/mail.log}
 SERVICE=${service:-`basename $0 | sed 's/^courier_//g'`}
-TEMP_FILE=`mktemp -p /tmp/ munin-courier.XXXXXX`
 OFFSET_FILE=@@PLUGSTATE@@/courier_${SERVICE}.offset
 LOGTAIL=${logtail:-/usr/sbin/logtail}
 
-if [ ! -f "$TEMP_FILE" ]; then
-    exit 3
-fi
+mktempfile () {
+@@MKTEMP@@
+}
 
 case $1 in
     autoconf|detect)
     if [ -f ${COURIER_LOG} -a -x ${LOGTAIL} ] 
     then
-	echo yes
+	# Makes no sense for wildcard plugin to autoconf to yes
+	# unless you can provide suggestions.
+	echo no
 	exit 0
     else
 	echo "no (either $COURIER_LOG was not found, or logtail was not in your path)"
@@ -73,6 +74,12 @@ if [ $? = 66 ]; then
     if [ ! -n "$logtail" ]; then
         ARGS=1
     fi
+fi
+
+TEMP_FILE=`mktempfile munin-courier.XXXXXX`
+
+if [ -z "$TEMP_FILE" -o ! -f "$TEMP_FILE" ]; then
+    exit 3
 fi
 
 if [ $ARGS != 0 ]; then

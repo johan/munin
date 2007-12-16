@@ -28,13 +28,14 @@ use strict;
 
 $| = 1;
 
-my $clientdir = "@@CONFIDR@@/node.d";
-my $conffile  = "@@CONFIDR@@/node-simple.conf";
+my $clientdir = "@@CONFDIR@@/node.d";
+my $conffile  = "@@CONFDIR@@/node-simple.conf";
 my $version   = "@@VERSION@@";
 
 # Empty environment
 %ENV = ();
 $ENV{PATH}  = "/bin:/usr/bin";
+# We emptied the environment. There will be no locale issues.
 
 my $config  = &read_config($conffile);
 my $plugins = &read_plugin_dir($clientdir);
