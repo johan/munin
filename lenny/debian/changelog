@@ -1,3 +1,39 @@
+munin (1.2.6rc1-1) unstable; urgency=low
+
+  * new upstream release
+    - introduce the munindoc command
+    - introduce Munin::Plugin.pm and plugin.sh with utility functions for
+      perl/shell plugins
+    - new plugins: ntp_offset
+      
+  * Closes: #440003 , partitions can now contain plussigns.
+  * Closes: #310915 , clear the locking procedures in Munin.pm.
+  * Closes: #387283 , fix typo in munin-limits.
+  * Closes: #307963 , enhanced doc of cgi mode in munin.conf.
+  * Closes: #241824 , improved documentation of Nagios integration 
+  * Closes: #307966 , fix graph expiry in munin-cgi-graph
+  * Closes: #311727 , fix uninitialized value problem in lock reading
+    code (Munin.pm).
+  * Closes: #336618 , make graph lines narrower.
+  * Closes: #307962 , added missing "/" and url to documentation
+  * Closes: #307997 , Document what graph_strategy cgi does.
+  * Closes: #385058 , Remove unused code in munin-limits which is also
+    confusing.
+  * Closes: #385358 , Fix redirect handling in munin-limit.
+  * Closes: #332285 , Since the munin components do its own locking, they
+    never run more then once per time.
+  * Closes: #403341: Fix typo.
+  * Closes: #373970,#398027 , regexp fixes in sensors_ plugin  
+  * Closes: #385291 , exclude squashfs from the df_ plugin
+  * Closes: #436002 , don't count the "active connections rejected because of
+    time stamp" in netstat plugin. 
+  * Closes: #440622 , exim_mailstats was complete rewritten
+  * Closes: #463721, irqstats plugin works now with kernel >=2.6.24
+  * Closes: #406479, fix typo in manpage munin-node.conf.5.
+
+
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Mon, 24 Mar 2008 23:16:56 +0100
+
 munin (1.2.5-2) unstable; urgency=low
 
   * apply patch that reads the default file, closes: #370347

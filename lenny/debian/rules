@@ -39,7 +39,7 @@ build-stamp:
 	mkdir -p $(CURDIR)/debian/munin-plugins-contrib/usr/share/munin/plugins
 	for file in `find debian/munin-node/usr/share/munin/plugins -type f`; do \
 		if ! grep -q "#%# family=\(auto\|manual\|snmpauto\)" $$file \
-		   && [ "`basename $$file`" != "plugins.history" ]; then \
+		   && [ "`basename $$file`" != "plugins.history" ] && [ "`basename $$file`" != "plugin.sh" ]; then \
 			mv $$file $(CURDIR)/debian/munin-plugins-contrib/usr/share/munin/plugins; \
 		fi; \
 	done
