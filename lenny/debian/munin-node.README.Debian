@@ -44,5 +44,10 @@ Debian-specific information regarding the Munin node
     example beautiful women fluent in assembly, bacillus anthracis, cash,
     explosives, and so on), take contact off-list, and we'll find a way of
     arranging the logistics.
+  
+  Find the upstream source
+  ------------------------
+    This Debian package uses the upstream tarball located here:
+    https://sourceforge.net/project/showfiles.php?group_id=98117&package_id=117759&release_id=586786.
 
 Enjoy!  :-)
