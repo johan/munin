@@ -9,6 +9,8 @@ export DH_VERBOSE=
 # BTS, these are unsupported in Debian.
 MAKEOPTS = CONFIG=debian/Makefile.config INSTALL_PLUGINS="auto manual snmpauto contrib"
 
+include /usr/share/quilt/quilt.make
+
 ifeq (,$(findstring munin:build-contrib-pkg,$(DEB_BUILD_OPTIONS)))
 buildpackages=munin munin-node
 else
@@ -19,7 +21,7 @@ endif
 dhbuildpackages=$(addprefix -p,$(buildpackages))
 
 build: build-stamp
-build-stamp:
+build-stamp: $(QUILT_STAMPFN) 
 	dh_testdir
 	dh_installdirs
 	
@@ -46,7 +48,7 @@ build-stamp:
 
 	touch build-stamp
 
-clean:
+clean: unpatch
 	dh_testdir
 	dh_clean
 	-$(MAKE) clean
