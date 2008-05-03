@@ -48,6 +48,6 @@ Debian-specific information regarding the Munin node
   Find the upstream source
   ------------------------
     This Debian package uses the upstream tarball located here:
-    https://sourceforge.net/project/showfiles.php?group_id=98117&package_id=117759&release_id=586786.
+    http://sourceforge.net/projects/munin .
 
 Enjoy!  :-)

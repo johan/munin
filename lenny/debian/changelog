@@ -1,4 +1,4 @@
-munin (1.2.6~rc1-1) unstable; urgency=low
+munin (1.2.6~rc2-1) unstable; urgency=low
 
   * new upstream release
     - introduce the munindoc command
@@ -30,8 +30,9 @@ munin (1.2.6~rc1-1) unstable; urgency=low
   * Closes: #440622 , exim_mailstats was complete rewritten
   * Closes: #463721, irqstats plugin works now with kernel >=2.6.24
   * Closes: #406479, fix typo in manpage munin-node.conf.5.
+  * Closes: #454260, exclude the same filesystems in df*
 
- -- Matthias Schmitz <matthias@sigxcpu.org>  Sat, 19 Apr 2008 22:40:16 +0200
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Sat, 03 May 2008 22:04:22 +0200
 
 munin (1.2.5-2) unstable; urgency=low
 
