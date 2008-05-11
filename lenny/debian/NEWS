@@ -113,8 +113,8 @@ munin (1.2.0-1) unstable; urgency=low
     data reappear in the graph, you may do so using the following procedure:
 
         cd /var/lib/munin/fud.no
-	rrdtool tune lust.fud.no-cpu-user-c.rrd -d 42:DERIVE
-	mv -f lust.fud.no-cpu-user-c.rrd lust.fud.no-cpu-user-d.rrd
+        rrdtool tune lust.fud.no-cpu-user-c.rrd -d 42:DERIVE
+        mv -f lust.fud.no-cpu-user-c.rrd lust.fud.no-cpu-user-d.rrd
 
     You will have to repeat this process once for each field in each affected
     plugin.  Also remember to ensure that the "munin" system user have write
@@ -142,7 +142,7 @@ munin (1.2.0-1) unstable; urgency=low
     do the following:
 
         cd /var/lib/munin
-	ls */*.rrd | awk '-F[/-]' '{if(length($4)==18) print}'
+        ls */*.rrd | awk '-F[/-]' '{if(length($4)==18) print}'
 
     This will output one line for each file that may be affected, for instance:
 
@@ -161,7 +161,7 @@ munin (1.2.0-1) unstable; urgency=low
     /etc/munin/munin.conf, and will for this example look like this:
 
         [pride.fud.no]
-	  address 127.0.0.1
+          address 127.0.0.1
 
     Next, connect to the host's Munin-node process:
 
@@ -185,8 +185,8 @@ munin (1.2.0-1) unstable; urgency=low
     rename the RRD file so that the new version can find it:
 
         cd /var/lib/munin/fud.no
-	mv pride.fud.no-df-v_mapper_pride_usr-g.rrd \
-	   pride.fud.no-df-_dev_mapper_pride_usr-g.rrd
+        mv pride.fud.no-df-v_mapper_pride_usr-g.rrd \
+           pride.fud.no-df-_dev_mapper_pride_usr-g.rrd
 
     If you find no possible matches, it may be because the RRD file contains
     data that are no longer collected, which could've happened in this example

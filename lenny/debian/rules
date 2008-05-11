@@ -51,7 +51,7 @@ build-stamp: $(QUILT_STAMPFN)
 clean: unpatch
 	dh_testdir
 	dh_clean
-	-$(MAKE) clean
+	$(MAKE) clean
 
 binary: binary-indep
 

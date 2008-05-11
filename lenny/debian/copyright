@@ -10,10 +10,10 @@ Lead developers include:
   Knut Haugen     <knuthaug@linpro.no>
   Ingvar Hagelund <ingvar@linpro.no>
 
-Munin is licensed under the terms of the GNU General Public License.
+Munin is licensed under the terms of the GNU General Public License, version 2.
 A verbatim copy of this license is found in the file
 
- `/usr/share/common-licenses/GPL'
+ `/usr/share/common-licenses/GPL-2'
 
 on every Debian GNU/Linux system.
 
