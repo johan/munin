@@ -1,14 +1,15 @@
-munin (1.2.6~rc2-1) unstable; urgency=low
+munin (1.2.6-1) unstable; urgency=low
 
   [ Matthias Schmitz ]
   * new upstream release (Closes: #440003, #310915, #387283, #307963, #241824,
     #307966, #311727, #336618, #307962, #307997, #385058, #385358, #332285,
     #403341, #373970, #398027, #385291, #436002, #440622, #463721, #406479,
-    #454260)
+    #454260, #484068, #472207, #485830)
     - introduce the munindoc command
     - introduce Munin::Plugin.pm and plugin.sh with utility functions for
       perl/shell plugins
     - new plugins: ntp_offset
+  * Added tomcat_* plugins from Munin 1.3.4, Closes: #484097
 
   [ Holger Levsen ]
   * Add Matthias and myself to uploaders.
