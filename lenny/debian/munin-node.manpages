@@ -3,3 +3,4 @@ build/doc/munin-node.8
 build/doc/munin-node-configure.8
 build/doc/munin-node-configure-snmp.8
 build/doc/munin-run.8
+build/doc/munindoc.1
