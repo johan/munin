@@ -102,7 +102,7 @@ install-node-plugins: build
 	#configure plugins.
 
 install-man: build-man
-	mkdir -p $(MANDIR)/man1 $(MANDIR)/man5 $(MANDIR)/man8
+	mkdir -p $(MANDIR)/man1 $(MANDIR)/man5 $(MANDIR)/man8 $(MANDIR)/man1
 	$(INSTALL) -m 0644 build/doc/munin-node.conf.5 $(MANDIR)/man5/
 	$(INSTALL) -m 0644 build/doc/munin.conf.5 $(MANDIR)/man5/
 	$(INSTALL) -m 0644 build/doc/munin-node.8 $(MANDIR)/man8/
@@ -114,6 +114,7 @@ install-man: build-man
 	$(INSTALL) -m 0644 build/doc/munin-limits.8 $(MANDIR)/man8/
 	$(INSTALL) -m 0644 build/doc/munin-html.8 $(MANDIR)/man8/
 	$(INSTALL) -m 0644 build/doc/munin-cron.8 $(MANDIR)/man8/
+	$(INSTALL) -m 0644 build/doc/munindoc.1 $(MANDIR)/man1/
 
 install-doc: build-doc
 	mkdir -p $(DOCDIR)
@@ -205,6 +206,8 @@ build-man-stamp: build
 		server/munin.conf.pod > build/doc/munin.conf.5
 	pod2man  --section=5 --release=$(RELEASE) --center="Munin Documentation" \
 		node/munin-node.conf.pod > build/doc/munin-node.conf.5
+	pod2man  --section=1 --release=$(RELEASE) --center="Munin Documentation" \
+		build/node/munindoc > build/doc/munindoc.1
 
 	touch build-man-stamp
 

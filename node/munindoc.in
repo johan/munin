@@ -80,3 +80,26 @@ munindoc - Munin documentation
 
 This program displays munin documentation found in pod format adjacent
 to plugins (and later other parts of Munin).
+Please see "man perlpod" for the reference manual to writing pod files.
+
+=head1 AUTHORS
+
+Nicolai Langfeldt
+
+=head1 BUGS
+
+None known.
+
+=head1 COPYRIGHT
+
+Copyright (C) 2008 Nicolai Langfeldt/Linpro AS
+
+This is free software; see the source for copying conditions. There is
+NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR
+PURPOSE.
+
+This program is released under the GNU General Public License
+
+=cut
+
+
