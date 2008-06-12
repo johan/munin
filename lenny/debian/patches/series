@@ -2,3 +2,4 @@
 110-node.d-tomcat_jvm.patch
 120-node.d-tomcat_threads.patch
 130-node.d-tomcat_volume.patch
+200-node-plugins.history.patch
