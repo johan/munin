@@ -50,4 +50,7 @@ Debian-specific information regarding the Munin node
     This Debian package uses the upstream tarball located here:
     http://sourceforge.net/projects/munin .
 
+    It also uses quilt to apply some debian specific patches located in
+    ./debian/patches/
+
 Enjoy!  :-)

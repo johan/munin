@@ -1,11 +1,16 @@
 munin (1.2.6-2) unstable; urgency=low
   
+  [ Matthias Schmitz ]
   * Fix the exim detection in exim_mailqueue with the patch from Damyan
     Ivanov, thanks! Closes: #486865
   * Replace the wrong filehandle close in exim_mailstats through tail_close().
     Closes: #486868
   * Remove the "-w" from the hash bang line of ntp_offset since nether dash
     nor bash (or ksh) knows this parameter. Closes: #486887
+
+  [ Holger Levsen ]
+  * Bump Standards-Version to 3.8.0, add Homepage and Vcs-* pseudo-headers.
+  * Add README.source.
 
  -- Matthias Schmitz <matthias@sigxcpu.org>  Sun, 22 Jun 2008 23:34:27 +0200
 
