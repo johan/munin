@@ -1,7 +1,7 @@
 Source: munin
 Section: net
 Priority: optional
-Maintainer: Munin Debian Maintainers <munin@packages.debian.org>
+Maintainer: Munin Debian Maintainers <munin-deb-maint@linpro.no>
 Uploaders: Tore Anderson <tore@debian.org>, Dagfinn Ilmari Mannsaker <ilmari@ilmari.org>, Loic Dachary (OuoU) <loic@debian.org>, Matthias Schmitz <matthias@sigxcpu.org>, Holger Levsen <holger@debian.org> 
 Build-Depends-Indep: perl, htmldoc, html2text
 Build-Depends: debhelper, quilt
