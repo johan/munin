@@ -1,3 +1,6 @@
+140-node.d-ups_.patch
+234-smart_.patch
+233-df_and_df_inode.patch
 230-exim_mailqueue.patch
 220-Makefile.patch
 210-munindoc-manpage.patch

@@ -8,12 +8,20 @@ munin (1.2.6-2) unstable; urgency=low
   * Remove the "-w" from the hash bang line of ntp_offset since nether dash
     nor bash (or ksh) knows this parameter. Closes: #486887
   * Change maintainer mail back to munin-deb-maint@linpro.no
+  * To become compatible with Nagios substitute "%" by "percent" in graph
+    title of plugins df and df_inode. Thanks Andreas Beckmann, Closes: #472239
+  * The plugin smart_ will not longer spin up disks in standby mode. Added "-n
+    standby" to the smartctl call. In plugin hddtemp_smartctl this issue was
+    already fixed upstream. Closes: #409462
+  * Included plugin 'ups_'. Thanks Andras Korn! Closes: #305917
+  * The plugin df_abs allows long devices names. This issue was fixed
+    upstream. Closes: #300202
 
   [ Holger Levsen ]
   * Bump Standards-Version to 3.8.0, add Homepage and Vcs-* pseudo-headers.
   * Add README.source.
 
- -- Matthias Schmitz <matthias@sigxcpu.org>  Mon, 23 Jun 2008 20:33:44 +0200
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Fri, 27 Jun 2008 18:01:22 +0200
 
 munin (1.2.6-1) unstable; urgency=low
 
