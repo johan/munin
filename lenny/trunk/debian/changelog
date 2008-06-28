@@ -19,7 +19,8 @@ munin (1.2.6-2) unstable; urgency=low
 
   [ Holger Levsen ]
   * Bump Standards-Version to 3.8.0, add Homepage and Vcs-* pseudo-headers.
-  * Add README.source.
+  * Add README.source and convert it to svn-buildpackage. Thanks to Patrick
+    Winnertz for help on this and writing the pbuilder part of README.source.   
 
  -- Matthias Schmitz <matthias@sigxcpu.org>  Fri, 27 Jun 2008 18:01:22 +0200
 
