@@ -19,13 +19,17 @@ munin (1.2.6-2) unstable; urgency=low
   * Set default logfile to mail.conf for postfix_mailvolume in plugins.conf
     since Debian's postfix logs there. In the plugin postfix_mailstats this
     issue was already fixed upstream. Closes: #461302
+  * Documentation improvements in munin-node.conf.5 about the interfaces on
+    which munin listens. Closes: #342872
+  * Added detection of slashes in plugin ip_'s suggest mode. Closes: #464881,
+    Closes: #411643, Closes: #402881
 
   [ Holger Levsen ]
   * Bump Standards-Version to 3.8.0, add Homepage and Vcs-* pseudo-headers.
   * Add README.source and convert it to svn-buildpackage. Thanks to Patrick
     Winnertz for help on this and writing the pbuilder part of README.source.   
 
- -- Matthias Schmitz <matthias@sigxcpu.org>  Sat, 28 Jun 2008 19:27:02 +0200
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Sat, 28 Jun 2008 21:49:18 +0200
 
 munin (1.2.6-1) unstable; urgency=low
 
