@@ -21,8 +21,8 @@ munin (1.2.6-2) unstable; urgency=low
     issue was already fixed upstream. Closes: #461302
   * Documentation improvements in munin-node.conf.5 about the interfaces on
     which munin listens. Closes: #342872
-  * Added detection of slashes in plugin ip_'s suggest mode. Closes: #464881,
-    Closes: #411643, Closes: #402881
+  * Added detection of slashes in plugin ip_'s suggest mode. 
+    Closes: #464881, #411643, #402881
 
   [ Holger Levsen ]
   * Bump Standards-Version to 3.8.0, add Homepage and Vcs-* pseudo-headers.
