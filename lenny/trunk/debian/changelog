@@ -16,13 +16,16 @@ munin (1.2.6-2) unstable; urgency=low
   * Included plugin 'ups_'. Thanks Andras Korn! Closes: #305917
   * The plugin df_abs allows long devices names. This issue was fixed
     upstream. Closes: #300202
+  * Set default logfile to mail.conf for postfix_mailvolume in plugins.conf
+    since Debian's postfix logs there. In the plugin postfix_mailstats this
+    issue was already fixed upstream. Closes: #461302
 
   [ Holger Levsen ]
   * Bump Standards-Version to 3.8.0, add Homepage and Vcs-* pseudo-headers.
   * Add README.source and convert it to svn-buildpackage. Thanks to Patrick
     Winnertz for help on this and writing the pbuilder part of README.source.   
 
- -- Matthias Schmitz <matthias@sigxcpu.org>  Fri, 27 Jun 2008 18:01:22 +0200
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Sat, 28 Jun 2008 19:27:02 +0200
 
 munin (1.2.6-1) unstable; urgency=low
 
