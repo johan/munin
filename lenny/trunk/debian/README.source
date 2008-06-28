@@ -15,7 +15,7 @@ Debian specific patches reside in debian/patches/ and are applied with quilt.
 #
 # using svn-buildpackage
 #
-cd trunk/debian
+cd trunk/
 svn-buildpackage
 
 #
