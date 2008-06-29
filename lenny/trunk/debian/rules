@@ -2,20 +2,11 @@
 
 export DH_VERBOSE=
 
-# to build a package with the contrib plugins, either set the following
-# variable to "yes", or invoke
-#     DEB_BUILD_OPTIONS=munin:build-contrib-pkg fakeroot debian/rules binary
-# Please do not file any bugs against contrib plugins with the Debian
-# BTS, these are unsupported in Debian.
 MAKEOPTS = CONFIG=debian/Makefile.config INSTALL_PLUGINS="auto manual snmpauto contrib"
 
 include /usr/share/quilt/quilt.make
 
-ifeq (,$(findstring munin:build-contrib-pkg,$(DEB_BUILD_OPTIONS)))
-buildpackages=munin munin-node
-else
-buildpackages=munin munin-node munin-plugins-contrib
-endif
+buildpackages=munin munin-node munin-plugins-extra
 
 # generate -pfoo commandline for debhelper
 dhbuildpackages=$(addprefix -p,$(buildpackages))
@@ -38,11 +29,11 @@ build-stamp: $(QUILT_STAMPFN)
 	install -m0644 debian/plugins.conf \
 		$(CURDIR)/debian/munin-node/etc/munin/plugin-conf.d/munin-node
 
-	mkdir -p $(CURDIR)/debian/munin-plugins-contrib/usr/share/munin/plugins
+	mkdir -p $(CURDIR)/debian/munin-plugins-extra/usr/share/munin/plugins
 	for file in `find debian/munin-node/usr/share/munin/plugins -type f`; do \
 		if ! grep -q "#%# family=\(auto\|manual\|snmpauto\)" $$file \
 		   && [ "`basename $$file`" != "plugins.history" ] && [ "`basename $$file`" != "plugin.sh" ]; then \
-			mv $$file $(CURDIR)/debian/munin-plugins-contrib/usr/share/munin/plugins; \
+			mv $$file $(CURDIR)/debian/munin-plugins-extra/usr/share/munin/plugins; \
 		fi; \
 	done
 

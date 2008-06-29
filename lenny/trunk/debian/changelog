@@ -14,13 +14,9 @@ munin (1.2.6-2) unstable; urgency=low
     standby" to the smartctl call. In plugin hddtemp_smartctl this issue was
     already fixed upstream. Closes: #409462
   * Included plugin 'ups_'. Thanks Andras Korn! Closes: #305917
-  * The plugin df_abs allows long devices names. This issue was fixed
-    upstream. Closes: #300202
   * Set default logfile to mail.conf for postfix_mailvolume in plugins.conf
     since Debian's postfix logs there. In the plugin postfix_mailstats this
     issue was already fixed upstream. Closes: #461302
-  * Documentation improvements in munin-node.conf.5 about the interfaces on
-    which munin listens. Closes: #342872
   * Added detection of slashes in plugin ip_'s suggest mode. 
     Closes: #464881, #411643, #402881
 
