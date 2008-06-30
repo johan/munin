@@ -20,8 +20,10 @@ munin (1.2.6-2) unstable; urgency=low
   * Added detection of slashes in plugin ip_'s suggest mode. 
     Closes: #464881, #411643, #402881
   * Included plugin 'openvpn'. Closes: #354447
-  * Build the package 'munin-plugins-extra' whith user contributed plugins now
-    by default.
+  * Build the binary package 'munin-plugins-extra' whith user contributed 
+    plugins now (again) by default. Though previously this package was called
+    'munin-plugins-contrib'. It was renamed to avoid confusion with through
+    the term 'contrib' which is used in Debian with a different meaning.
 
   [ Holger Levsen ]
   * Bump Standards-Version to 3.8.0, add Homepage and Vcs-* pseudo-headers.
