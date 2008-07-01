@@ -22,14 +22,18 @@ fixperms() {
 }
 
 init_plugins() {
+	TMPFILE=`mktemp /tmp/munin-node.configure.XXXXXXXXXX`
 	if [ "$prevver" ]; then
 		echo -n "Initializing new plugins.."
-		munin-node-configure --shell --newer "${prevver%-*}" | sh
+		munin-node-configure --shell --newer "${prevver%-*}" > $TMPFILE
+		if [ "$?" ] ; then sh < $TMPFILE ; fi
 	else
 		echo -n "Initializing plugins.."
-		munin-node-configure --shell | sh
+		munin-node-configure --shell > $TMPFILE
+		if [ "$?" ] ; then sh < $TMPFILE ; fi
 	fi
 	echo "done."
+	rm $TMFILE
 }
 
 case "$1" in

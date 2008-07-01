@@ -29,8 +29,20 @@ munin (1.2.6-2) unstable; urgency=low
   * Bump Standards-Version to 3.8.0, add Homepage and Vcs-* pseudo-headers.
   * Add README.source and convert it to svn-buildpackage. Thanks to Patrick
     Winnertz for help on this and writing the pbuilder part of README.source.   
+  * Add error checking to postinst, so the postinst (and with it dpkg) doesn't
+    fail if munin-node-configure fails, for example if /proc is not mounted.
+  * Provide entry about the munin-plugins-extra package in NEWS file.
+  * Add suggests to logtail for munin-plugins-extra, as some of those plugins
+    need it.
+  * Remove the buggy and unneeded logtail version detection code in the
+    amavis and courier plugins as described in #298895 and #297628. (The bugs
+    were closed in the BTS when the now called 'munin-plugins-extra' package
+    wasn't build on default anymore.)
+  * Adjust the default path for the mail logfile as suggested in #296533.
+    (Same here, bug was closed in the BTS when this binary package wasn't
+    build on default anymore.) 
 
- -- Matthias Schmitz <matthias@sigxcpu.org>  Mon, 30 Jun 2008 20:20:21 +0200
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Tue, 01 Jul 2008 19:06:20 +0200
 
 munin (1.2.6-1) unstable; urgency=low
 
