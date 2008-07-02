@@ -26,11 +26,19 @@ init_plugins() {
 	if [ "$prevver" ]; then
 		echo -n "Initializing new plugins.."
 		munin-node-configure --shell --newer "${prevver%-*}" > $TMPFILE
-		if [ "$?" ] ; then sh < $TMPFILE ; fi
+		if [ "$?" ] ; then 
+			sh < $TMPFILE  
+		else
+			echo "failed."
+		fi
 	else
 		echo -n "Initializing plugins.."
 		munin-node-configure --shell > $TMPFILE
-		if [ "$?" ] ; then sh < $TMPFILE ; fi
+		if [ "$?" ] ; then
+			sh < $TMPFILE
+		else 
+			echo "failed."
+		fi
 	fi
 	echo "done."
 	rm $TMFILE
