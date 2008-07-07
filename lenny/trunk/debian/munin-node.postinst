@@ -41,7 +41,7 @@ init_plugins() {
 		fi
 	fi
 	echo "done."
-	rm $TMFILE
+	rm $TMPFILE
 }
 
 case "$1" in
