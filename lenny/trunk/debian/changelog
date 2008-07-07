@@ -1,4 +1,4 @@
-munin (1.2.6-3) UNRELEASED; urgency=low
+munin (1.2.6-3) unstable; urgency=low
 
   [ Holger Levsen ]
   * Add liblwp-useragent-determined-perl to suggests for the munin-node
