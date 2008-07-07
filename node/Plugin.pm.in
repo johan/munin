@@ -303,7 +303,7 @@ sub restore_state {
 }
 
 
-=head ($file_handle,$rotated) = tail_open($file_name,$position)
+=head3 ($file_handle,$rotated) = tail_open($file_name,$position)
 
 Open the given file and seek to the given position.  If this position
 is beyond the end of the file the function assumes that the file has
@@ -352,7 +352,7 @@ sub tail_open ($$) {
     return ($fh,$filereset);
 }
 
-=head $position = tail_close($file_handle)
+=head3 $position = tail_close($file_handle)
 
 Close the the file and return the current position in the file.  This
 position should be put in a state vector and stored in a state file
