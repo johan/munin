@@ -1,7 +1,11 @@
 munin (1.2.6-3) UNRELEASED; urgency=low
 
+  [ Holger Levsen ]
   * Add liblwp-useragent-determined-perl to suggests for the munin-node
     package as its needed for the apache_accesses plugin.
+
+  [ Matthias Schmitz ]
+  * Fix typo in munin-node postinst.
 
  -- Holger Levsen <holger@debian.org>  Fri, 04 Jul 2008 13:24:08 +0200
 
