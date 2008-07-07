@@ -5,7 +5,7 @@ munin (1.2.6-3) UNRELEASED; urgency=low
     package as its needed for the apache_accesses plugin.
 
   [ Matthias Schmitz ]
-  * Fix typo in munin-node postinst.
+  * Fix typo in munin-node postinst. (Closes: #489591)
 
  -- Holger Levsen <holger@debian.org>  Fri, 04 Jul 2008 13:24:08 +0200
 
