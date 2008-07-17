@@ -1,3 +1,12 @@
+munin (1.2.6-4) unstable; urgency=low
+
+  * Install munin-node gracefully (ie. inside a chroot, where port 4949 is
+    bound to another munin-node already) : munin-node.postinst: don't exit
+    postinst with error if just munin-node-configure fails. debian/rules: use
+    dh_installinit with --error-handler=true. (Closes: #491130) 
+  
+  -- Holger Levsen <holger@debian.org>  Thu, 17 Jul 2008 16:33:05 +0000
+
 munin (1.2.6-3) unstable; urgency=low
 
   [ Holger Levsen ]

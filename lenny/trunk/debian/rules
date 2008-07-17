@@ -54,7 +54,7 @@ binary-indep: build-stamp
 	dh_installdocs $(dhbuildpackages)
 	dh_installchangelogs $(dhbuildpackages) ChangeLog
 	dh_installman $(dhbuildpackages)
-	dh_installinit $(dhbuildpackages) -- "defaults 98 20"
+	dh_installinit --error-handler=true $(dhbuildpackages) -- "defaults 98 20"
 	dh_installcron $(dhbuildpackages)
 	dh_installlogrotate $(dhbuildpackages)
 	dh_installdebconf $(dhbuildpackages)
