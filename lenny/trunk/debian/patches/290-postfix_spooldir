@@ -1,0 +1,20 @@
+Index: munin-1.2.6/node/node.d/postfix_mailqueue.in
+===================================================================
+--- munin-1.2.6.orig/node/node.d/postfix_mailqueue.in	2008-07-20 22:15:33.000000000 +0200
++++ munin-1.2.6/node/node.d/postfix_mailqueue.in	2008-07-20 22:22:20.000000000 +0200
+@@ -30,8 +30,13 @@
+ #%# family=auto
+ #%# capabilities=autoconf
+ 
+-# Can be set via environment, but default is /var/spool/postfix
+-SPOOLDIR=${spooldir:-/var/spool/postfix}
++# Can be set via environment, but default is fetched by postconf (if available,
++# else /var/spool/postfix) 
++if which postconf ; then
++	SPOOLDIR=${spooldir:-`postconf -h queue_directory`}
++else
++	SPOOLDIR=${spooldir:-/var/spool/postfix}
++fi
+ 
+ # Postfix mqueue management: http://www.postfix.cs.uu.nl/queuing.html
+ # maildrop: Localy posted mail
