@@ -13,6 +13,8 @@ munin (1.2.6-4) unstable; urgency=low
   * munin-node: depend on gawk. (Closes: #491559)
   * munin-node-configure: don't treat empty suggests as errors. 
     (Closes: #491475)
+  * munin-node: sensors plugin: don't output errors on autoconf and suggest if
+    no sensors binary is installed. (Closes: #491473)
 
  -- Holger Levsen <holger@debian.org>  Thu, 17 Jul 2008 16:33:05 +0000
 
