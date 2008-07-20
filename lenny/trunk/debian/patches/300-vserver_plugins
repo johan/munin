@@ -3,7 +3,7 @@ Index: munin-1.2.6/node/node.d.linux/vserver_cpu_.in
 --- /dev/null	1970-01-01 00:00:00.000000000 +0000
 +++ munin-1.2.6/node/node.d.linux/vserver_cpu_.in	2008-07-20 22:43:11.000000000 +0200
 @@ -0,0 +1,190 @@
-+#!/bin/sh
++#!/bin/bash
 +#
 +# Copyright (C) 2006-2008 Holger Levsen and Micah Anderson
 +#
@@ -198,7 +198,7 @@ Index: munin-1.2.6/node/node.d.linux/vserver_loadavg.in
 --- /dev/null	1970-01-01 00:00:00.000000000 +0000
 +++ munin-1.2.6/node/node.d.linux/vserver_loadavg.in	2008-07-20 22:43:11.000000000 +0200
 @@ -0,0 +1,123 @@
-+#!/bin/sh
++#!/bin/bash
 +#
 +# Copyright (C) 2007 Andrei Morgan
 +# Copyright (C) 2008 Micah Anderson
@@ -326,7 +326,7 @@ Index: munin-1.2.6/node/node.d.linux/vserver_resources.in
 --- /dev/null	1970-01-01 00:00:00.000000000 +0000
 +++ munin-1.2.6/node/node.d.linux/vserver_resources.in	2008-07-20 22:43:11.000000000 +0200
 @@ -0,0 +1,317 @@
-+#!/bin/sh
++#!/bin/bash
 +#
 +# Copyright (C) 2006-2008 Holger Levsen, Micah Anderson
 +#
