@@ -1,5 +1,6 @@
 320-sensors_fix
 330-courier-typo
+310-node-configure_bugfix 
 300-vserver_plugins
 290-postfix_spooldir
 280-if_regex
