@@ -8,6 +8,8 @@ munin (1.2.6-4) unstable; urgency=low
     detected interfaces. (Closes: #489505)
   * munin-node: postfix_mailqueue plugin: use postconf to detect postfix's
     spooldir. (Closes: #383397) 
+  * munin-plugins-extra: include vserver plugins (Closes: #489737), thanks to
+    Micah Anderson for maintaining them.
 
  -- Holger Levsen <holger@debian.org>  Thu, 17 Jul 2008 16:33:05 +0000
 
