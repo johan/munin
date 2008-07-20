@@ -9,7 +9,8 @@ munin (1.2.6-4) unstable; urgency=medium
   * munin-node: postfix_mailqueue plugin: use postconf to detect postfix's
     spooldir. (Closes: #383397) 
   * munin-plugins-extra: include vserver plugins (Closes: #489737), thanks to
-    Micah Anderson for maintaining them.
+    Micah Anderson for maintaining them. Make them use /bin/bash instead of
+    /bin/sh as they don't work with dash yet.
   * munin-node: depend on gawk. (Closes: #491559)
   * munin-node: add versioned dependency on lsb-base. (Closes: #469311)
   * munin-node-configure: don't treat empty suggests as errors. 
