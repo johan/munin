@@ -13,7 +13,7 @@ munin (1.2.6-4) unstable; urgency=low
   * munin-node: depend on gawk. (Closes: #491559)
   * munin-node: add versioned dependency on lsb-base. (Closes: #469311)
   * munin-node-configure: don't treat empty suggests as errors. 
-    (Closes: #491475)
+    (Closes: #491475, #489502)
   * munin-node: sensors plugin: don't output errors on autoconf and suggest if
     no sensors binary is installed. (Closes: #491473)
   * munin-plugins-extra: fix typo in courier plugin. (Closes: #491463)  
