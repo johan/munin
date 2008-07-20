@@ -1,4 +1,4 @@
-munin (1.2.6-4) unstable; urgency=low
+munin (1.2.6-4) unstable; urgency=medium
 
   * Install munin-node gracefully (ie. inside a chroot, where port 4949 is
     bound to another munin-node already) : munin-node.postinst: don't exit
