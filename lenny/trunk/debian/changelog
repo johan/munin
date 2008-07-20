@@ -6,6 +6,8 @@ munin (1.2.6-4) unstable; urgency=low
     dh_installinit with --error-handler=true. (Closes: #491130) 
   * munin-node: if_ and if_err_ plugins: add msh|venet|veth to the regex of
     detected interfaces. (Closes: #489505)
+  * munin-node: postfix_mailqueue plugin: use postconf to detect postfix's
+    spooldir. (Closes: #383397) 
 
  -- Holger Levsen <holger@debian.org>  Thu, 17 Jul 2008 16:33:05 +0000
 
