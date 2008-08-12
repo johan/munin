@@ -1,3 +1,13 @@
+munin (1.2.6-5) unstable; urgency=low
+
+  * UNRELEASED
+  * The plugin nfsd will not longer try to read values from a not longer
+    existent /proc/net/rpc/nfsd. (Closes: #490882)
+  * munin-run will now print its usage if its called without a plugin
+    parameter. (Closes: #416478)
+
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Wed, 13 Aug 2008 01:19:12 +0200
+
 munin (1.2.6-4) unstable; urgency=medium
 
   * Install munin-node gracefully (ie. inside a chroot, where port 4949 is
