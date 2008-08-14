@@ -2,7 +2,7 @@ munin (1.2.6-5) unstable; urgency=low
 
   * UNRELEASED
   * The plugin nfsd will not longer try to read values from a not longer
-    existent /proc/net/rpc/nfsd. (Closes: #490882)
+    existent /proc/net/rpc/nfsd. (Closes: #490882, #473854)
   * munin-run will now print its usage if its called without a plugin
     parameter. (Closes: #416478)
   * node.d/postfix_mailqueue: redirect the 'which' output to /dev/null to
@@ -12,7 +12,7 @@ munin (1.2.6-5) unstable; urgency=low
   * add an entry to /etc/munin/plugin-conf.d/munin-node to let the plugin
     fw_forwarded_local run as root. (Closes: #411869)
 
- -- Matthias Schmitz <matthias@sigxcpu.org>  Thu, 14 Aug 2008 17:45:35 +0200
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Thu, 14 Aug 2008 23:51:54 +0200
 
 munin (1.2.6-4) unstable; urgency=medium
 
