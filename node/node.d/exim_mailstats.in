@@ -211,6 +211,8 @@ sub parseEximfile {
 
     while ($line = <$LOGFILE>) {
 	chomp ($line);
+	# delete the pid out if there is one (Debian #440622)
+	$line =~ s/^(.{19} )\[\d+\] /$1/; 
 
 	if (substr ($line, 37,2 ) eq '<=') {
 	    $received++;
