@@ -5,8 +5,10 @@ munin (1.2.6-5) unstable; urgency=low
     existent /proc/net/rpc/nfsd. (Closes: #490882)
   * munin-run will now print its usage if its called without a plugin
     parameter. (Closes: #416478)
+  * node.d/postfix_mailqueue: redirect the 'which' output to /dev/null to
+    avoid an unnecessary error message. (Closes: #495004)
 
- -- Matthias Schmitz <matthias@sigxcpu.org>  Wed, 13 Aug 2008 01:19:12 +0200
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Thu, 14 Aug 2008 05:28:33 +0200
 
 munin (1.2.6-4) unstable; urgency=medium
 

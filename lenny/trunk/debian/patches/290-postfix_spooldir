@@ -1,7 +1,7 @@
 Index: munin-1.2.6/node/node.d/postfix_mailqueue.in
 ===================================================================
---- munin-1.2.6.orig/node/node.d/postfix_mailqueue.in	2008-07-20 22:15:33.000000000 +0200
-+++ munin-1.2.6/node/node.d/postfix_mailqueue.in	2008-07-20 22:22:20.000000000 +0200
+--- munin-1.2.6.orig/node/node.d/postfix_mailqueue.in	2005-03-29 22:32:59.000000000 +0200
++++ munin-1.2.6/node/node.d/postfix_mailqueue.in	2008-08-14 05:27:46.000000000 +0200
 @@ -30,8 +30,13 @@
  #%# family=auto
  #%# capabilities=autoconf
@@ -10,7 +10,7 @@ Index: munin-1.2.6/node/node.d/postfix_mailqueue.in
 -SPOOLDIR=${spooldir:-/var/spool/postfix}
 +# Can be set via environment, but default is fetched by postconf (if available,
 +# else /var/spool/postfix) 
-+if which postconf ; then
++if which postconf > /dev/null ; then
 +	SPOOLDIR=${spooldir:-`postconf -h queue_directory`}
 +else
 +	SPOOLDIR=${spooldir:-/var/spool/postfix}
