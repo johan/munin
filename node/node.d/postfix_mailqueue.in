@@ -4,34 +4,17 @@
 # 
 # Contributed by Nicolai Langfeldt
 # 
-# $Log$
-# Revision 1.4  2004/05/20 19:02:36  jimmyo
-# Set categories on a bunch of plugins
-#
-# Revision 1.3  2004/05/14 21:16:46  jimmyo
-# "Upped" som plugins from contrib/manual to auto.
-#
-# Revision 1.2  2004/05/09 21:11:15  jimmyo
-# New plugin (pm3users) and a bunch of patches from Jacques Caruso.
-#
-# Revision 1.1  2004/01/02 18:50:00  jimmyo
-# Renamed occurrances of lrrd -> munin
-#
-# Revision 1.1.1.1  2004/01/02 15:18:07  jimmyo
-# Import of LRRD CVS tree after renaming to Munin
-#
-# Revision 1.2  2003/11/26 14:55:52  jimmyo
-# Added total summaries
-#
-# Revision 1.1  2003/11/26 09:10:28  jimmyo
-# Plugin contribution by Nicolai Langfeldt
-#
-# 
+# $Id$
 #%# family=auto
 #%# capabilities=autoconf
 
-# Can be set via environment, but default is /var/spool/postfix
-SPOOLDIR=${spooldir:-/var/spool/postfix}
+# Can be set via environment, but default is fetched by postconf (if available,
+# else /var/spool/postfix) 
+if which postconf >/dev/null ; then
+	SPOOLDIR=${spooldir:-`postconf -h queue_directory`}
+else
+	SPOOLDIR=${spooldir:-/var/spool/postfix}
+fi
 
 # Postfix mqueue management: http://www.postfix.cs.uu.nl/queuing.html
 # maildrop: Localy posted mail
