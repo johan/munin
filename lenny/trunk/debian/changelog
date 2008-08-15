@@ -9,10 +9,13 @@ munin (1.2.6-5) unstable; urgency=low
     avoid an unnecessary error message. (Closes: #495004)
   * node.d/exim_mailstats: cut out the pid from the logfile lines if
     log_selector=+pid is used (Closes: #440622)
-  * add an entry to /etc/munin/plugin-conf.d/munin-node to let the plugin
+  * munin-node: Add an entry to /etc/munin/plugin-conf.d/munin-node to let the plugin
     fw_forwarded_local run as root. (Closes: #411869)
+  * node.d.linux/fw_conntrack: Add 'graph_args -l 0' to plugin so that the
+    graph scale always starts from zero and completely shows the area of the
+    established connections. (Closes: #490093)
 
- -- Matthias Schmitz <matthias@sigxcpu.org>  Thu, 14 Aug 2008 23:51:54 +0200
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Fri, 15 Aug 2008 07:39:02 +0200
 
 munin (1.2.6-4) unstable; urgency=medium
 
