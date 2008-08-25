@@ -1,6 +1,6 @@
 munin (1.2.6-5) unstable; urgency=low
 
-  * UNRELEASED
+  [ Matthias Schmitz ]
   * The plugin nfsd will not longer try to read values from a not longer
     existent /proc/net/rpc/nfsd. (Closes: #490882, #473854)
   * munin-run will now print its usage if its called without a plugin
@@ -15,7 +15,10 @@ munin (1.2.6-5) unstable; urgency=low
     graph scale always starts from zero and completely shows the area of the
     established connections. (Closes: #490093)
 
- -- Matthias Schmitz <matthias@sigxcpu.org>  Fri, 15 Aug 2008 07:39:02 +0200
+  [ Holger Levsen ]
+  * Fix typos in node/Plugin.pm, thanks to Joey Schulze. (Closes: #495003)
+
+ -- Holger Levsen <holger@debian.org>  Sun, 24 Aug 2008 17:35:34 +0000
 
 munin (1.2.6-4) unstable; urgency=medium
 
