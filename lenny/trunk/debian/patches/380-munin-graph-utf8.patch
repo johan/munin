@@ -1,0 +1,23 @@
+Index: munin-1.2.6/server/munin-graph.in
+===================================================================
+--- munin-1.2.6.orig/server/munin-graph.in	2008-08-31 22:31:11.000000000 +0200
++++ munin-1.2.6/server/munin-graph.in	2008-08-31 22:32:08.000000000 +0200
+@@ -858,6 +858,18 @@
+ 	    }
+ 	    print "\n\nrrdtool \"graph\" \"",
+ 	      join ("\"\n\t\"",@complete), "\"\n" if $DEBUG;
++    
++            # Since version 1.3 rrdtool uses libpango which needs its input 
++            # as utf8 string
++	    if ( $RRDs::VERSION >= 1.3 ) {
++            	my @new_complete;
++               	foreach (@complete) { 
++                    utf8::encode($_);
++                    push @new_complete, $_;
++                };     
++ 	    @complete=@new_complete;
++            }
++
+ 	    RRDs::graph (@complete);
+ 	    if (my $ERROR = RRDs::error) {
+ 		logger ("Unable to graph $filename: $ERROR");
