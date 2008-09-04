@@ -56,7 +56,7 @@ Description: network-wide graphing framework (user contributed plugins for node)
 Package: munin
 Architecture: all
 Depends: ${perl:Depends}, perl-modules | libparse-recdescent-perl, librrds-perl, libhtml-template-perl, libdigest-md5-perl, libtime-hires-perl, libstorable-perl, rrdtool, adduser
-Recommends: munin-node, libdate-manip-perl
+Recommends: munin-node, libdate-manip-perl, libnet-netmask-perl
 Suggests: www-browser, httpd
 Description: network-wide graphing framework (grapher/gatherer)
  Munin is a highly flexible and powerful solution used to create graphs of

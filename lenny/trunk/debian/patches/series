@@ -28,4 +28,3 @@
 232-ntp_offset.patch
 236-nut_misc.patch
 370-plugin-doc-typos.patch
-380-munin-graph-utf8.patch
