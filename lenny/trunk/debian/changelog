@@ -1,8 +1,9 @@
 munin (1.2.6-6) unstable; urgency=low
 
   * munin-plugins-extra recommends now libnet-netmask-perl (Closes: #494095)
+  * Included postgresql plugins. (Closes: #320079)
 
- -- Matthias Schmitz <matthias@sigxcpu.org>  Thu, 04 Sep 2008 17:50:39 +0200
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Fri, 05 Sep 2008 22:27:26 +0200
 
 munin (1.2.6-5) unstable; urgency=low
 
