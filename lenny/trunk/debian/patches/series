@@ -1,3 +1,4 @@
+380-munin-graph-utf8.patch
 160-node.d-postgres-plugins.patch
 360-fw_conntrack-graph_args.patch
 350-munin-run-usage-fix.patch

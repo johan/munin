@@ -6,8 +6,11 @@ munin (1.2.6-6) unstable; urgency=low
   * munin-node suggest now smartmontools in a version >=5.37-6~bpo40+1 because
     it contains fixes for CCISS controllers needed by plugin hddtemp_smartctl.
     (Closes: #488357)
+  * Since version 1.3.x rrdtool / librrds uses libpango which needs its input
+    utf8 encoded. So munin-graph encodes the strings in utf8 before feeding
+    librrds.  (Closes: #494547)  
 
- -- Matthias Schmitz <matthias@sigxcpu.org>  Mon, 08 Sep 2008 18:22:28 +0200
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Mon, 08 Sep 2008 22:59:28 +0200
 
 munin (1.2.6-5) unstable; urgency=low
 

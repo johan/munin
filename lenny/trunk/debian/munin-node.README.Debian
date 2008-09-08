@@ -12,9 +12,11 @@ Debian-specific information regarding the Munin node
     enable by creating symlinks into /etc/munin/plugins as appropriate.
 
     Creating your own plugins is very easy.  Read the rest of the included
-    documents, take a look at the provided plugins, and write your own.
-    Place it in /etc/munin/plugins/, and restart the client.  The core
-    process will automatically notice the new service, and start graphing it.
+    documents, take a look at the provided plugins, and write your own.  
+    Please use Latin-1 as file encoding since munin expects only Latin-1
+    characters. Place it in /etc/munin/plugins/, and restart the client.
+    The core process will automatically notice the new service, and start
+    graphing it.
 
   Locally modified plugins
   ------------------------
