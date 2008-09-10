@@ -1,16 +1,16 @@
 munin (1.2.6-6) unstable; urgency=low
 
+  * Since version 1.3.x rrdtool / librrds uses libpango which needs its input
+    utf8 encoded. Because all munin plugins are latin1 munin-graph now encodes
+    the strings into utf8 before feeding them to librrds. (Closes: #494547) 
+    Also mention the need for latin-1 encoded plugins in 
+    munin-node.README.Debian.
   * munin-plugins-extra recommends now libnet-netmask-perl (Closes: #494095)
   * Included postgresql plugins. (Closes: #320079) therefore suggest
     libdbd-pg-perl for munin-node.
   * munin-node suggest now smartmontools in a version >=5.37-6~bpo40+1 because
     it contains fixes for CCISS controllers needed by plugin hddtemp_smartctl.
     (Closes: #488357)
-  * Since version 1.3.x rrdtool / librrds uses libpango which needs its input
-    utf8 encoded. Because all munin plugins are latin1 munin-graph now encodes
-    the strings into utf8 before feeding them to librrds. (Closes: #494547) 
-    Also mention the need for latin-1 encoded plugins in 
-    munin-node.README.Debian.
 
  -- Matthias Schmitz <matthias@sigxcpu.org>  Mon, 08 Sep 2008 22:59:28 +0200
 
