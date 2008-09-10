@@ -5,12 +5,12 @@ munin (1.2.6-6) unstable; urgency=low
     the strings into utf8 before feeding them to librrds. (Closes: #494547) 
     Also mention the need for latin-1 encoded plugins in 
     munin-node.README.Debian.
-  * munin-plugins-extra recommends now libnet-netmask-perl (Closes: #494095)
-  * Included postgresql plugins. (Closes: #320079) therefore suggest
-    libdbd-pg-perl for munin-node.
-  * munin-node suggest now smartmontools in a version >=5.37-6~bpo40+1 because
-    it contains fixes for CCISS controllers needed by plugin hddtemp_smartctl.
-    (Closes: #488357)
+  * Add libnet-netmask-perl to munin-plugins-extra recommends (Closes: #494095)
+  * Included postgresql plugins. (Closes: #320079) Add libdbd-pg-perl
+    to munin-node suggests.
+  * Make munin-node suggest to smartmontools versioned to >=5.37-6~bpo40+1 
+    because it contains fixes for CCISS controllers needed by 
+    plugin hddtemp_smartctl, to help backporters. (Closes: #488357) 
 
  -- Matthias Schmitz <matthias@sigxcpu.org>  Mon, 08 Sep 2008 22:59:28 +0200
 
