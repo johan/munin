@@ -1,5 +1,6 @@
 munin (1.2.6-6) unstable; urgency=low
 
+  [ Matthias Schmitz ]
   * Since version 1.3.x rrdtool / librrds uses libpango which needs its input
     utf8 encoded. Because all munin plugins are latin1 munin-graph now encodes
     the strings into utf8 before feeding them to librrds. (Closes: #494547) 
@@ -7,12 +8,14 @@ munin (1.2.6-6) unstable; urgency=low
     munin-node.README.Debian.
   * Included postgresql plugins. (Closes: #320079) Add libdbd-pg-perl
     to munin-node suggests.
-  * Add libnet-netmask-perl to munin-plugins-extra suggests. (Closes: #494095)
   * Make munin-node suggest to smartmontools versioned to >=5.37-6~bpo40+1 
     because it contains fixes for CCISS controllers needed by 
     plugin hddtemp_smartctl, to help backporters. (Closes: #488357) 
 
- -- Matthias Schmitz <matthias@sigxcpu.org>  Mon, 08 Sep 2008 22:59:28 +0200
+  [ Holger Levsen ]
+  * Add libnet-netmask-perl to munin-plugins-extra suggests. (Closes: #494095)
+
+ -- Holger Levsen <holger@debian.org>  Sat, 13 Sep 2008 08:32:28 +0000
 
 munin (1.2.6-5) unstable; urgency=low
 
