@@ -11,11 +11,13 @@ munin (1.2.6-6) unstable; urgency=low
   * Make munin-node suggest to smartmontools versioned to >=5.37-6~bpo40+1 
     because it contains fixes for CCISS controllers needed by 
     plugin hddtemp_smartctl, to help backporters. (Closes: #488357) 
+  * Run munin-node-configure only during the first install. This ensures that
+    admin changes to /etc/munin/plugins will be respected. (Closes: #498852)
 
   [ Holger Levsen ]
   * Add libnet-netmask-perl to munin-plugins-extra suggests. (Closes: #494095)
 
- -- Holger Levsen <holger@debian.org>  Sat, 13 Sep 2008 08:32:28 +0000
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Tue, 16 Sep 2008 23:54:08 +0200
 
 munin (1.2.6-5) unstable; urgency=low
 

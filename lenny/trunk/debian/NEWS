@@ -1,3 +1,9 @@
+munin (1.2.6-5) unstable; urgency=low
+
+  * The automatic activation of plugins with munin-node-configure will only
+    run once at installation time. This ensures that deactivated plugins will
+    stay deactivated. 
+
 munin (1.2.6-2) unstable; urgency=low
 
   * Build the binary package 'munin-plugins-extra' with user contributed
