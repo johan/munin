@@ -48,8 +48,7 @@ case "$1" in
 	configure)
 		add_munin_system_user
 		fixperms
-		if ( ! ls /etc/munin/plugins/* > /dev/null 2> /dev/null );
-		then init_plugins  ; fi
+		init_plugins
 		;;
 	abort-upgrade|abort-deconfigure|abort-remove)
 		:
