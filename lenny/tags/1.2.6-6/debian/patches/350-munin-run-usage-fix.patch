@@ -1,0 +1,16 @@
+Index: munin-1.2.6/node/munin-run.in
+===================================================================
+--- munin-1.2.6.orig/node/munin-run.in	2008-08-13 01:16:17.000000000 +0200
++++ munin-1.2.6/node/munin-run.in	2008-08-13 01:17:21.000000000 +0200
+@@ -97,9 +97,9 @@
+              "paranoia!"    => \$paranoia,
+              "help"         => \$do_usage );
+ 
+-if ($do_usage)
++if ($do_usage or ! defined($ARGV[0]))
+ {
+-    print "Usage: $0 [options]
++    print "Usage: $0 [options] <plugin>
+ 
+ Options:
+     --help              View this message.
