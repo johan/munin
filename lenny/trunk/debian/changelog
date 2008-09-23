@@ -1,3 +1,10 @@
+munin (1.2.6-7) unstable; urgency=low
+
+  * Add trivial patch from Guido Günther to munin-node to allow colons in
+    plugin names, to enable support for IPv6 addresses. (Closes: #499391)
+
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Tue, 23 Sep 2008 16:14:36 +0200
+
 munin (1.2.6-6) unstable; urgency=low
 
   [ Matthias Schmitz ]
