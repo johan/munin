@@ -3,9 +3,9 @@ munin (1.2.6-7) unstable; urgency=low
   * Add trivial patch from Guido Günther to munin-node to allow colons in
     plugin names, to enable support for IPv6 addresses. (Closes: #499391)
   * Remove 'white-space: nowrap;' from style.css, this avoids too wide html
-    pages in large Munin installations.
+    pages in large Munin installations. (Closes: #500080)
 
- -- Matthias Schmitz <matthias@sigxcpu.org>  Tue, 23 Sep 2008 21:30:21 +0200
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Wed, 24 Sep 2008 23:12:20 +0200
 
 munin (1.2.6-6) unstable; urgency=low
 
