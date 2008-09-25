@@ -23,8 +23,8 @@ munin (1.2.6-6) unstable; urgency=low
 
   [ Holger Levsen ]
   * Add libnet-netmask-perl to munin-plugins-extra suggests. (Closes: #494095)
-  * Add trivial patch from Guido Günther to allow colons in plugin names, t
-    enable support for IPv6 addresses. (Closes: #499391)
+  * Add trivial patch from Guido Günther tomunin-run to allow colons in plugi
+    names, to enable support for IPv6 addresses. (Closes: #499391)
 
  -- Holger Levsen <holger@debian.org>  Fri, 19 Sep 2008 15:29:38 +0000
 
