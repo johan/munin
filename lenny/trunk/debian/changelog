@@ -1,3 +1,11 @@
+munin (1.2.6-8) unstable; urgency=low
+
+  * Added missing dashes to the http connector in tomcat_threads,
+    tomcat_volumes and tomcat_access. Thanks to Markus Fischer!
+    (Closes: #500304)
+
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Sun, 05 Oct 2008 23:01:27 +0200
+
 munin (1.2.6-7) unstable; urgency=low
 
   * Add trivial patch from Guido Günther to munin-node to allow colons in

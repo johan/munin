@@ -1,7 +1,7 @@
 Index: munin-1.2.6/node/node.d/tomcat_threads.in
 ===================================================================
 --- /dev/null	1970-01-01 00:00:00.000000000 +0000
-+++ munin-1.2.6/node/node.d/tomcat_threads.in	2008-06-12 00:30:20.000000000 +0200
++++ munin-1.2.6/node/node.d/tomcat_threads.in	2008-10-05 22:58:03.000000000 +0200
 @@ -0,0 +1,104 @@
 +#!@@PERL@@
 +#
@@ -95,12 +95,12 @@ Index: munin-1.2.6/node/node.d/tomcat_threads.in
 +my $response = $ua->request(HTTP::Request->new('GET',$url));
 +my $xml = $xs->XMLin($response->content);
 +
-+if($xml->{'connector'}->{'http'.$PORT}->{'threadInfo'}->{'currentThreadsBusy'} &&
-+    $xml->{'connector'}->{'http'.$PORT}->{'threadInfo'}->{'currentThreadCount'}) {
-+    print "busy.value " . $xml->{'connector'}->{'http'.$PORT}->{'threadInfo'}->{'currentThreadsBusy'} . "\n";
++if($xml->{'connector'}->{'http-'.$PORT}->{'threadInfo'}->{'currentThreadsBusy'} &&
++    $xml->{'connector'}->{'http-'.$PORT}->{'threadInfo'}->{'currentThreadCount'}) {
++    print "busy.value " . $xml->{'connector'}->{'http-'.$PORT}->{'threadInfo'}->{'currentThreadsBusy'} . "\n";
 +    print "idle.value " .
-+	  ($xml->{'connector'}->{'http'.$PORT}->{'threadInfo'}->{'currentThreadCount'} -
-+	  $xml->{'connector'}->{'http'.$PORT}->{'threadInfo'}->{'currentThreadsBusy'}) . "\n";
++	  ($xml->{'connector'}->{'http-'.$PORT}->{'threadInfo'}->{'currentThreadCount'} -
++	  $xml->{'connector'}->{'http-'.$PORT}->{'threadInfo'}->{'currentThreadsBusy'}) . "\n";
 +} else {
 +    print "busy.value U\n";
 +    print "idle.value U\n";
