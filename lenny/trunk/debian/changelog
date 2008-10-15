@@ -3,8 +3,11 @@ munin (1.2.6-8) unstable; urgency=low
   * Added missing dashes to the http connector in tomcat_threads,
     tomcat_volumes and tomcat_access. Thanks to Markus Fischer!
     (Closes: #500304)
+  * With rrdtool >= 1.3 the column alignment in the graph legend only works
+    with a monospace font. Remove fix path to legend font in munin-graph and
+    substitute it with fontconfig name 'monospace'. (Closes: #499033)
 
- -- Matthias Schmitz <matthias@sigxcpu.org>  Wed, 15 Oct 2008 20:56:04 +0200
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Wed, 15 Oct 2008 21:44:13 +0200
 
 munin (1.2.6-7) unstable; urgency=low
 
