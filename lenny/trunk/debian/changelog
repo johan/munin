@@ -3,10 +3,8 @@ munin (1.2.6-8) unstable; urgency=low
   * Added missing dashes to the http connector in tomcat_threads,
     tomcat_volumes and tomcat_access. Thanks to Markus Fischer!
     (Closes: #500304)
-  * Remove fix path to font in munin-graph and substitute it with the
-    fontconfig name. (Closes: #499033) 
 
- -- Matthias Schmitz <matthias@sigxcpu.org>  Mon, 13 Oct 2008 08:10:42 +0200
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Wed, 15 Oct 2008 20:56:04 +0200
 
 munin (1.2.6-7) unstable; urgency=low
 
