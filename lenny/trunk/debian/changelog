@@ -6,12 +6,10 @@ munin (1.2.6-8) unstable; urgency=low
   * With rrdtool >= 1.3 the column alignment in the graph legend only works
     with a monospace font. Remove fix path to legend font in munin-graph and
     substitute it with fontconfig name 'monospace'. (Closes: #499033)
-  * Added support for high capacity counters (aka 64 bit) to plugin snmp__if_.
-    This avoids a counter overrun on fast network interfaces. (Closes: #499554)
   * Remove the 'autoconf' magic marker from the postgres_* plugins. 
     (Closes: #503294, #503403)
 
- -- Matthias Schmitz <matthias@sigxcpu.org>  Sun, 26 Oct 2008 13:57:30 +0100
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Sun, 26 Oct 2008 15:51:22 +0100
 
 munin (1.2.6-7) unstable; urgency=low
 
