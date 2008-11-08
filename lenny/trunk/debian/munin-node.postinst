@@ -25,23 +25,23 @@ init_plugins() {
 	TMPFILE=`mktemp /tmp/munin-node.configure.XXXXXXXXXX`
 	if [ "$prevver" ]; then
 		echo -n "Initializing new plugins.."
-		munin-node-configure --shell --newer "${prevver%-*}" > $TMPFILE || true
-		if [ "$?" ] ; then 
+		munin-node-configure --shell --newer "${prevver%-*}" > $TMPFILE || rm -f $TMPFILE
+		if [ -f $TMPFILE ] ; then 
 			sh < $TMPFILE  
 		else
 			echo "failed."
 		fi
 	else
 		echo -n "Initializing plugins.."
-		munin-node-configure --shell > $TMPFILE || true
-		if [ "$?" ] ; then
+		munin-node-configure --shell > $TMPFILE || rm -f $TMPFILE
+		if [ -f $TMPFILE ] ; then
 			sh < $TMPFILE
 		else 
 			echo "failed."
 		fi
 	fi
 	echo "done."
-	rm $TMPFILE
+	rm -f $TMPFILE
 }
 
 case "$1" in

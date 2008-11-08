@@ -1,5 +1,6 @@
 munin (1.2.6-8) unstable; urgency=low
 
+  [ Matthias Schmitz ]
   * Added missing dashes to the http connector in tomcat_threads,
     tomcat_volumes and tomcat_access. Thanks to Markus Fischer!
     (Closes: #500304)
@@ -9,7 +10,11 @@ munin (1.2.6-8) unstable; urgency=low
   * Remove the 'autoconf' magic marker from the postgres_* plugins. 
     (Closes: #503294, #503403)
 
- -- Matthias Schmitz <matthias@sigxcpu.org>  Sun, 26 Oct 2008 15:51:22 +0100
+  [ Holger Levsen ]
+  * munin-node.postinst: only execute $TMPFILE if munin-node-configure (which
+    creates it) exited without errors. (Closes: #503913)
+
+ -- Holger Levsen <holger@debian.org>  Sat, 08 Nov 2008 14:31:13 +0000
 
 munin (1.2.6-7) unstable; urgency=low
 
