@@ -1,0 +1,28 @@
+Index: munin-1.2.6/server/style.css
+===================================================================
+--- munin-1.2.6.orig/server/style.css	2008-09-23 21:27:41.000000000 +0200
++++ munin-1.2.6/server/style.css	2008-09-23 21:30:05.000000000 +0200
+@@ -60,7 +60,6 @@
+         border-style: solid;
+         padding: 0px 0px 0px 0px;
+ 	margin: 0px 0px 0px 0px;
+-	white-space: nowrap;
+ 	max-width: 90%;
+         width: 80%;
+ }
+@@ -75,7 +74,6 @@
+         border-style: solid;
+         padding: 0px 0px 0px 0px;
+ 	margin: 0px 0px 0px 0px;
+-	white-space: nowrap;
+ 	width: 1%;
+ }
+ 
+@@ -89,7 +87,6 @@
+         border-style: solid;
+         padding: 4px 4px 4px 4px;
+ 	margin: 0px 0px 0px 0px;
+-	white-space: nowrap;
+ 	width: 100%;
+ }
+ 
