@@ -34,3 +34,4 @@
 236-nut_misc.patch
 370-plugin-doc-typos.patch
 381-munin-graph-column-indention.patch
+410-muninnodeconf-manpage.patch

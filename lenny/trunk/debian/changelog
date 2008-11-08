@@ -13,6 +13,7 @@ munin (1.2.6-8) unstable; urgency=low
   [ Holger Levsen ]
   * munin-node.postinst: only execute $TMPFILE if munin-node-configure (which
     creates it) exited without errors. (Closes: #503913)
+  * node/munin-node.conf.pod: fix error from pod2man spotted by lintian. 
 
  -- Holger Levsen <holger@debian.org>  Sat, 08 Nov 2008 14:31:13 +0000
 
