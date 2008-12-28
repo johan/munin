@@ -600,12 +600,12 @@ sub get_plugins {
 		close (PLUG);
 		if ($?) {
 		    @{$ps->{$plug}->{'suggest'}} = ();
+  		    push(@errors,"ERROR: empty suggest from $plug");
 		}
 		print "# Suggested: ",
 		  join (' ', @{$ps->{$plug}->{'suggest'}}),"\n"
 		    if $debug;
 
-		push(@errors,"ERROR: empty suggest from $plug");
 	    }
 	}
 	print "\n" if $debug;
