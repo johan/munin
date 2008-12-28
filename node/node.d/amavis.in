@@ -1,24 +1,68 @@
-#!/bin/sh
-#
-# Plugin to monitor the amavis mail filter.
-#
-# Usage: Place in /etc/lrrd/client.d/ (or link it there  using ln -s)
-#
-# Parameters understood:
-#
-# 	config   (required)
-# 	autoconf (optional)
-#
-# Config variables:
-#
-#       amavislog    - file where amavis logs are written
-#
+#!@@GOODSH@@
+
+: <<=cut
+
+=head1 NAME
+
+amavis - plugin to monitor the amavis mail filter.
+
+=head1 APPLICABLE SYSTEMS
+
+Hosts running amavis localy and logtail(8) installed.
+
+=head1 CONFIGURATION
+
+The following shows a typical configuration:
+
+  [amavis]
+     env.amavislog     /var/log/mail/mail.info
+     env.logtail       /usr/bin/logtail
+     group adm
+
+The log path shown is also the default.  On most systems the mail logs
+are not readable by nobody which the plugin usually runs at.  To
+enable log reading it needs to run as a group or user that has read
+access, as shown above.
+
+By default the logtail program is started without any explicit path,
+but if it is not found in the system $PATH then you'll need to specify
+the full path for the program.
+
+=head1 INTERPRETATION
+
+The plugin shows "probable spam", "surley spam" and "virus".  If your
+"probable spam" raises you may need to tune your spam configuration to
+classify more spam as "surley spam" and so be able to elliminate it.
+
+=head1 MAGIC MARKERS
+
+  #%# family=auto
+  #%# capabilities=autoconf
+
+=head1 VERSION
+
+  $Id$
+
+=head1 BUGS
+
+None known
+
+=head1 AUTHOR
+
+Unknown
+
+=head1 LICENSE
+
+GPLv2
+
+=cut
+
 
 mktempfile () {
 @@MKTEMP@@
 }       
 
-AMAVIS_LOG=${logfile:-/var/log/mail/mail.info}
+AMAVIS_LOG=${logfile:-/var/log/mail.info}
 LOGTAIL=${logtail:-`which logtail`}
 STATEFILE=@@PLUGSTATE@@/amavis.offset
 
@@ -50,23 +94,11 @@ virus=U
 spamm=U
 spams=U
 
-ARGS=0
-`$LOGTAIL /etc/hosts 2>/dev/null >/dev/null`
-if [ $? = 66 ]; then
-    if [ ! -n "$logtail" ]; then
-	ARGS=1
-    fi
-fi
-
 TEMP_FILE=`mktempfile munin-amavis.XXXXXX`
 
 if [ -n "$TEMP_FILE" -a -f "$TEMP_FILE" ]
 then
-	if [ $ARGS != 0 ]; then
-	    logtail -f ${AMAVIS_LOG} -o $STATEFILE | grep 'amavis\[.*\]:' > ${TEMP_FILE}
-	else
-	    logtail ${AMAVIS_LOG} $STATEFILE | grep 'amavis\[.*\]:' > ${TEMP_FILE}
-	fi
+	logtail ${AMAVIS_LOG} $STATEFILE | grep 'amavis\[.*\]:' > ${TEMP_FILE}
 	total=`cat ${TEMP_FILE} | wc -l`
 	virus=`grep INFECTED ${TEMP_FILE} | wc -l`
 	spamm=`grep 'Passed.*Hits: 1[0-9][.]' ${TEMP_FILE} | wc -l`
@@ -79,3 +111,5 @@ echo "virus.value ${virus}"
 echo "spam_maybe.value ${spamm}"
 echo "spam_sure.value ${spams}"
 echo "total.value ${total}"
+
+
