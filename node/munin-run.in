@@ -281,7 +281,7 @@ FILES:
     for my $file (grep { -f "$servicedir/$_" } readdir(DIR)) {
 	next if $file =~ m/^\./; # Hidden files
 	next if $file =~ m/.conf$/; # Config files
-	next if $file !~ m/^([-\w.]+)$/; # Skip if any weird chars
+	next if $file !~ m/^([-\w.:]+)$/; # Skip if any weird chars
 	$file = $1; # Not tainted anymore.
 	foreach my $regex (@ignores)
 	{
