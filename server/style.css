@@ -60,7 +60,6 @@ table.largeinvisiblebox {
         border-style: solid;
         padding: 0px 0px 0px 0px;
 	margin: 0px 0px 0px 0px;
-	white-space: nowrap;
 	max-width: 90%;
         width: 80%;
 }
@@ -75,7 +74,6 @@ table.invisiblebox {
         border-style: solid;
         padding: 0px 0px 0px 0px;
 	margin: 0px 0px 0px 0px;
-	white-space: nowrap;
 	width: 1%;
 }
 
@@ -89,7 +87,6 @@ td.graphbox {
         border-style: solid;
         padding: 4px 4px 4px 4px;
 	margin: 0px 0px 0px 0px;
-	white-space: nowrap;
 	width: 100%;
 }
 
