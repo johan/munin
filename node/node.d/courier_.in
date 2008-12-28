@@ -1,4 +1,4 @@
-#!/bin/sh
+#!@@GOODSH@@
 #
 # Plugin to graph number of courier login/logouts
 # Requires: logtail
@@ -26,7 +26,6 @@
 #
 # courierpop3login:
 # Jan 22 06:28:24 raven courierpop3login: Connection, ip=[::ffff:192.168.0.1]
-5B
 # Jan 22 06:48:22 raven courierpop3login: DISCONNECTED, user=someuser, ip=[::ffff:192.168.0.1], top=0, retr=0, time=21
 # Jan 22 06:28:24 raven courierpop3login: LOGIN, user=someuser, ip=[::ffff:192.168.0.1]
 # Jan 22 06:28:25 raven courierpop3login: LOGOUT, user=someuser, ip=[::ffff:192.168.0.1], top=0, retr=0, time=0
@@ -46,7 +45,9 @@ case $1 in
     autoconf|detect)
     if [ -f ${COURIER_LOG} -a -x ${LOGTAIL} ] 
     then
-	echo yes
+	# Makes no sense for wildcard plugin to autoconf to yes
+	# unless you can provide suggestions.
+	echo no
 	exit 0
     else
 	echo "no (either $COURIER_LOG was not found, or logtail was not in your path)"
@@ -67,25 +68,13 @@ EOF
     ;;
 esac
 
-ARGS=0
-`$LOGTAIL /etc/hosts 2>/dev/null >/dev/null`
-if [ $? = 66 ]; then
-    if [ ! -n "$logtail" ]; then
-        ARGS=1
-    fi
-fi
-
 TEMP_FILE=`mktempfile munin-courier.XXXXXX`
 
 if [ -z "$TEMP_FILE" -o ! -f "$TEMP_FILE" ]; then
     exit 3
 fi
 
-if [ $ARGS != 0 ]; then
-    ${LOGTAIL} -f ${COURIER_LOG} -o ${OFFSET_FILE} | grep "$SERVICE" > ${TEMP_FILE}
-else
-    ${LOGTAIL} ${COURIER_LOG} ${OFFSET_FILE} | grep "$SERVICE" > ${TEMP_FILE}
-fi
+${LOGTAIL} ${COURIER_LOG} ${OFFSET_FILE} | grep "$SERVICE" > ${TEMP_FILE}
 connection=`grep Connection ${TEMP_FILE} | wc -l`
 disconnected=`grep DISCONNECTED ${TEMP_FILE} | wc -l`
 login=`grep LOGIN ${TEMP_FILE} | wc -l`
