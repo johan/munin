@@ -112,4 +112,3 @@ echo "spam_maybe.value ${spamm}"
 echo "spam_sure.value ${spams}"
 echo "total.value ${total}"
 
-
