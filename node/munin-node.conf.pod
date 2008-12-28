@@ -60,6 +60,8 @@ owned by root. Default on.
 Files matching &lt;regex&gt; in the node.d/ and node-conf.d/
 directories will be overlooked.
 
+=back
+
 =head1 EXAMPLE
 
 A pretty normal configuration file:
