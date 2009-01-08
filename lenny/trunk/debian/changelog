@@ -1,3 +1,11 @@
+munin (1.2.6-9) unstable; urgency=low
+
+  * Make the number of state transitions (from or to unknown) configurable
+  * before a notification will be send. Thanks to Steve Wilson for this patch.
+    (Closes: #501214)
+
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Thu, 08 Jan 2009 01:18:17 +0100
+
 munin (1.2.6-8) unstable; urgency=low
 
   [ Matthias Schmitz ]

@@ -35,3 +35,4 @@
 370-plugin-doc-typos.patch
 381-munin-graph-column-indention.patch
 410-muninnodeconf-manpage.patch
+420-munin-limits.excessive-notifications.patch
