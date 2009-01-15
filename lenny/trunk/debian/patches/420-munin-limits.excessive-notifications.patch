@@ -1,7 +1,7 @@
 Index: munin-1.2.6/server/munin-limits.in
 ===================================================================
---- munin-1.2.6.orig/server/munin-limits.in	2009-01-08 01:07:36.000000000 +0100
-+++ munin-1.2.6/server/munin-limits.in	2009-01-08 01:08:59.000000000 +0100
+--- munin-1.2.6.orig/server/munin-limits.in	2008-02-18 02:00:00.000000000 +0100
++++ munin-1.2.6/server/munin-limits.in	2009-01-15 23:34:08.000000000 +0100
 @@ -154,7 +154,8 @@
  	    }
  	    my $critical;
@@ -84,3 +84,16 @@ Index: munin-1.2.6/server/munin-limits.in
  }
  
  sub generate_service_message {
+Index: munin-1.2.6/server/Munin.pm.in
+===================================================================
+--- munin-1.2.6.orig/server/Munin.pm.in	2009-01-15 23:34:43.000000000 +0100
++++ munin-1.2.6/server/Munin.pm.in	2009-01-15 23:35:16.000000000 +0100
+@@ -81,7 +81,7 @@
+ 	"text", "command", "contact", "contacts",  "max_messages", 
+ 	"always_send", "notify_alias", "line", "state", "graph_period",
+ 	"cgiurl_graph", "cgiurl", "service_order", "category_order",
+-	"version", "colour", "ok", "unknown"
++	"version", "colour", "ok", "unknown", "unknown_limit", "notify_countdown"
+     );
+ 
+ my %legal_expanded = map { $_ => 1 } @legal;
