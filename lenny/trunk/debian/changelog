@@ -1,8 +1,14 @@
 munin (1.2.6-9) unstable; urgency=low
 
+  [ Matthias Schmitz ]
   * Make the number of state transitions (from or to unknown) configurable
     before a notification will be send. Thanks to Steve Wilson for this patch.
     (Closes: #501214)
+
+  [ Holger Levsen ]
+  * apc_nis plugin: Set line_volt.max to 300 (instead of 200) to correctly 
+    deal with 220V installations. Thanks to Tim Bagot for reporting this!
+    (Closes: #511781)
 
  -- Matthias Schmitz <matthias@sigxcpu.org>  Thu, 08 Jan 2009 01:18:17 +0100
 
