@@ -38,3 +38,4 @@
 410-muninnodeconf-manpage.patch
 420-munin-limits.excessive-notifications.patch
 440-node.d.linux-iostat.patch
+450-munin-cgi-graph.patch
