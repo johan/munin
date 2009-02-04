@@ -14,7 +14,7 @@ munin (1.2.6-9) unstable; urgency=low
     deal with 220V installations. Thanks to Tim Bagot for reporting this!
     (Closes: #511781)
 
- -- Matthias Schmitz <matthias@sigxcpu.org>  Wed, 28 Jan 2009 23:09:43 +0100
+ -- Holger Levsen <holger@debian.org>  Wed, 04 Feb 2009 20:05:53 +0100
 
 munin (1.2.6-8) unstable; urgency=low
 
