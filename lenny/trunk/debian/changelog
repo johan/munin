@@ -1,8 +1,9 @@
 munin (1.2.6-9) unstable; urgency=low
 
   [ Matthias Schmitz ]
-  * Make the number of state transitions (from or to unknown) configurable
-    before a notification will be send. Thanks to Steve Wilson for this patch.
+  * 420-munin-limits.excessive-notifications.patch: Make the number of state 
+    transitions (from or to unknown) configurable before a notification will 
+    be send, now set to 3. Thanks to Steve Wilson for the patch. 
     (Closes: #501214)
   * Add a stderr/stdout redirection to iostat plugin. (Closes: #512407)
   * munin-cgi-graph: better check of semget() return value. 

@@ -63,7 +63,7 @@ Index: munin-1.2.6/server/munin-limits.in
      my $key    = shift;
      my @critical = (undef, undef);
      my @warning  = (undef, undef);
-+	my $unknown_limit = 1;
++	my $unknown_limit = 3;
      if (defined $client->{"$key.critical"} and 
  	$client->{"$key.critical"} =~ /^\s*([-+\d.]*):([-+\d.]*)\s*$/)
      {
