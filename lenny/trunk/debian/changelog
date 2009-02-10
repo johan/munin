@@ -1,3 +1,11 @@
+munin (1.2.6-10) UNRELEASED; urgency=low
+
+  * munin-html: create needed directories if they don't exist. Normally this 
+    is done in munin-graph, but that's not used in cgi mode. Thanks to Peter 
+    Palfrader for the bugreport with patch! (Closes: #514634)
+
+ -- Holger Levsen <holger@debian.org>  Tue, 10 Feb 2009 18:08:01 +0100
+
 munin (1.2.6-9) unstable; urgency=low
 
   [ Matthias Schmitz ]
