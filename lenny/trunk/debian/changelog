@@ -1,13 +1,12 @@
-munin (1.2.6-10) UNRELEASED; urgency=low
+munin (1.2.6-10) unstable; urgency=low
 
   * munin-html: create needed directories if they don't exist. Normally this 
     is done in munin-graph, but that's not used in cgi mode. Thanks to Peter 
     Palfrader for the bugreport with patch! (Closes: #514634)
   * node.d.linux/netstat.in: fix regex to only match openened connections, 
     thanks to  Paul Slootman for 460-netstat-regex.patch. (Closes: #507069)
-  * node/munin-run.in: fix typo in manpage. (Closes: #514559)
 
- -- Holger Levsen <holger@debian.org>  Tue, 10 Feb 2009 18:08:01 +0100
+ -- Holger Levsen <holger@debian.org>  Sat, 28 Feb 2009 19:54:14 +0100
 
 munin (1.2.6-9) unstable; urgency=low
 

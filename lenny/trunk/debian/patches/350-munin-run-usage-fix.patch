@@ -1,7 +1,7 @@
 Index: munin-1.2.6/node/munin-run.in
 ===================================================================
---- munin-1.2.6.orig/node/munin-run.in	2009-02-26 22:55:18.000000000 +0100
-+++ munin-1.2.6/node/munin-run.in	2009-02-26 22:55:59.000000000 +0100
+--- munin-1.2.6.orig/node/munin-run.in	2008-08-13 01:16:17.000000000 +0200
++++ munin-1.2.6/node/munin-run.in	2008-08-13 01:17:21.000000000 +0200
 @@ -97,9 +97,9 @@
               "paranoia!"    => \$paranoia,
               "help"         => \$do_usage );
@@ -14,12 +14,3 @@ Index: munin-1.2.6/node/munin-run.in
  
  Options:
      --help              View this message.
-@@ -731,7 +731,7 @@
- =head1 DESCRIPTION
- 
- Munin-node is a daemon that Munin connects to fetch data.  This data
--is stored in .rrd-files on the central server , and later graphed and
-+is stored in .rrd-files on the central server, and later graphed and
- htmlified.
- 
- munin-run is a perlscript to run the plugins used by the munin-node
