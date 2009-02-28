@@ -1,3 +1,9 @@
+munin (1.2.6-11) UNRELEASED; urgency=low
+
+   * node/munin-run.in: fix typo in manpage. (Closes: #514559)
+
+ -- Holger Levsen <holger@debian.org>  Sat, 28 Feb 2009 20:11:01 +0100
+
 munin (1.2.6-10) unstable; urgency=low
 
   * munin-html: create needed directories if they don't exist. Normally this 
