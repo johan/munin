@@ -1,0 +1,18 @@
+Index: munin-1.2.6/node/munin-node-configure.in
+===================================================================
+--- munin-1.2.6.orig/node/munin-node-configure.in	2008-07-20 23:44:28.000000000 +0200
++++ munin-1.2.6/node/munin-node-configure.in	2008-07-20 23:45:00.000000000 +0200
+@@ -600,12 +600,12 @@
+ 		close (PLUG);
+ 		if ($?) {
+ 		    @{$ps->{$plug}->{'suggest'}} = ();
++  		    push(@errors,"ERROR: empty suggest from $plug");
+ 		}
+ 		print "# Suggested: ",
+ 		  join (' ', @{$ps->{$plug}->{'suggest'}}),"\n"
+ 		    if $debug;
+ 
+-		push(@errors,"ERROR: empty suggest from $plug");
+ 	    }
+ 	}
+ 	print "\n" if $debug;
