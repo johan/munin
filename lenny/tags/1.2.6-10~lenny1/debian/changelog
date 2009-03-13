@@ -1,3 +1,9 @@
+munin (1.2.6-10~lenny1) stable-proposed-updates; urgency=low
+
+  * Rebuild for stable-proposed-updates.
+
+ -- Holger Levsen <holger@debian.org>  Fri, 13 Mar 2009 09:53:38 +0100
+
 munin (1.2.6-10) unstable; urgency=low
 
   * munin-html: create needed directories if they don't exist. Normally this 
