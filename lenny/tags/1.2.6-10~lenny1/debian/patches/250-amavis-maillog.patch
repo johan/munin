@@ -1,0 +1,13 @@
+Index: trunk/node/node.d/amavis.in
+===================================================================
+--- trunk.orig/node/node.d/amavis.in	2008-07-01 19:11:41.000000000 +0200
++++ trunk/node/node.d/amavis.in	2008-07-01 19:12:00.000000000 +0200
+@@ -18,7 +18,7 @@
+ @@MKTEMP@@
+ }       
+ 
+-AMAVIS_LOG=${logfile:-/var/log/mail/mail.info}
++AMAVIS_LOG=${logfile:-/var/log/mail.info}
+ LOGTAIL=${logtail:-`which logtail`}
+ STATEFILE=@@PLUGSTATE@@/amavis.offset
+ 
