@@ -1,9 +1,13 @@
 munin (1.2.6-11) UNRELEASED; urgency=low
 
+  [ Holger Levsen ]
   * node/munin-run.in: fix typo in manpage. (Closes: #514559)
   * Add suggests to net-tools for munin-node as netstat is a common plugin.
 
- -- Holger Levsen <holger@debian.org>  Sat, 28 Feb 2009 20:11:01 +0100
+  [ Matthias Schmitz ]
+  * Add munin(8) manpage. (Closes: #517952) 
+
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Thu, 02 Apr 2009 22:53:52 +0200
 
 munin (1.2.6-10) unstable; urgency=low
 
