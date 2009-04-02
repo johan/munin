@@ -114,6 +114,7 @@ install-man: build-man
 	$(INSTALL) -m 0644 build/doc/munin-limits.8 $(MANDIR)/man8/
 	$(INSTALL) -m 0644 build/doc/munin-html.8 $(MANDIR)/man8/
 	$(INSTALL) -m 0644 build/doc/munin-cron.8 $(MANDIR)/man8/
+	$(INSTALL) -m 0644 build/doc/munin.8 $(MANDIR)/man8/
 	$(INSTALL) -m 0644 build/doc/munindoc.1 $(MANDIR)/man1/
 
 install-doc: build-doc
@@ -208,6 +209,8 @@ build-man-stamp: build
 		node/munin-node.conf.pod > build/doc/munin-node.conf.5
 	pod2man  --section=1 --release=$(RELEASE) --center="Munin Documentation" \
 		build/node/munindoc > build/doc/munindoc.1
+	pod2man  --section=8 --release=$(RELEASE) --center="Munin Documentation" \
+		server/munin.pod > build/doc/munin.8
 
 	touch build-man-stamp
 
