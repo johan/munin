@@ -74,13 +74,10 @@ verify_superuser() {
 
 start() {
 	log_daemon_msg "Starting Munin-Node"
-	# Work-around for brain-damage in Ubuntu, where /var/run/munin
-	# vanishes after every reboot.
 	if [ ! -d /var/run/munin ]; then
-		perms=(`/usr/sbin/dpkg-statoverride --list /var/run/munin`)
-		mkdir /var/run/munin
-		chown ${perms[0]:-munin}:${perms[1]:-root} /var/run/munin
-		chmod ${perms[2]:-0755} /var/run/munin
+		mkdir -p /var/run/munin
+		chown munin:root /var/run/munin
+		chmod 0755 /var/run/munin
 	fi
 	if pidofproc -p $PIDFILE $DAEMON >/dev/null; then
 		log_progress_msg "started beforehand"

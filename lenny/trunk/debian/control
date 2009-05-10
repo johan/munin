@@ -4,15 +4,15 @@ Priority: optional
 Maintainer: Munin Debian Maintainers <munin-deb-maint@linpro.no>
 Uploaders: Tore Anderson <tore@debian.org>, Dagfinn Ilmari Mannsaker <ilmari@ilmari.org>, Loic Dachary (OuoU) <loic@debian.org>, Matthias Schmitz <matthias@sigxcpu.org>, Holger Levsen <holger@debian.org> 
 Build-Depends-Indep: perl, htmldoc, html2text
-Build-Depends: debhelper, quilt
-Standards-Version: 3.8.0
+Build-Depends: debhelper (>=5.0.42), quilt
+Standards-Version: 3.8.1
 Homepage: http://munin.projects.linpro.no
 Vcs-svn:  svn://munin.projects.linpro.no/munin/
 Vcs-Browser: http://munin.projects.linpro.no/browser
 
 Package: munin-node
 Architecture: all
-Depends: ${perl:Depends}, libnet-server-perl, procps, adduser, lsb-base (>= 3.2-4), gawk
+Depends: ${perl:Depends}, ${misc:Depends}, libnet-server-perl, procps, adduser, lsb-base (>= 3.2-4), gawk
 Recommends: libnet-snmp-perl
 Suggests: munin, munin-plugins-extra, libwww-perl, liblwp-useragent-determined-perl, libnet-irc-perl, mysql-client, smartmontools (>= 5.37-6~bpo40+1), acpi | lm-sensors, python, ethtool, libdbd-pg-perl, net-tools
 Description: network-wide graphing framework (node)
@@ -39,7 +39,7 @@ Description: network-wide graphing framework (node)
 
 Package: munin-plugins-extra
 Architecture: all
-Depends: ${perl:Depends}, munin-node
+Depends: ${perl:Depends}, ${misc:Depends}, munin-node
 Suggests: logtail, libnet-netmask-perl
 Description: network-wide graphing framework (user contributed plugins for node)
  Munin is a highly flexible and powerful solution used to create graphs of
@@ -55,7 +55,7 @@ Description: network-wide graphing framework (user contributed plugins for node)
 
 Package: munin
 Architecture: all
-Depends: ${perl:Depends}, perl-modules | libparse-recdescent-perl, librrds-perl, libhtml-template-perl, libdigest-md5-perl, libtime-hires-perl, libstorable-perl, rrdtool, adduser
+Depends: ${perl:Depends}, ${misc:Depends}, perl-modules | libparse-recdescent-perl, librrds-perl, libhtml-template-perl, libdigest-md5-perl, libtime-hires-perl, libstorable-perl, rrdtool, adduser
 Recommends: munin-node, libdate-manip-perl
 Suggests: www-browser, httpd
 Description: network-wide graphing framework (grapher/gatherer)
