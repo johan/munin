@@ -1,4 +1,4 @@
-munin (1.2.6-11) UNRELEASED; urgency=low
+munin (1.2.6-11) unstable; urgency=low
 
   [ Stig Sandbeck Mathisen ]
   * Activate 460-netstat-regex.patch (Closes: #526688)
@@ -22,7 +22,7 @@ munin (1.2.6-11) UNRELEASED; urgency=low
     Thanks to K.Kano for the patch and Thorsten Tüllmann for filing the bug in 
     the Debian BTS.
 
- -- Holger Levsen <holger@debian.org>  Sun, 10 May 2009 14:00:57 +0000
+ -- Holger Levsen <holger@debian.org>  Thu, 28 May 2009 20:42:05 +0200
 
 munin (1.2.6-10) unstable; urgency=low
 
