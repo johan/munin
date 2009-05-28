@@ -15,6 +15,7 @@ munin (1.2.6-11) UNRELEASED; urgency=low
   * Bump debhelper compat level to 5, use versioned build-depends on
     debhelper, add ${misc:Depends} to binary packages depends.
   * Fix typo in apache plugins. (Closes: #519642)
+  * Fix typo in if plugins. (Closes: #523765) 
 
  -- Holger Levsen <holger@debian.org>  Sun, 10 May 2009 14:00:57 +0000
 

@@ -1,4 +1,5 @@
 480-node.d-apache-asterisk.patch
+490-node.d-asterisk-if.in
 430-apc_nis-line_volt.patch
 400-style_css.patch
 391-munin-node-ipv6.patch
