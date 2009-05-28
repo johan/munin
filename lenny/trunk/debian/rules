@@ -37,6 +37,9 @@ build-stamp: $(QUILT_STAMPFN)
 		fi; \
 	done
 
+	rmdir $(CURDIR)/debian/munin/var/run/munin
+	rmdir $(CURDIR)/debian/munin-node/var/run/munin
+
 	touch build-stamp
 
 clean: unpatch

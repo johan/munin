@@ -6,8 +6,8 @@ munin (1.2.6-11) UNRELEASED; urgency=low
   [ Holger Levsen ]
   * node/munin-run.in: fix typo in manpage. (Closes: #514559)
   * Add suggests to net-tools for munin-node as netstat is a common plugin.
-  * Create /var/run/munin mostly unconditionally in munin-nodes initscript,
-    revove the code in maintainer scripts and daily cronjob to create it.
+  * Create /var/run/munin unconditionally in munin-nodes initscript,
+    remove the code in maintainer scripts and daily cronjob dealing with it.
   * Bump Standards-version to 3.8.1.
   * Bump debhelper compat level to 5, use versioned build-depends on
     debhelper, add ${misc:Depends} to binary packages depends.
