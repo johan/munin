@@ -1,0 +1,15 @@
+Index: munin-1.2.6/server/munin-html.in
+===================================================================
+--- munin-1.2.6.orig/server/munin-html.in	2009-02-10 18:04:55.000000000 +0100
++++ munin-1.2.6/server/munin-html.in	2009-02-10 18:06:36.000000000 +0100
+@@ -180,6 +180,10 @@
+ 	    push @nodeorder, $n;
+ 	}
+     }
++    unless (-d "$config->{htmldir}/$domain" ) {
++       mkdir("$config->{htmldir}/$domain") or
++            die "Cannot mkdir $config->{htmldir}/$domain: $!";
++    }
+     for my $node (@nodeorder) {
+         logger("processing node: $node");
+ 	my %node;
