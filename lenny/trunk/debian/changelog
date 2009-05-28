@@ -11,7 +11,7 @@ munin (1.2.6-11) UNRELEASED; urgency=low
   * Add suggests to net-tools for munin-node as netstat is a common plugin.
   * Create /var/run/munin unconditionally in munin-nodes initscript,
     remove the code in maintainer scripts and daily cronjob dealing with it.
-    (Closes: 518389) (by removing this code.)
+    (Closes: 518389) (by the code removal.)
   * Bump Standards-version to 3.8.1.
   * Bump debhelper compat level to 5, use versioned build-depends on
     debhelper, add ${misc:Depends} to binary packages depends.
