@@ -17,6 +17,10 @@ munin (1.2.6-11) UNRELEASED; urgency=low
     debhelper, add ${misc:Depends} to binary packages depends.
   * Fix typo in apache plugins. (Closes: #519642)
   * Fix typo in if plugins. (Closes: #523765) 
+  * Apply patch from http://munin.projects.linpro.no/ticket/627 to support
+    bind 9.5 (and 9.3) in the bind9_rdnc plugin. (Closes: #522868)
+    Thanks to K.Kano for the patch and Thorsten Tüllmann for filing the bug in 
+    the Debian BTS.
 
  -- Holger Levsen <holger@debian.org>  Sun, 10 May 2009 14:00:57 +0000
 
