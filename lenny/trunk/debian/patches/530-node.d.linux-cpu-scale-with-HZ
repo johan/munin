@@ -1,3 +1,4 @@
+# needs to go upstream
 --- munin-1.2.6.orig/node/node.d.linux/cpu.in	2008-09-26 10:29:36.000000000 +0200
 +++ munin-1.2.6/node/node.d.linux/cpu.in	2008-09-26 10:21:02.000000000 +0200
 @@ -117,10 +117,12 @@
