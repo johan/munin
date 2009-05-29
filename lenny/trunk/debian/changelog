@@ -2,6 +2,9 @@ munin (1.2.6-12) UNRELEASED; urgency=low
 
   * Fix bashisms in several plugins in munin-plugins-extra, thanks to
     Raphael Geissert for the bug and the patch. (Closes: #530147)
+  * Fix hardcode upsname in nut_misc and nut_volts plugins, thanks to Joey
+    Hess for the bug and Stig Sandbeck Mathisen for the patch. 
+    (Closes: #521355)
 
  -- Holger Levsen <holger@debian.org>  Fri, 29 May 2009 10:34:39 +0200
 

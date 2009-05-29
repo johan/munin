@@ -47,4 +47,5 @@
 470-munin-run-man-typo.patch
 211-munin-manpage.patch
 510-fix-bashisms
+520-node.d-nut-plugins
 
