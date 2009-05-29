@@ -12,6 +12,7 @@ munin (1.2.6-12) UNRELEASED; urgency=low
     thanks to Valentin Vidic for the patch. (Closes: #500226)
   * Add patch to acpi plugin to call acpi without -B as requiered by acpi in
     lenny and newer, thanks to Joey Hess. (Closes: #523239)
+  * Include ejabberd plugin in munin-plugins-extra. (Closes: #505684) 
 
  -- Holger Levsen <holger@debian.org>  Fri, 29 May 2009 10:34:39 +0200
 

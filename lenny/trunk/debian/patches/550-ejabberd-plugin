@@ -1,0 +1,53 @@
+# should go upstream, seehttp://bugs.debian.org/cgi-bin/bugreport.cgi?bug=505684
+Index: munin-1.2.6/node/node.d/ejabberd.in
+===================================================================
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ munin-1.2.6/node/node.d/ejabberd.in	2009-05-29 13:19:40.000000000 +0200
+@@ -0,0 +1,47 @@
++#!/bin/sh
++# 
++# Plugin to count the connections on an ejabberd server
++#
++# INFO: needs ejabberd 1.1.2
++#
++# Author: Christian Dröge <Christian@draugr.de>
++# downloaded from http://munin.projects.linpro.no/wiki/plugin-ejabberd
++# modified as suggested in http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=505684
++#
++#%# family=auto
++#%# capabilities=autoconf
++
++if [ "$1" = "autoconf" ]; then
++	echo yes
++	exit 0
++fi
++
++if [ "$1" = "config" ]; then
++	echo 'graph_title ejabberd connections'
++	echo 'graph_args --base 1000 -l 0'
++	echo 'graph_vlabel connections'
++	echo 'graph_scale no'
++	echo 'graph_category network'
++	
++	echo 's2s_connections_out.label incoming s2s connections'
++	echo 's2s_connections_in.label outgoing s2s connections'
++	echo 'connected_users.label connected users'
++
++	echo 'graph_info This graph shows a statistic of ejabberd '
++	echo 's2s_connections_out.info Number of outgoing server to server connections'
++	echo 's2s_connections_in.info Number of incoming server to server connections'
++	echo 'connected_users.info Number of logged in users'
++
++	exit 0
++fi
++
++echo -n "s2s_connections_out.value "
++ejabberdctl outgoing-s2s-number
++echo -n "s2s_connections_in.value "
++ejabberdctl incoming-s2s-number
++echo -n "connected_users.value "
++#ejabberdctl connected-users-number
++### connected-users-number counts sessions, not users. Therefore, sessions might be a higher number
++### we want users.
++ejabberdctl stats onlineusers
++

@@ -50,3 +50,4 @@
 520-node.d-nut-plugins
 530-node.d.linux-cpu-scale-with-HZ
 540-node.d-acpi-lenny
+550-ejabberd-plugin
