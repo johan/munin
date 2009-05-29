@@ -1,0 +1,18 @@
+# needs to go upstream
+--- munin-1.2.6.orig/node/node.d.linux/cpu.in	2008-09-26 10:29:36.000000000 +0200
++++ munin-1.2.6/node/node.d.linux/cpu.in	2008-09-26 10:21:02.000000000 +0200
+@@ -117,10 +117,12 @@
+ 	exit 0
+ fi
+ 
++HZ=`getconf CLK_TCK`
+ 
+ if [ ! -z "$extinfo" ]
+ then
+-	awk '/^cpu / { print "user.value " $2 "\nnice.value " $3 "\nsystem.value " $4 "\nidle.value " $5 "\niowait.value " $6 "\nirq.value " $7 "\nsoftirq.value " $8 }' < /proc/stat
++	awk -v HZ=$HZ 'BEGIN { factor=100/HZ } /^cpu / { for (i=2; i<=8; i++) { $i = int($i * factor) }; print "user.value " $2 "\nnice.value " $3 "\nsystem.value " $4 "\nidle.value " $5 "\niowait.value " $6 "\nirq.value " $7 "\nsoftirq.value " $8 }' < /proc/stat
++
+ else
+-	awk '/^cpu / { print "user.value " $2 "\nnice.value " $3 "\nsystem.value " $4 "\nidle.value " $5 }' < /proc/stat
++	awk -v HZ=$HZ 'BEGIN { factor=100/HZ } /^cpu / { for (i=2; i<=5; i++) { $i = int($i * factor) }; print "user.value " $2 "\nnice.value " $3 "\nsystem.value " $4 "\nidle.value " $5 }' < /proc/stat
+ fi

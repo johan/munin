@@ -1,0 +1,20 @@
+Index: munin-1.2.6/server/munin-cgi-graph.in
+===================================================================
+--- munin-1.2.6.orig/server/munin-cgi-graph.in	2009-01-28 23:04:02.000000000 +0100
++++ munin-1.2.6/server/munin-cgi-graph.in	2009-01-28 23:05:12.000000000 +0100
+@@ -123,10 +123,12 @@
+ # Get semaphore handle
+ my $semid = semget($IPC_KEY, 0, 0 );
+ 
+-if(!$semid) {
++if(!defined $semid) {
+     # Or create it if needed
+-    $semid = semget($IPC_KEY, 1 , 0666 | IPC_CREAT ) ||
+-	die "Creating semaphore: $!";
++    $semid = semget($IPC_KEY, 1 , 0666 | IPC_CREAT );
++	if (!defined $semid) {
++	    die "Creating semaphore: $!";
++	}
+ 
+     # And initialize to max_cgi_graph_jobs
+     $opstring = pack("s!s!s!",0, $max_cgi_graph_jobs,0);

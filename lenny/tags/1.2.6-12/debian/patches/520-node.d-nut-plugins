@@ -1,0 +1,51 @@
+# has been applied upstream as http://munin.projects.linpro.no/changeset/1941
+Index: munin-1.2.6/node/node.d/nut_misc.in
+===================================================================
+--- munin-1.2.6.orig/node/node.d/nut_misc.in
++++ munin-1.2.6/node/node.d/nut_misc.in
+@@ -1,3 +1,11 @@
+ #!@@PERL@@
++#
++# Plugin to monitor UPS via the upsc command
++#
++# Parameters:
++#
++#   env.upsname <name@host> (default: "bertha@127.0.0.1")
++#   env.upsc    <command>   (default: "upsc")
++#
+ 
+ use strict;
+@@ -6,6 +14,6 @@
+ 
+ my %config = (
+-	upsname => 'bertha@127.0.0.1',
+-	upsc => 'upsc'
++	upsname => $ENV{"upsname"} ? $ENV{"upsname"} : 'bertha@127.0.0.1',
++	upsc => $ENV{"upsc"} ? $ENV{"upsc"} : 'upsc'
+ );
+ 
+Index: munin-1.2.6/node/node.d/nut_volts.in
+===================================================================
+--- munin-1.2.6.orig/node/node.d/nut_volts.in
++++ munin-1.2.6/node/node.d/nut_volts.in
+@@ -1,3 +1,11 @@
+ #!@@PERL@@
++#
++# Plugin to monitor UPS via the upsc command
++#
++# Parameters:
++#
++#   env.upsname <name@host> (default: "bertha@127.0.0.1")
++#   env.upsc    <command>   (default: "upsc")
++#
+ 
+ use strict;
+@@ -6,6 +14,6 @@
+ 
+ my %config = (
+-	upsname => 'bertha@127.0.0.1',
+-	upsc => 'upsc'
++	upsname => $ENV{"upsname"} ? $ENV{"upsname"} : 'bertha@127.0.0.1',
++	upsc => $ENV{"upsc"} ? $ENV{"upsc"} : 'upsc'
+ );
+ 
