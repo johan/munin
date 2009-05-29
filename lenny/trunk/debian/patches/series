@@ -46,4 +46,5 @@
 460-netstat-regex.patch
 470-munin-run-man-typo.patch
 211-munin-manpage.patch
+510-fix-bashisms
 
