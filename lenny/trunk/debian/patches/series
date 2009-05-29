@@ -51,3 +51,4 @@
 530-node.d.linux-cpu-scale-with-HZ
 540-node.d-acpi-lenny
 550-ejabberd-plugin
+560-asterisk-plugins
