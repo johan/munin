@@ -10,6 +10,8 @@ munin (1.2.6-12) UNRELEASED; urgency=low
     (Closes: #501189)
   * Add patch to linux cpu plugin to output correct graph if HZ value != 100,
     thanks to Valentin Vidic for the patch. (Closes: #500226)
+  * Add patch to acpi plugin to call acpi without -B as requiered by acpi in
+    lenny and newer, thanks to Joey Hess. (Closes: #523239)
 
  -- Holger Levsen <holger@debian.org>  Fri, 29 May 2009 10:34:39 +0200
 
