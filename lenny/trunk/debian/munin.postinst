@@ -9,6 +9,11 @@ add_munin_system_user() {
 		adduser --group --system --no-create-home \
 			--home /var/lib/munin munin;
 	fi	
+	# workaround bug (#531021) in xen-tools
+	if ! getent group munin >/dev/null; then
+	        addgroup --system munin
+	        adduser munin munin
+	fi
 }
 
 fixperms() {

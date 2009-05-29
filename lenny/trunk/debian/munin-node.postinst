@@ -6,8 +6,13 @@ prevver="$2"
 
 add_munin_system_user() {
 	if ! getent passwd munin >/dev/null; then
-		adduser --group --system --no-create-home --home /var/lib/munin munin;
-	fi	
+		adduser --group --system --no-create-home --home /var/lib/munin munin
+	fi
+	# workaround bug (#531021) in xen-tools
+	if ! getent group munin >/dev/null; then
+		addgroup --system munin
+		adduser munin munin
+	fi
 }
 
 fixperms() {
