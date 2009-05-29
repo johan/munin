@@ -1,4 +1,4 @@
-munin (1.2.6-12) UNRELEASED; urgency=low
+munin (1.2.6-12) unstable; urgency=low
 
   * Fix bashisms in several plugins in munin-plugins-extra, thanks to
     Raphael Geissert for the bug and the patch. (Closes: #530147)
@@ -17,7 +17,7 @@ munin (1.2.6-12) UNRELEASED; urgency=low
   * Include various plugins for asterisk in munin-plugins-extra. Thanks to 
     Rodolphe Quiedeville and Jan Prunk for the plugins. (Closes: #510307)
 
- -- Holger Levsen <holger@debian.org>  Fri, 29 May 2009 10:34:39 +0200
+ -- Holger Levsen <holger@debian.org>  Fri, 29 May 2009 14:31:23 +0200
 
 munin (1.2.6-11) unstable; urgency=low
 

@@ -37,7 +37,7 @@ Index: munin-1.2.6/node/node.d/asterisk_channels.in
 +# 	username
 +# 	secret
 +#
-+#%# family=asterisk
++#%# family=contrib
 +#%# capabilities=autoconf
 +
 +use strict;
@@ -139,7 +139,7 @@ Index: munin-1.2.6/node/node.d/asterisk_channelstypes.in
 +# 	username
 +# 	secret
 +#
-+#%# family=asterisk
++#%# family=contrib
 +#%# capabilities=autoconf
 +
 +use strict;
@@ -284,7 +284,7 @@ Index: munin-1.2.6/node/node.d/asterisk_codecs.in
 +# note that, if present, both required with codecsX being
 +# the hex representation asterisk returns for the codec
 +#
-+#%# family=asterisk
++#%# family=contrib
 +#%# capabilities=autoconf
 +
 +use strict;
@@ -479,7 +479,7 @@ Index: munin-1.2.6/node/node.d/asterisk_meetme.in
 +# 	username
 +# 	secret
 +#
-+#%# family=asterisk
++#%# family=contrib
 +#%# capabilities=autoconf
 +
 +use strict;
@@ -593,7 +593,7 @@ Index: munin-1.2.6/node/node.d/asterisk_meetmeusers.in
 +# 	username
 +# 	secret
 +#
-+#%# family=asterisk
++#%# family=contrib
 +#%# capabilities=autoconf
 +
 +use strict;
@@ -714,7 +714,7 @@ Index: munin-1.2.6/node/node.d/asterisk_sipchannels.in
 +# note that, if present, both required with codecsX being
 +# the hex representation asterisk returns for the codec
 +#
-+#%# family=asterisk
++#%# family=contrib
 +#%# capabilities=autoconf
 +
 +use strict;
@@ -874,7 +874,7 @@ Index: munin-1.2.6/node/node.d/asterisk_sippeers.in
 +# 	username
 +# 	secret
 +#
-+#%# family=asterisk
++#%# family=contrib
 +#%# capabilities=autoconf
 +
 +# #################################################################################
@@ -1014,7 +1014,7 @@ Index: munin-1.2.6/node/node.d/asterisk_voicemail.in
 +# 	username
 +# 	secret
 +#
-+#%# family=asterisk
++#%# family=contrib
 +#%# capabilities=autoconf
 +
 +use strict;

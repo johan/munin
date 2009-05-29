@@ -14,7 +14,7 @@ Index: munin-1.2.6/node/node.d/ejabberd.in
 +# downloaded from http://munin.projects.linpro.no/wiki/plugin-ejabberd
 +# modified as suggested in http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=505684
 +#
-+#%# family=auto
++#%# family=contrib
 +#%# capabilities=autoconf
 +
 +if [ "$1" = "autoconf" ]; then
