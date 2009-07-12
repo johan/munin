@@ -52,3 +52,4 @@
 540-node.d-acpi-lenny
 550-ejabberd-plugin
 560-asterisk-plugins
+570-munin-fix-rrd-upgrade.patch
