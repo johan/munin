@@ -53,3 +53,4 @@
 550-ejabberd-plugin
 560-asterisk-plugins
 570-munin-fix-rrd-upgrade.patch
+571-node.d-postfix-mailstats.patch

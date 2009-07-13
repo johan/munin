@@ -2,8 +2,10 @@ munin (1.2.6-13) UNRELEASED; urgency=low
 
   * Fix conversion of old RRD files, which made munin emit lots of harmless
     error messages on its first run (Closes: #400703)
+  * node.d/postfix_mailstats: Add patch to make it count rejects by
+    postfix/cleanup (Closes: #532200)
 
- -- Stig Sandbeck Mathisen <ssm@debian.org>  Sun, 12 Jul 2009 13:31:25 +0000
+ -- Stig Sandbeck Mathisen <ssm@debian.org>  Mon, 13 Jul 2009 23:29:41 +0200
 
 munin (1.2.6-12) unstable; urgency=low
 

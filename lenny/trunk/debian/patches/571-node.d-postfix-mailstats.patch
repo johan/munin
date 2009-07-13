@@ -1,0 +1,53 @@
+This patch fixes Debian bug #532200
+
+Explanation
+-----------
+
+The postfix_mailstats plugin does not look for rejects made by postfix/cleanup
+
+Fix
+---
+
+The patch attemts to fix this by adding regular expressions that checks for
+rejects by postfix/cleanup, in addition to the rejects by postfix/smtpd.
+
+Note
+----
+
+This patch is also dded to the munin upstream, in commit #2296.  When this
+revision makes it to the debian package, this patch can be removed.
+
+Thanks to Cedric Knight for the patch to postfix_mailstats.
+--- a/node/node.d/postfix_mailstats.in
++++ b/node/node.d/postfix_mailstats.in
+@@ -93,14 +93,10 @@
+     }
+     while (<IN>)
+     {
+-    	if (/^(\d+):(\d+)$/)
++    	if (/^([0-9a-z.\-]+):(\d+)$/)
+ 	{
+ 		$rejects->{$1} = $2;
+ 	}
+-        elsif (/^OTHER:(\d+)$/)
+-        {
+-		$rejects->{OTHER} = $1;
+-        }
+     }
+     close IN;
+ }
+@@ -188,11 +184,10 @@
+ 	{
+ 	    $delivered++;
+ 	} 
+-	elsif ($line =~ /postfix\/smtpd.*reject: \S+ \S+ \S+ (\S+)/)
++	elsif ($line =~ /postfix\/smtpd.*reject: \S+ \S+ \S+ (\S+)/ ||
++	       $line =~ /postfix\/cleanup.* reject: (\S+)/)
+ 	{
+-            my $cause = $1;
+-            $cause = 'OTHER' unless $1 =~ /^\d+$/;
+-	    $rejects->{$cause} ++;
++	    $rejects->{$1} ++;
+ 	}
+     }
+     close(LOGFILE);    
