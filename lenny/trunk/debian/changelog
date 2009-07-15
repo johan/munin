@@ -1,5 +1,6 @@
 munin (1.2.6-13) UNRELEASED; urgency=low
 
+  [ Stig Sandbeck Mathisen ]
   * Fix conversion of old RRD files, which made munin emit lots of harmless
     error messages on its first run (Closes: #400703)
   * node.d/postfix_mailstats: Add patch to make it count rejects by
@@ -7,7 +8,10 @@ munin (1.2.6-13) UNRELEASED; urgency=low
   * Makefile: Make find-search-replace-and-rename behave in a more sane manner
     (Closes: #536987)
 
- -- Stig Sandbeck Mathisen <ssm@debian.org>  Wed, 15 Jul 2009 13:04:14 +0200
+  [ Matthias Schmitz ]
+  * Add suggest to hdparm as need by hddtemp_smartctl (Closes: #531714)
+
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Wed, 15 Jul 2009 20:28:35 +0200
 
 munin (1.2.6-12) unstable; urgency=low
 
