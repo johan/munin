@@ -1,0 +1,12 @@
+--- a/Makefile
++++ b/Makefile
+@@ -133,7 +133,7 @@
+ build: build-stamp
+ 
+ build-stamp:
+-	@for file in `find . -type f -name '*.in'`; do			\
++	@for file in `find server node monkeywrench -type f -name '*.in'`; do			\
+ 		destname=`echo $$file | sed 's/.in$$//'`;		\
+ 		echo Generating $$destname..;				\
+ 		mkdir -p build/`dirname $$file`;			\
+

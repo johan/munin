@@ -54,3 +54,4 @@
 560-asterisk-plugins
 570-munin-fix-rrd-upgrade.patch
 571-node.d-postfix-mailstats.patch
+580-Makefile-find.patch
