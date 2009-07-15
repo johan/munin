@@ -1,3 +1,6 @@
+Type: thirdparty plugin
+Source: Andras Korn, by way of debian bug #305917
+
 Index: munin-1.2.6/node/node.d/ups_
 ===================================================================
 --- /dev/null	1970-01-01 00:00:00.000000000 +0000
