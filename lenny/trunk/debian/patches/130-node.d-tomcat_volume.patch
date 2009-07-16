@@ -1,5 +1,6 @@
-Type: backported plugin
-Source: munin 1.3.3
+Description: plugin backported from munin 1.3.3
+Origin: backport, http://munin.projects.linpro.no/browser/tags/1.3.3/node/node.d/tomcat_volume.in
+Last-Update: 2009-07-16
 
 Index: munin-1.2.6/node/node.d/tomcat_volume.in
 ===================================================================
