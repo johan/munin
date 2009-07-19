@@ -1,3 +1,8 @@
+Description: Patch to make sure nfsd plugin gracefully handles a missing
+ /proc/net/rpc/nfsd. This issue is fixed upstream by a plugin rewrite at
+ revision 1019.
+Origin: other, http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=490882
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=490882
 Index: munin-1.2.6/node/node.d.linux/nfsd.in
 ===================================================================
 --- munin-1.2.6.orig/node/node.d.linux/nfsd.in	2008-08-12 16:11:27.000000000 +0200

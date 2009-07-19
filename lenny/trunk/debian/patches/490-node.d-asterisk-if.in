@@ -1,4 +1,8 @@
-# fixed upstream 
+Description: Typo fix for plugin if_. It has been fixed upstream in revision
+ 2224, but is not present in tags/1.2.6 or tags/1.3.4
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=523765
+Origin: other, http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=523765
+Last-Update: 2009-07-19
 Index: munin-1.2.6/node/node.d.freebsd/if_.in
 ===================================================================
 --- munin-1.2.6.orig/node/node.d.freebsd/if_.in	2009-05-28 20:06:12.000000000 +0200

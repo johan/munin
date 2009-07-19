@@ -1,3 +1,7 @@
+Description: sensors plugin: don't output errors on autoconf and suggest if no
+ sensors binary is installed.
+Origin: other, http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=491473
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=491473
 Index: munin-1.2.6/node/node.d.linux/sensors_.in
 ===================================================================
 --- munin-1.2.6.orig/node/node.d.linux/sensors_.in	2008-07-21 00:11:47.000000000 +0200

@@ -1,3 +1,7 @@
+Description: fix typo in courier plugin. Fixed upstream in revision 1174, and
+ in tags/1.3.1
+Origin: other, http://bugs.debian.org/491463
+Bug-Debian: http://bugs.debian.org/491463
 Index: munin-1.2.6.obsolete.0.945208103469671/node/node.d/courier_.in
 ===================================================================
 --- munin-1.2.6.obsolete.0.945208103469671.orig/node/node.d/courier_.in	2008-07-21 00:24:10.000000000 +0200

@@ -1,3 +1,8 @@
+Description: Bugfix to prevent munin-node-configure from treating empty
+ suggests as errors.  Rewritten in upstream revision 1173, and fixed in
+ upstream trunk by using exit status instead of stdout for status.
+Origin: other, http://bugs.debian.org/491475
+Bug-Debian: http://bugs.debian.org/491475
 Index: munin-1.2.6/node/munin-node-configure.in
 ===================================================================
 --- munin-1.2.6.orig/node/munin-node-configure.in	2008-07-20 23:44:28.000000000 +0200

@@ -1,3 +1,8 @@
+Description: Patch to handle utf8 with RRDTool version >= 1.3.  Not fixed in
+ upstream tags/1.3.4, and trunk is rewritten.
+Origin: other, http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=494547
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=494547
+Forwarded: no
 Index: munin-1.2.6/server/munin-graph.in
 ===================================================================
 --- munin-1.2.6.orig/server/munin-graph.in	2008-09-08 21:42:45.000000000 +0200

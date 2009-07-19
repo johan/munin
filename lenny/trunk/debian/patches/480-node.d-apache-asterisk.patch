@@ -1,4 +1,8 @@
-# already fixed upstream
+Description: Typo fix in plugins apache_accesses, apache_volume,
+ apache_processes
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=519642
+Origin: other, http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=519642
+Last-Update: 2009-07-19
 Index: munin-1.2.6/node/node.d/apache_accesses.in
 ===================================================================
 --- munin-1.2.6.orig/node/node.d/apache_accesses.in	2009-05-28 19:56:49.000000000 +0200
