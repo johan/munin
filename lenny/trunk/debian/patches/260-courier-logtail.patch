@@ -1,3 +1,7 @@
+Description: Patch to remove unneeded logtail version detection code in the
+ courier plugin
+Origin: other, http://bugs.debian.org/298895
+Bug-Debian: http://bugs.debian.org/298895
 Index: trunk/node/node.d/courier_.in
 ===================================================================
 --- trunk.orig/node/node.d/courier_.in	2008-07-01 19:19:59.000000000 +0200

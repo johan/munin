@@ -1,3 +1,6 @@
+Description: Patch for plugin node/node.d.linux/ip_ to ignore slashes during 'suggest'
+Author: Matthias Schmitz <matthias@sigxcpu.org>
+Forwarded: no
 Index: munin-1.2.6/node/node.d.linux/ip_.in
 ===================================================================
 --- munin-1.2.6.orig/node/node.d.linux/ip_.in	2008-06-28 21:34:58.000000000 +0200

@@ -1,25 +1,16 @@
-This patch fixes Debian bug #400703 in the 1.2 branch of munin.
-
-Explanation
------------
-
-Munin attempts to upgade values in RRD files created by older versions of
-munin, and rename those files, but on first startup, the file
-/var/lib/munin/datafile does not exist, and $oldconfig does not contain the
-expected values.
-
-Fix
----
-
-The patch attemts to fix this by adding checks for the presence of the old
-datafile, by adding checks for old RRD file, and by adding checks for the
-content of the config hash when used in Munin.pm
-
-Note
-----
-
-This patch will not apply to munin upstream after 1.3, due to an extensive
-rewrite / refactoring after 1.2.
+Description: Munin attempts to upgade values in RRD files created by older
+ versions of munin, and rename those files, but on first startup, the file
+ /var/lib/munin/datafile does not exist, and $oldconfig does not contain the
+ expected values.
+ .
+ The patch attemts to fix this by adding checks for the presence of the old
+ datafile, by adding checks for old RRD file, and by adding checks for the
+ content of the config hash when used in Munin.pm
+ .
+ This patch will not apply to munin upstream after 1.3.4, due to an extensive
+ rewrite / refactoring.
+Bug-Debian: http://bugs.debian.org/400703
+Author: Stig Sandbeck Mathisen <ssm@debian.org>
 --- a/server/Munin.pm.in
 +++ b/server/Munin.pm.in
 @@ -572,9 +572,29 @@

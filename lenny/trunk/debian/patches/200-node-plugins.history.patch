@@ -1,3 +1,6 @@
+Description: Patch to add plugins tomcat_access, tomcat_jvm, tomcat_thread,
+ tomcat_volume to the plugin history list, since these were backported.
+Author: Matthias Schmitz <matthias@sigxcpu.org>
 Index: munin-1.2.6/node/plugins.history.in
 ===================================================================
 --- munin-1.2.6.orig/node/plugins.history.in	2008-06-12 02:36:22.000000000 +0200

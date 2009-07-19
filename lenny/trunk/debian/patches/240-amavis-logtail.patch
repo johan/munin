@@ -1,3 +1,8 @@
+Description: Patch to remove logtail version detection code from the plugin.
+ Not fixed upstream.
+Origin: other, http://bugs.debian.org/297628
+Bug-Debian: http://bugs.debian.org/297628
+Forwarded: no
 Index: trunk/node/node.d/amavis.in
 ===================================================================
 --- trunk.orig/node/node.d/amavis.in	2008-07-01 19:01:18.000000000 +0200

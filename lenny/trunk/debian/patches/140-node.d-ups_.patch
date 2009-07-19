@@ -1,5 +1,7 @@
-Type: thirdparty plugin
-Source: Andras Korn, by way of debian bug #305917
+Description: Patch to add plugin ups_.  Added in upstream revision r1150 and
+ tags/1.3.4, as nutups_
+Author: Andras Korn
+Bug-Debian: http://bugs.debian.org/305917
 
 Index: munin-1.2.6/node/node.d/ups_
 ===================================================================

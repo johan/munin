@@ -1,4 +1,8 @@
-# should go upstream, seehttp://bugs.debian.org/cgi-bin/bugreport.cgi?bug=505684
+Description: Include ejabberd plugin in munin-plugins-extra
+Author: Christian Dröge
+Origin: other, http://munin.projects.linpro.no/wiki/plugin-ejabberd
+Bug-Debian: http://bugs.debian.org/505684
+Forwarded: no
 Index: munin-1.2.6/node/node.d/ejabberd.in
 ===================================================================
 --- /dev/null	1970-01-01 00:00:00.000000000 +0000

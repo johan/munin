@@ -1,3 +1,6 @@
+Description: Patch to add basic manpage for munindoc.  Committed upstream to
+ branches/1.2-stable, but not to tags/1.2.6
+Author: Matthias Schmitz <matthias@sigxcpu.org>
 Index: munin-1.2.6/Makefile
 ===================================================================
 --- munin-1.2.6.orig/Makefile	2008-06-12 10:02:57.000000000 +0200

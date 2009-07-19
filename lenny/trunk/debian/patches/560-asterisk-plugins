@@ -1,6 +1,10 @@
-# should go upstream
-# taken from http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=510307
-# which were in turn taken from somewhere...
+Description: Add plugins - asterisk_channels asterisk_channelstypes
+ asterisk_codecs asterisk_meetme asterisk_meetmeusers asterisk_sipchannels
+ asterisk_sippeers asterisk_voicemail
+Author: Rodolphe Quiedeville <rodolphe@quiedeville.org>
+Origin: http://uranus.mtveurope.org/~yang/asterisk_munin_scripts.tar
+Bug-Debian: http://bugs.debian.org/510307
+Forwarded: no
 Index: munin-1.2.6/node/node.d/asterisk_channels.in
 ===================================================================
 --- /dev/null	1970-01-01 00:00:00.000000000 +0000

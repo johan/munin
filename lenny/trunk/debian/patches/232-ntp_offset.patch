@@ -1,3 +1,5 @@
+Description: Patch to plugin ntp_offset, remove -w from hashbang line.
+Origin: backport, http://munin.projects.linpro.no/changeset/1561
 Index: munin-1.2.6/node/node.d/ntp_offset.in
 ===================================================================
 --- munin-1.2.6.orig/node/node.d/ntp_offset.in	2008-06-22 23:02:53.000000000 +0200

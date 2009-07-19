@@ -1,3 +1,7 @@
+Description: Fix typos in node/Plugin.pm
+Author: Joey Schulze
+Bug-Debian: http://bugs.debian.org/495003
+Forwarded: no
 Index: munin-1.2.6/node/Plugin.pm.in
 ===================================================================
 --- munin-1.2.6.orig/node/Plugin.pm.in	2008-08-24 17:31:37.000000000 +0000

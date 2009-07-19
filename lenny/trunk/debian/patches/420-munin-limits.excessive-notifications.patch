@@ -1,3 +1,7 @@
+Description: Patch to munin-limits to change how it deals with new UNKNOWN
+ values.  Related bug is linked in Bug-Debian:
+Author: Steve Wilson
+Bug-Debian: http://bugs.debian.org/501214
 Index: munin-1.2.6/server/munin-limits.in
 ===================================================================
 --- munin-1.2.6.orig/server/munin-limits.in	2008-02-18 02:00:00.000000000 +0100

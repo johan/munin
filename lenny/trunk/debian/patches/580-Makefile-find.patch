@@ -1,3 +1,8 @@
+Description: Patch makefile to be more specific when doing "find", to avoid it
+ trying to search-replace-rename files in the debian/ directory during build.
+Author: Stig Sandbeck Mathisen <ssm@debian.org>
+Bug-Debian: http://bugs.debian.org/536987
+Forwarded: no
 --- a/Makefile
 +++ b/Makefile
 @@ -133,7 +133,7 @@

@@ -1,3 +1,8 @@
+Description: munin-cgi-graph: better check of semget() return value.   Fixed
+ upstream in r1852
+Origin: other, http://bugs.debian.org/512572
+Bug-Debian: http://bugs.debian.org/512572
+
 Index: munin-1.2.6/server/munin-cgi-graph.in
 ===================================================================
 --- munin-1.2.6.orig/server/munin-cgi-graph.in	2009-01-28 23:04:02.000000000 +0100

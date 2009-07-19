@@ -1,23 +1,11 @@
-This patch fixes Debian bug #532200
-
-Explanation
------------
-
-The postfix_mailstats plugin does not look for rejects made by postfix/cleanup
-
-Fix
----
-
-The patch attemts to fix this by adding regular expressions that checks for
-rejects by postfix/cleanup, in addition to the rejects by postfix/smtpd.
-
-Note
-----
-
-This patch is also dded to the munin upstream, in commit #2296.  When this
-revision makes it to the debian package, this patch can be removed.
-
-Thanks to Cedric Knight for the patch to postfix_mailstats.
+Description: The postfix_mailstats plugin does not look for rejects made by
+ postfix/cleanup
+ .
+ The patch attemts to fix this by adding regular expressions that checks for
+ rejects by postfix/cleanup, in addition to the rejects by postfix/smtpd.
+Author: Cedric Knight
+Origin: upstream, http://munin.projects.linpro.no/changeset/2296
+Bug-Debian: http://bugs.debian.org/532200
 --- a/node/node.d/postfix_mailstats.in
 +++ b/node/node.d/postfix_mailstats.in
 @@ -93,14 +93,10 @@

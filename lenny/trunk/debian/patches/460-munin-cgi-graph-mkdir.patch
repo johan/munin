@@ -1,3 +1,10 @@
+Description: munin-html: create needed directories if they don't exist.
+ Normally this is done in munin-graph, but that's not used in cgi mode.  Unsure
+ if this is fixed upstream, since trunk has gone through a major rewrite.  The
+ fix is not present in branches/1.3-flux
+Origin: other, http://bugs.debian.org/514634#10
+Bug-Debian: http://bugs.debian.org/514634
+Forwarded: no
 Index: munin-1.2.6/server/munin-html.in
 ===================================================================
 --- munin-1.2.6.orig/server/munin-html.in	2009-02-10 18:04:55.000000000 +0100

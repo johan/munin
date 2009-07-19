@@ -1,3 +1,5 @@
+Description: Patch to remove creation of empty and unused directory.
+Author: Matthias Schmitz <matthias@sigxcpu.org>
 Index: munin-1.2.6/Makefile
 ===================================================================
 --- munin-1.2.6.orig/Makefile	2008-06-15 21:41:08.000000000 +0200

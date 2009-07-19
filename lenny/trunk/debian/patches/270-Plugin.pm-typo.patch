@@ -1,3 +1,7 @@
+Description: Added patch for two POD typos in Plugin.pm. Fixed upstream in
+ r1673
+Origin: other, http://bugs.debian.org/488700
+Bug-Debian: http://bugs.debian.org/488700
 Index: munin-1.2.6/node/Plugin.pm.in
 ===================================================================
 --- munin-1.2.6.orig/node/Plugin.pm.in	2008-07-07 13:30:29.000000000 +0200

@@ -1,4 +1,8 @@
-#  #523239 - doesnt need to go upstream, trunk has newer acpi plugin which works differently
+Description: Add patch to acpi plugin to call acpi without -B as requiered by
+ acpi in lenny and newer.  Upstream has rewritten plugins which fixes this
+ issue.
+Origin: other, http://bugs.debian.org/523239
+Bug-Debian: http://bugs.debian.org/523239
 Index: munin-1.2.6/node/node.d/acpi.in
 ===================================================================
 --- munin-1.2.6.orig/node/node.d/acpi.in	2009-05-29 13:02:40.000000000 +0200

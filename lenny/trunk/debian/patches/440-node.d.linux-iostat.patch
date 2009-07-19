@@ -1,3 +1,7 @@
+Description: add stdout/stderr redirection to plugin iostat.
+Origin: other, http://bugs.debian.org/512407
+Bug-Debian: http://bugs.debian.org/512407
+Forwarded: no
 Index: munin-1.2.6/node/node.d.linux/iostat.in
 ===================================================================
 --- munin-1.2.6.orig/node/node.d.linux/iostat.in	2009-01-28 13:58:14.000000000 +0100

@@ -1,3 +1,7 @@
+Description: fix regex to only match openened connections.  Not committed upstream.
+Origin: other, http://bugs.debian.org/507069
+Bug-Debian: http://bugs.debian.org/507069
+Forwarded: no
 Index: munin-1.2.6/node/node.d.linux/netstat.in
 ===================================================================
 --- munin-1.2.6.orig/node/node.d.linux/netstat.in	2009-02-26 23:03:35.000000000 +0100

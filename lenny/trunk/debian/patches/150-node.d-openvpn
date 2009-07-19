@@ -1,6 +1,6 @@
-Type: thirdparty plugin
-Source: http://rodolphe.quiedeville.org/hack/openvpn
-
+Description: Add plugin for openvpn
+Origin: other, http://rodolphe.quiedeville.org/hack/openvpn
+Bug-Debian: http://bugs.debian.org/354447
 Index: munin-1.2.6/node/node.d/openvpn.in
 ===================================================================
 --- /dev/null	1970-01-01 00:00:00.000000000 +0000

@@ -1,4 +1,8 @@
-# fixes #530147, has been applied upstream
+Description: Fix bashisms in several plugins in munin-plugins-extra.  Fixed
+ upstream in revision r2242
+Author: Raphael Geissert
+Origin: other, http://bugs.debian.org/530147
+Bug-Debian: http://bugs.debian.org/530147
 Index: munin-1.2.6/node/node.d.linux/netopia.in
 ===================================================================
 --- munin-1.2.6.orig/node/node.d.linux/netopia.in

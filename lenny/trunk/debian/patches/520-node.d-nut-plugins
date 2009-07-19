@@ -1,4 +1,8 @@
-# has been applied upstream as http://munin.projects.linpro.no/changeset/1941
+Description: Fix hardcode upsname in nut_misc and nut_volts plugins.  Fixed
+ upstream in revision r1941
+Author: Stig Sandbeck Mathisen <ssm@debian.org>
+Origin: upstream, http://munin.projects.linpro.no/changeset/1941
+Bug-Debian: http://bugs.debian.org/521355
 Index: munin-1.2.6/node/node.d/nut_misc.in
 ===================================================================
 --- munin-1.2.6.orig/node/node.d/nut_misc.in

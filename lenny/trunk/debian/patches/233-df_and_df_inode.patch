@@ -1,3 +1,7 @@
+Description: substitute '%' by 'percent' in graph_title of plugins "df" and
+ "df_abs" to provide nagios compatibility.  Not fixed upstream.
+Origin: other, http://bugs.debian.org/472239
+Bug-Debian: http://bugs.debian.org/472239
 Index: munin-1.2.6/node/node.d.linux/df.in
 ===================================================================
 --- munin-1.2.6.orig/node/node.d.linux/df.in	2008-06-27 16:47:10.000000000 +0200

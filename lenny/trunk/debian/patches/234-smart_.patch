@@ -1,3 +1,7 @@
+Description: Patch plugin smart_ to prevent spinning up disks from standby.
+ Fixed upstream in revision r2170.
+Bug-Debian: http://bugs.debian.org/409462
+Origin: other, http://bugs.debian.org/cgi-bin/bugreport.cgi?msg=10;filename=munin.patch;att=1;bug=409462
 Index: munin-1.2.6/node/node.d/smart_.in
 ===================================================================
 --- munin-1.2.6.orig/node/node.d/smart_.in	2008-06-27 17:38:34.000000000 +0200
