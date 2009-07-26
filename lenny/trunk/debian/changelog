@@ -10,8 +10,9 @@ munin (1.2.6-13) UNRELEASED; urgency=low
 
   [ Matthias Schmitz ]
   * Add suggest to hdparm as need by hddtemp_smartctl (Closes: #531714)
+  * Catch unitialized values and munindoc'ify postgres_space_ (Closes: #518790)
 
- -- Matthias Schmitz <matthias@sigxcpu.org>  Wed, 15 Jul 2009 20:28:35 +0200
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Mon, 27 Jul 2009 00:54:55 +0200
 
 munin (1.2.6-12) unstable; urgency=low
 

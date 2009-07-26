@@ -6,7 +6,7 @@ Origin: http://munin.projects.linpro.no/browser/tags/1.3.4/node/node.d/
 Index: munin-1.2.6/node/node.d/postgres_block_read_.in
 ===================================================================
 --- /dev/null	1970-01-01 00:00:00.000000000 +0000
-+++ munin-1.2.6/node/node.d/postgres_block_read_.in	2008-10-26 13:55:37.000000000 +0100
++++ munin-1.2.6/node/node.d/postgres_block_read_.in	2009-07-27 00:50:56.000000000 +0200
 @@ -0,0 +1,167 @@
 +#!@@PERL@@ -w
 +# -*- perl -*-
@@ -178,7 +178,7 @@ Index: munin-1.2.6/node/node.d/postgres_block_read_.in
 Index: munin-1.2.6/node/node.d/postgres_commits_.in
 ===================================================================
 --- /dev/null	1970-01-01 00:00:00.000000000 +0000
-+++ munin-1.2.6/node/node.d/postgres_commits_.in	2008-10-26 13:55:56.000000000 +0100
++++ munin-1.2.6/node/node.d/postgres_commits_.in	2009-07-27 00:50:56.000000000 +0200
 @@ -0,0 +1,225 @@
 +#!@@PERL@@
 +# -*- perl -*-
@@ -408,7 +408,7 @@ Index: munin-1.2.6/node/node.d/postgres_commits_.in
 Index: munin-1.2.6/node/node.d/postgres_connections.in
 ===================================================================
 --- /dev/null	1970-01-01 00:00:00.000000000 +0000
-+++ munin-1.2.6/node/node.d/postgres_connections.in	2008-10-26 13:55:00.000000000 +0100
++++ munin-1.2.6/node/node.d/postgres_connections.in	2009-07-27 00:50:56.000000000 +0200
 @@ -0,0 +1,73 @@
 +#!@@PERL@@
 +# -*- perl -*-
@@ -486,7 +486,7 @@ Index: munin-1.2.6/node/node.d/postgres_connections.in
 Index: munin-1.2.6/node/node.d/postgres_locks.in
 ===================================================================
 --- /dev/null	1970-01-01 00:00:00.000000000 +0000
-+++ munin-1.2.6/node/node.d/postgres_locks.in	2008-10-26 13:55:00.000000000 +0100
++++ munin-1.2.6/node/node.d/postgres_locks.in	2009-07-27 00:50:56.000000000 +0200
 @@ -0,0 +1,83 @@
 +#!@@PERL@@
 +# -*- perl -*-
@@ -574,7 +574,7 @@ Index: munin-1.2.6/node/node.d/postgres_locks.in
 Index: munin-1.2.6/node/node.d/postgres_queries_.in
 ===================================================================
 --- /dev/null	1970-01-01 00:00:00.000000000 +0000
-+++ munin-1.2.6/node/node.d/postgres_queries_.in	2008-10-26 13:56:15.000000000 +0100
++++ munin-1.2.6/node/node.d/postgres_queries_.in	2009-07-27 00:50:56.000000000 +0200
 @@ -0,0 +1,194 @@
 +#!@@PERL@@
 +# -*- perl -*-
@@ -773,53 +773,79 @@ Index: munin-1.2.6/node/node.d/postgres_queries_.in
 Index: munin-1.2.6/node/node.d/postgres_space_.in
 ===================================================================
 --- /dev/null	1970-01-01 00:00:00.000000000 +0000
-+++ munin-1.2.6/node/node.d/postgres_space_.in	2008-10-26 13:56:35.000000000 +0100
-@@ -0,0 +1,193 @@
++++ munin-1.2.6/node/node.d/postgres_space_.in	2009-07-27 00:53:09.000000000 +0200
+@@ -0,0 +1,219 @@
 +#!@@PERL@@ -w
 +# -*- perl -*-
 +#
-+# Plugin to monitor PostgreSQL disk usage.
-+#
-+# Written by Bjrn Ruberg (bjorn@linpro.no) 2006
-+# Rewritten by Moses Moore 2006-04-08  moc.iazom@sesom
-+# Licenced under GPL
-+#
-+# Parameters:
-+# 	
-+# 	config
-+# 	autoconf
-+#
-+# Configuration variables:
-+#
-+#	PGHOST		- Database server to use. Defaults to using ident
-+#			  authentication with the local server.
-+#	PGPORT		- Port to connect to. Defaults to '5432'.
-+#	PGDATABASE	- Database to connect to. Defaults to 'template1'.
-+#			  Note that this can be different from the database to
-+#			  monitor, which is defined via the symlink.
-+#	PGUSER		- User to connect as, if necessary.
-+#	PGPASSWORD	- Corresponding password to use, if necessary.
-+#
-+#	(See libpq documentation for more.)
-+#	Note that PGDATABASE will default to 'template1' in this plugin, and
-+#	without PGHOST it will try ident authentication with the local server,
-+#	as the user that the plugin is running as.
-+#
-+# Configuration example:
-+#
-+#	# Use local server, ident authentication with the 'postgres' user.
-+#	[postgres_*]
-+#	user postgres
-+#
-+#	# Use local server, TCP authentication with a username and password.
-+#	[postgres_*]
-+#	env.PGHOST localhost
-+#	env.PGUSER someuser
-+#	env.PGPASSWORD somepassword
-+#
-+# Magic markers
-+#%# family=auto
-+#%# capabilities=suggest
++=head1 NAME
++
++postgresql_space_ - Plugin to monitor PostgreSQL disk usage.
++
++=head1 INSTALLATION
++
++Link the plugin to @@CONFDIR@@/plugins/ :
++  ln -s @@LIBDIR@@/plugins/postgres_space_ @@CONFDIR@@/plugins/postgres_space_dbname
++
++The database name from the link is only used in the graph title. You have to
++configure the name of the database to connect in the configuration file. 
++
++=head1 CONFIGURATION
++
++The plugin supports the following parameters:
++	
++ config 	(required)
++ autoconf	(optional - used by munin-node-configure)
++
++
++To configure the plugin set configuration variables in
++@@CONFDIR@@/plugin-conf.d/postgres :
++
++ PGHOST		- Database server to use. Defaults to using ident
++		  authentication with the local server.
++ PGPORT		- Port to connect to. Defaults to '5432'.
++ PGDATABASE	- Database to connect to. Defaults to 'template1'.
++		  Note that this can be different from the database to
++		  monitor, which is defined via the symlink.
++ PGUSER		- User to connect as, if necessary.
++ PGPASSWORD	- Corresponding password to use, if necessary.
++
++(See libpq documentation for more.)
++
++Note that PGDATABASE will default to 'template1' in this plugin, and
++without PGHOST it will try ident authentication with the local server,
++as the user that the plugin is running as.
++
++Configuration example:
++
++# Use local server, ident authentication with the 'postgres' user.
++ [postgres_*]
++ user postgres
++ env.PGDATABASE myappdb
++
++# Use local server, TCP authentication with a username and password.
++ [postgres_*]
++ env.PGHOST localhost
++ env.PGDATABASE myappdb
++ env.PGUSER someuser
++ env.PGPASSWORD somepassword
++
++=head1 AUTHOR
++
++ Written by Bjrn Ruberg (bjorn@linpro.no) 2006
++ Rewritten by Moses Moore 2006-04-08  moc.iazom@sesom
++
++=head1 LICENSE
++
++Licenced under GPL
++
++
++=head1 MAGIC MARKERS
++
++ #%# family=auto
++ #%# capabilities=autoconf suggest
++
++=cut
 +
 +use strict;
 +use DBI;
@@ -833,16 +859,16 @@ Index: munin-1.2.6/node/node.d/postgres_space_.in
 +        # Check for DBD::Pg
 +        if (! eval "require DBD::Pg;") {
 +            print "no (DBD::Pg not found)";
-+            exit 1;
++            exit 0;
 +        }
 +        # Then we try to detect PostgreSQL presence.
-+        my $tempdbh = DBI->connect ('dbi:Pg:', '', '');
++        my $tempdbh = DBI->connect ('dbi:Pg:', '', '', { PrintError => 0 });
 +        if ($tempdbh) {
 +            print "yes\n";
 +            exit 0;
 +        } else {
 +            print "no (Can't connect to given host, please check environment settings)\n";
-+            exit 1;
++            exit 0;
 +        }
 +    } elsif ($ARGV[0] and $ARGV[0] eq 'debug') {
 +        # Set config flag
@@ -948,11 +974,11 @@ Index: munin-1.2.6/node/node.d/postgres_space_.in
 +                            "pg_toast_${relfilenode}_index");
 +            my $relpages = $sth2->fetchrow_array;
 +            if ($relkind eq 'r') {
-+                $table_pages     += $relpages if $meta == 0;
-+                $metatable_pages += $relpages if $meta == 1;
++                $table_pages     += $relpages if defined($relpages) and $meta == 0;
++                $metatable_pages += $relpages if defined($relpages) and $meta == 1;
 +            } elsif ($relkind eq 'i') {
-+                $table_indexes     += $relpages if $meta == 0;
-+                $metatable_indexes += $relpages if $meta == 1;
++                $table_indexes     += $relpages if defined($relpages) and $meta == 0;
++                $metatable_indexes += $relpages if defined($relpages) and $meta == 1;
 +            }
 +            print "#\tR:$relfilenode\tP:$table_pages\tI:$table_indexes\n" if $debug;
 +        }
