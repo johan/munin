@@ -14,6 +14,9 @@ munin (1.2.6-13) unstable; urgency=low
   * Add suggest to hdparm as need by hddtemp_smartctl (Closes: #531714)
   * Catch unitialized values and munindoc'ify postgres_space_ (Closes: #518790)
 
+  [ Holger Levsen ]
+  * Bump Standards-version to 3.8.2.
+
  -- Holger Levsen <holger@debian.org>  Mon, 03 Aug 2009 13:16:48 +0200
 
 munin (1.2.6-12) unstable; urgency=low
