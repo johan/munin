@@ -1,4 +1,4 @@
-munin (1.2.6-13) UNRELEASED; urgency=low
+munin (1.2.6-13) unstable; urgency=low
 
   [ Stig Sandbeck Mathisen ]
   * Fix conversion of old RRD files, which made munin emit lots of harmless
@@ -14,7 +14,7 @@ munin (1.2.6-13) UNRELEASED; urgency=low
   * Add suggest to hdparm as need by hddtemp_smartctl (Closes: #531714)
   * Catch unitialized values and munindoc'ify postgres_space_ (Closes: #518790)
 
- -- Matthias Schmitz <matthias@sigxcpu.org>  Mon, 27 Jul 2009 00:54:55 +0200
+ -- Holger Levsen <holger@debian.org>  Mon, 03 Aug 2009 13:16:48 +0200
 
 munin (1.2.6-12) unstable; urgency=low
 
