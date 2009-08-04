@@ -1,0 +1,18 @@
+Description: Patch amavis plugin to change path to the maillog to Debian
+ default of /var/log/mail.info. (Note: This should be moved to
+ /etc/munin/plugin-conf.d/debian-defaults)
+Origin: other, http://bugs.debian.org/296533
+Bug-Debian: http://bugs.debian.org/296533
+Index: trunk/node/node.d/amavis.in
+===================================================================
+--- trunk.orig/node/node.d/amavis.in	2008-07-01 19:11:41.000000000 +0200
++++ trunk/node/node.d/amavis.in	2008-07-01 19:12:00.000000000 +0200
+@@ -18,7 +18,7 @@
+ @@MKTEMP@@
+ }       
+ 
+-AMAVIS_LOG=${logfile:-/var/log/mail/mail.info}
++AMAVIS_LOG=${logfile:-/var/log/mail.info}
+ LOGTAIL=${logtail:-`which logtail`}
+ STATEFILE=@@PLUGSTATE@@/amavis.offset
+ 
