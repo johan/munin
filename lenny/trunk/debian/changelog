@@ -6,8 +6,10 @@ munin (1.2.6-14) UNRELEASED; urgency=low
     (Closes: #521018)
   * Removing patch to change default log path in amavis plugin, we fix
     this in the Debian supplied plugin configuration instead
+  * munin-node: In munin-node.conf, "setseid" should be correctly spelled
+    "setsid" (Closes: #533467)
 
- -- Stig Sandbeck Mathisen <ssm@debian.org>  Thu, 13 Aug 2009 20:58:37 +0000
+ -- Stig Sandbeck Mathisen <ssm@debian.org>  Thu, 13 Aug 2009 21:30:53 +0000
 
 munin (1.2.6-13) unstable; urgency=low
 
