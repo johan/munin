@@ -22,6 +22,8 @@ fixperms() {
 		dpkg-statoverride --update --add munin munin 0755 /var/lib/munin
         dpkg-statoverride --list /var/lib/munin/plugin-state >/dev/null || \
 		dpkg-statoverride --update --add munin munin 0775 /var/lib/munin/plugin-state
+	dpkg-statoverride --list /etc/munin/plugin-conf.d >/dev/null || \
+		dpkg-statoverride --update --add root munin 0750 /etc/munin/plugin-conf.d
 }
 
 init_plugins() {
