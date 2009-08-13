@@ -55,4 +55,4 @@
 570-munin-fix-rrd-upgrade.patch
 571-node.d-postfix-mailstats.patch
 580-Makefile-find.patch
-munin-node-default-cidr.patch
+590-munin-node-default-cidr.patch
