@@ -843,7 +843,7 @@ Index: munin-1.2.6/node/node.d/postgres_space_.in
 +=head1 MAGIC MARKERS
 +
 + #%# family=auto
-+ #%# capabilities=autoconf suggest
++ #%# capabilities=suggest
 +
 +=cut
 +

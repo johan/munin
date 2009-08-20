@@ -13,7 +13,10 @@ munin (1.2.6-14) UNRELEASED; urgency=low
   [ Holger Levsen ]
   * Apply patch by Brian De Wolf (taken from trunk r2352) to fix gaps in 
     graphs of the cpu plugin due to changes in the way the kernel reports 
-    cpu usage.
+    cpu usage. (Closes: #535575)
+  * Once again remove the 'autoconf' magic marker from the postgres_space 
+    plugin, which was reintroduced when fixing #518790. 
+    (Closes: #503294, #503403)
 
  -- Stig Sandbeck Mathisen <ssm@debian.org>  Thu, 13 Aug 2009 21:30:53 +0000
 
