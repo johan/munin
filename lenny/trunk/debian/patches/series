@@ -56,3 +56,4 @@
 580-Makefile-find.patch
 590-munin-node-default-cidr.patch
 600-munin-node-conf-setsid.patch
+610-plugin-cpu-fix-max.patch

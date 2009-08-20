@@ -1,5 +1,6 @@
 munin (1.2.6-14) UNRELEASED; urgency=low
 
+  [ Stig Sandbeck Mathisen ]
   * munin-node: Change "allow" to "cidr_allow" (Closes: #540805)
   * munin-node: Changing mode of /etc/munin/plugin-conf.d to root:munin 750.
     Adding README.PluginConfiguration to document this directory better.
@@ -8,6 +9,11 @@ munin (1.2.6-14) UNRELEASED; urgency=low
     this in the Debian supplied plugin configuration instead
   * munin-node: In munin-node.conf, "setseid" should be correctly spelled
     "setsid" (Closes: #533467)
+
+  [ Holger Levsen ]
+  * Apply patch by Brian De Wolf (taken from trunk r2352) to fix gaps in 
+    graphs of the cpu plugin due to changes in the way the kernel reports 
+    cpu usage.
 
  -- Stig Sandbeck Mathisen <ssm@debian.org>  Thu, 13 Aug 2009 21:30:53 +0000
 
