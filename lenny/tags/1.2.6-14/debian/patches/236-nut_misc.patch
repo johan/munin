@@ -1,0 +1,13 @@
+Description: Add missing hash to bang for plugin nut_misc.
+Origin: upstream, http://munin.projects.linpro.no/changeset/1638
+Author: Matthias Schmitz <matthias@sigxcpu.org>
+Index: munin-1.2.6/node/node.d/nut_misc.in
+===================================================================
+--- munin-1.2.6.orig/node/node.d/nut_misc.in	2008-06-29 16:39:37.000000000 +0200
++++ munin-1.2.6/node/node.d/nut_misc.in	2008-06-29 16:39:40.000000000 +0200
+@@ -1,4 +1,4 @@
+-!@@PERL@@
++#!@@PERL@@
+ 
+ use strict;
+ 

@@ -1,0 +1,67 @@
+Description: Add manpage for munin(8).  Fixed upstream in revision r1981
+Author: Matthias Schmitz <matthias@sigxcpu.org>
+Bug-Debian: http://bugs.debian.org/517952
+Index: munin-1.2.6/server/munin.pod
+===================================================================
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ munin-1.2.6/server/munin.pod	2009-04-02 22:48:57.000000000 +0200
+@@ -0,0 +1,38 @@
++=head1 NAME
++
++munin - Munin manpage hub
++
++=head1 DESCRIPTION
++
++Munin is a group of programs to gather data from hosts, graph them,
++create html-pages, and optionally warn contacts about any off-limit
++values.
++
++The Munin master contains the following programs:
++ munin-update - to gather data from machines running munin-node.
++ munin-graph  - to create graphs from data contained in rrd-files.
++ munin-limits - to check for any off-limit values.
++ munin-html   - to draw html-pages on an Munin installation
++ munin-cron   - to batch other munin programs
++
++=head1 SEE ALSO
++
++For more information, see the man pages of the individual 
++programs L<munin-update(8)>, L<munin-graph(8)>, L<munin-limits(8)>, L<munin-html(8)>, L<munin-cron(8)> or the Munin homepage L<http://munin.sf.net/>.
++
++=head1 AUTHORS
++
++Jimmy Olsen, Audun Ytterdal, Brian de Wolf, Nicolai Langfeldt
++
++=head1 COPYRIGHT
++
++Copyright (C) 2002-2008 Audun Ytterdal, Jimmy Olsen, Nicolai
++Langfeldt, Linpro AS and others.
++
++This is free software; see the source for copying conditions. There is
++NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR
++PURPOSE.
++
++This program is released under the GNU General Public License
++
++=cut
+Index: munin-1.2.6/Makefile
+===================================================================
+--- munin-1.2.6.orig/Makefile	2009-04-02 22:48:08.000000000 +0200
++++ munin-1.2.6/Makefile	2009-04-02 22:49:28.000000000 +0200
+@@ -114,6 +114,7 @@
+ 	$(INSTALL) -m 0644 build/doc/munin-limits.8 $(MANDIR)/man8/
+ 	$(INSTALL) -m 0644 build/doc/munin-html.8 $(MANDIR)/man8/
+ 	$(INSTALL) -m 0644 build/doc/munin-cron.8 $(MANDIR)/man8/
++	$(INSTALL) -m 0644 build/doc/munin.8 $(MANDIR)/man8/
+ 	$(INSTALL) -m 0644 build/doc/munindoc.1 $(MANDIR)/man1/
+ 
+ install-doc: build-doc
+@@ -208,6 +209,8 @@
+ 		node/munin-node.conf.pod > build/doc/munin-node.conf.5
+ 	pod2man  --section=1 --release=$(RELEASE) --center="Munin Documentation" \
+ 		build/node/munindoc > build/doc/munindoc.1
++	pod2man  --section=8 --release=$(RELEASE) --center="Munin Documentation" \
++		server/munin.pod > build/doc/munin.8
+ 
+ 	touch build-man-stamp
+ 

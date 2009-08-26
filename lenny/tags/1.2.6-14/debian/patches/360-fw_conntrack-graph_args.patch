@@ -1,0 +1,18 @@
+Description: Patch to Add 'graph_args -l 0' to fw_conntrack  plugin so that the
+ graph scale always starts from zero and completely shows the area of the
+ established connections.
+Origin: other, http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=490093
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=490093
+Forwarded: no
+Index: munin-1.2.6/node/node.d.linux/fw_conntrack.in
+===================================================================
+--- munin-1.2.6.orig/node/node.d.linux/fw_conntrack.in	2008-08-15 07:36:32.000000000 +0200
++++ munin-1.2.6/node/node.d.linux/fw_conntrack.in	2008-08-15 07:36:51.000000000 +0200
+@@ -51,6 +51,7 @@
+ graph_title Connections through firewall
+ graph_vlabel Connections
+ graph_category network
++graph_args -l 0
+ established.label Established
+ established.type GAUGE
+ established.draw AREA
