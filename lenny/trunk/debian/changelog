@@ -1,4 +1,4 @@
-munin (1.2.6-14) UNRELEASED; urgency=low
+munin (1.2.6-14) unstable; urgency=low
 
   [ Stig Sandbeck Mathisen ]
   * munin-node: Change "allow" to "cidr_allow" (Closes: #540805)
@@ -19,7 +19,7 @@ munin (1.2.6-14) UNRELEASED; urgency=low
     (Closes: #503294, #503403)
   * Restart munin-node after initialising plugins. (Closes: #543613)
 
- -- Stig Sandbeck Mathisen <ssm@debian.org>  Thu, 13 Aug 2009 21:30:53 +0000
+ -- Holger Levsen <holger@debian.org>  Wed, 26 Aug 2009 13:44:34 +0200
 
 munin (1.2.6-13) unstable; urgency=low
 
