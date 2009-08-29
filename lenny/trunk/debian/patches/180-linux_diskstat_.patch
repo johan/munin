@@ -3,16 +3,16 @@ Author: Michael Renner <michael.renner@amd.co.at>
 Origin: https://workbench.amd.co.at/trac/munin-plugins 
 Debian-bug: http://bugs.debian.org/522561
 
-Index: munin-1.2.6/node/node.d.linux/linux_diskstat_
+Index: munin-1.2.6/node/node.d.linux/linux_diskstat_.in
 ===================================================================
 --- /dev/null	1970-01-01 00:00:00.000000000 +0000
-+++ munin-1.2.6/node/node.d.linux/linux_diskstat_	2009-08-28 06:22:31.000000000 +0200
++++ munin-1.2.6/node/node.d.linux/linux_diskstat_.in	2009-08-29 12:47:11.000000000 +0200
 @@ -0,0 +1,690 @@
 +#!/usr/bin/perl -w
 +# vim: sts=4 sw=4 ts=8
 +
 +# Munin markers:
-+#%# family=auto
++#%# family=contrib
 +#%# capabilities=autoconf suggest
 +
 +# Author: Michael Renner <michael.renner@amd.co.at>
