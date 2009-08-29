@@ -57,3 +57,5 @@
 590-munin-node-default-cidr.patch
 600-munin-node-conf-setsid.patch
 610-plugin-cpu-fix-max.patch
+170-ipmi_sensor_.patch
+180-linux_diskstat_.patch
