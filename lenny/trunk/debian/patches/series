@@ -59,3 +59,4 @@
 610-plugin-cpu-fix-max.patch
 170-ipmi_sensor_.patch
 180-linux_diskstat_.patch
+572-node.d-postfix-mailstats.patch
