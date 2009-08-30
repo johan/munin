@@ -4,8 +4,10 @@ munin (1.2.6-15) unstable; urgency=low
   * Provide an ipmi_sensor_ plugin. (Closes: #503936) 
   * postfix_mailstats: Don't fall back to a logfile we already determined not
     to exist. Thanks to Ulrik Haugen and Niels Thykier! (Closes: #532876)
+  * dhcpd3: Set Debian specific path to configuration and lease file. 
+    Thanks to Tom Feiner! (Closes: #543979)
 
- -- Matthias Schmitz <matthias@sigxcpu.org>  Sun, 30 Aug 2009 02:24:51 +0200
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Sun, 30 Aug 2009 03:12:50 +0200
 
 munin (1.2.6-14) unstable; urgency=low
 
