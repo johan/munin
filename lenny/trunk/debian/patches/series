@@ -61,3 +61,4 @@
 180-linux_diskstat_.patch
 572-node.d-postfix-mailstats.patch
 501-node.d-dhcpd3-path-fix.patch
+237-hddtemp_smartctl-sata-detect.patch

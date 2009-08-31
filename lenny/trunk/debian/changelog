@@ -6,8 +6,10 @@ munin (1.2.6-15) unstable; urgency=low
     to exist. Thanks to Ulrik Haugen and Niels Thykier! (Closes: #532876)
   * dhcpd3: Set Debian specific path to configuration and lease file. 
     Thanks to Tom Feiner! (Closes: #543979)
+  * hddtemp_smartctl: Add capability to detect scsi/sata disks. Thanks to
+    Thorsten Gunkel for bug report and patch! (Closes: #497400)
 
- -- Matthias Schmitz <matthias@sigxcpu.org>  Sun, 30 Aug 2009 03:12:50 +0200
+ -- Matthias Schmitz <matthias@sigxcpu.org>  Mon, 31 Aug 2009 23:11:27 +0200
 
 munin (1.2.6-14) unstable; urgency=low
 
