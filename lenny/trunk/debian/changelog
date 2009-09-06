@@ -1,5 +1,6 @@
-munin (1.2.6-15) unstable; urgency=low
+munin (1.2.6-15) UNRELEASED; urgency=low
 
+  [ Matthias Schmitz ]
   * Add the linux_diskstats_ plugin from Michael Renner. (Closes: #522561)
   * Provide an ipmi_sensor_ plugin. (Closes: #503936) 
   * postfix_mailstats: Don't fall back to a logfile we already determined not
@@ -8,6 +9,10 @@ munin (1.2.6-15) unstable; urgency=low
     Thanks to Tom Feiner! (Closes: #543979)
   * hddtemp_smartctl: Add capability to detect scsi/sata disks. Thanks to
     Thorsten Gunkel for bug report and patch! (Closes: #497400)
+
+  [ Holger Levsen ]
+  * Add libcrypt-ssleay-perl to munin-nodes suggests as the apache plugins
+    need it for https URLs. (Closes: #545097)
 
  -- Matthias Schmitz <matthias@sigxcpu.org>  Mon, 31 Aug 2009 23:11:27 +0200
 
