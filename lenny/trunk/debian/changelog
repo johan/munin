@@ -1,4 +1,4 @@
-munin (1.2.6-15) UNRELEASED; urgency=low
+munin (1.2.6-15) unstable; urgency=low
 
   [ Matthias Schmitz ]
   * Add the linux_diskstats_ plugin from Michael Renner. (Closes: #522561)
@@ -14,7 +14,7 @@ munin (1.2.6-15) UNRELEASED; urgency=low
   * Add libcrypt-ssleay-perl to munin-nodes suggests as the apache plugins
     need it for https URLs. (Closes: #545097)
 
- -- Matthias Schmitz <matthias@sigxcpu.org>  Mon, 31 Aug 2009 23:11:27 +0200
+ -- Holger Levsen <holger@debian.org>  Sun, 06 Sep 2009 15:31:54 +0200
 
 munin (1.2.6-14) unstable; urgency=low
 
