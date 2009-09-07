@@ -5,7 +5,7 @@ Maintainer: Munin Debian Maintainers <munin-deb-maint@linpro.no>
 Uploaders: Tore Anderson <tore@debian.org>, Dagfinn Ilmari Mannsaker <ilmari@ilmari.org>, Loic Dachary (OuoU) <loic@debian.org>, Matthias Schmitz <matthias@sigxcpu.org>, Holger Levsen <holger@debian.org>, Stig Sandbeck Mathisen <ssm@debian.org>
 Build-Depends-Indep: perl, htmldoc, html2text
 Build-Depends: debhelper (>=5.0.42), quilt
-Standards-Version: 3.8.2
+Standards-Version: 3.8.3
 Homepage: http://munin.projects.linpro.no
 Vcs-svn:  svn://munin.projects.linpro.no/munin/
 Vcs-Browser: http://munin.projects.linpro.no/browser

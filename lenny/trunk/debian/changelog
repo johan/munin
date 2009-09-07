@@ -1,3 +1,9 @@
+munin (1.2.6-16) UNRELEASED; urgency=low
+
+  * Bump standards-version to 3.8.3, no changes necessary. 
+
+ -- Holger Levsen <holger@debian.org>  Mon, 07 Sep 2009 13:05:37 +0200
+
 munin (1.2.6-15) unstable; urgency=low
 
   [ Matthias Schmitz ]
