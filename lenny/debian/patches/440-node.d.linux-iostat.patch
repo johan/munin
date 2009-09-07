@@ -1,0 +1,13 @@
+Index: munin-1.2.6/node/node.d.linux/iostat.in
+===================================================================
+--- munin-1.2.6.orig/node/node.d.linux/iostat.in	2009-01-28 13:58:14.000000000 +0100
++++ munin-1.2.6/node/node.d.linux/iostat.in	2009-01-28 13:59:48.000000000 +0100
+@@ -80,7 +80,7 @@
+ 
+ my $detailed_present = my $stat_present = 0;
+ if (system("grep -q '' /proc/diskstats > /dev/null 2>&1") == 0
+-	|| system("grep -q 'rio rmerge rsect ruse wio wmerge wsect wuse running use aveq' /proc/partitions") == 0)
++	|| system("grep -q 'rio rmerge rsect ruse wio wmerge wsect wuse running use aveq' /proc/partitions > /dev/null 2>&1") == 0)
+ {
+ 	$detailed_present = 1;
+ }

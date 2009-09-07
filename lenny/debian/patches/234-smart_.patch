@@ -1,0 +1,13 @@
+Index: munin-1.2.6/node/node.d/smart_.in
+===================================================================
+--- munin-1.2.6.orig/node/node.d/smart_.in	2008-06-27 17:38:34.000000000 +0200
++++ munin-1.2.6/node/node.d/smart_.in	2008-06-27 17:38:54.000000000 +0200
+@@ -96,7 +96,7 @@
+     try :
+         verboselog('Reading S.M.A.R.T values')
+         os.putenv('LC_ALL','C')
+-        smart_output=os.popen(os.getenv('smartpath','/usr/sbin/smartctl')+' '+os.getenv('smartargs','-a')+' -A -i /dev/'+hard_drive)
++        smart_output=os.popen(os.getenv('smartpath','/usr/sbin/smartctl')+' '+os.getenv('smartargs','-a')+' -n standby -A -i /dev/'+hard_drive)
+         read_values=0
+         # For python < 2.2 compliance, switch comments on next 2 lines.
+         for l in smart_output :
