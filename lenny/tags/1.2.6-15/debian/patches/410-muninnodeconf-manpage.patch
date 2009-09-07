@@ -1,0 +1,15 @@
+Description: Typo to fix manpage for munin-node.conf.
+Origin: backport, http://munin.projects.linpro.no/changeset/1913
+Index: munin-1.2.6/node/munin-node.conf.pod
+===================================================================
+--- munin-1.2.6.orig/node/munin-node.conf.pod	2008-11-08 14:43:28.000000000 +0000
++++ munin-1.2.6/node/munin-node.conf.pod	2008-11-08 14:43:46.000000000 +0000
+@@ -60,6 +60,8 @@
+ Files matching &lt;regex&gt; in the node.d/ and node-conf.d/
+ directories will be overlooked.
+ 
++=back
++
+ =head1 EXAMPLE
+ 
+ A pretty normal configuration file:

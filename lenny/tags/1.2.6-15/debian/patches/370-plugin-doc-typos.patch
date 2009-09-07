@@ -1,0 +1,44 @@
+Description: Fix typos in node/Plugin.pm
+Author: Joey Schulze
+Bug-Debian: http://bugs.debian.org/495003
+Forwarded: no
+Index: munin-1.2.6/node/Plugin.pm.in
+===================================================================
+--- munin-1.2.6.orig/node/Plugin.pm.in	2008-08-24 17:31:37.000000000 +0000
++++ munin-1.2.6/node/Plugin.pm.in	2008-08-24 17:32:41.000000000 +0000
+@@ -29,7 +29,7 @@
+   use Munin::Plugin;
+ 
+ If your Munin installation predates the MUNIN_* environment variables
+-(introduced in 1.3.3) you can put this in your plugin configutation:
++(introduced in 1.3.3) you can put this in your plugin configuration:
+ 
+   [*]
+       env.MUNIN_PLUGSTATE /lib/munin/plugin-state
+@@ -79,7 +79,7 @@
+ But there is also a function to change the state file name so the
+ state file support functions can be used for several state files.
+ 
+-If it's value cannot be determined the plugin will be aborted at once
++If its value cannot be determined the plugin will be aborted at once
+ with an explanatory message.  The most likely causes are
+ 
+ =over 8
+@@ -243,7 +243,7 @@
+ program in the interest of error-obviousness.
+ 
+ The state file name is determined automatically based on the
+-name of the process we're running as.  Se L<$Munin::Plugin::me>,
++name of the process we're running as.  See L<$Munin::Plugin::me>,
+ L<$Munin::Plugin::statefile> and L<set_state_name> above about the
+ file name.
+ 
+@@ -315,7 +315,7 @@
+ rotated a warning is printed (this can be found in the munin-node log
+ or seen in the terminal when using munin-run).
+ 
+-At this point the plugin can read from the file with <$file_hanle> in
++At this point the plugin can read from the file with <$file_handle> in
+ loop as usual until EOF is encountered.
+ 
+ If the file cannot be stat'ed C<(undef,undef)> is returned.  If the
