@@ -40,7 +40,7 @@ Description: network-wide graphing framework (node)
 Package: munin-plugins-extra
 Architecture: all
 Depends: ${perl:Depends}, ${misc:Depends}, munin-node
-Suggests: logtail, libnet-netmask-perl
+Suggests: logtail, libnet-netmask-perl, python
 Description: network-wide graphing framework (user contributed plugins for node)
  Munin is a highly flexible and powerful solution used to create graphs of
  virtually everything imaginable throughout your network, while still
