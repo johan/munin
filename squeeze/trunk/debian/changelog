@@ -5,8 +5,7 @@ munin (1.2.6-16) UNRELEASED; urgency=low
 
   [ Tom Feiner ]
   * Add python to munin-plugins-extra suggests, as ipmi_sensor_ needs it.
-    This solves a lintian error about this issue which was introduced 
-    at 1.2.6-15. (Closes: #545967)
+    (Closes: #545967)
 
  -- Holger Levsen <holger@debian.org>  Mon, 07 Sep 2009 13:05:37 +0200
 
