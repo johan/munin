@@ -9,6 +9,9 @@ munin (1.2.6-16) UNRELEASED; urgency=low
   * Updated ejabberd plugin, thanks to Peter Viskup. (Closes: #545465)
   * Add suggests to libnet-telnet-perl for munin-plugins-extra as the
     asterisk plugins needs it. (Closes: #532955)
+  * Changed mysql* plugins options to use /etc/mysql/debian.cnf
+    exclusively. /root/.my.cnf, and other default mysql configuration files
+    will now be ignored. (Closes: #408452)
 
  -- Holger Levsen <holger@debian.org>  Mon, 07 Sep 2009 13:05:37 +0200
 
