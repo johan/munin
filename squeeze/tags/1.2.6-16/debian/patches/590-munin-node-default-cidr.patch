@@ -1,0 +1,52 @@
+Description: Patch to change allow to cidr_allow in munin-node.conf
+Author: Stig Sandbeck Mathisen <ssm@debian.org>
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=498847
+This patch has been applied to trunk in r2328.
+--- a/node/munin-node.conf.in
++++ b/node/munin-node.conf.in
+@@ -27,12 +27,12 @@
+ #
+ #host_name @@HOSTNAME@@
+ 
+-# A list of addresses that are allowed to connect.  This must be a
+-# regular expression, due to brain damage in Net::Server, which
+-# doesn't understand CIDR-style network notation.  You may repeat
+-# the allow line as many times as you'd like
++# A list of addresses or networks that are allowed to connect.  This must be a
++# CIDR block.  You may repeat the allow line as many times as you'd like.  You
++# can also use cidr_deny to deny access.  A client connecting must match a
++# cidr_allow, and then not match a cidr_deny.
+ 
+-allow ^127\.0\.0\.1$
++cidr_allow 127.0.0.0/8
+ 
+ # Which address to bind to;
+ host *
+--- a/node/munin-node.conf.pod
++++ b/node/munin-node.conf.pod
+@@ -27,6 +27,25 @@
+ 
+       allow ^127\.0\.0\.1$
+ 
++=item B<< cidr_allow CIDR >>
++
++CIDR address/mask allowed to connect to munin-node.  This can be specified
++multiple times.  A client must match any cidr_allow to be allowed access.
++
++	cidr_allow 192.0.2.0/24
++
++See L<< Net::Server >> for details.
++
++=item B<< cidr_deny CIDR >>
++
++CIDR address/mask of clients not allowed to connect to munin-node.  This can be
++specified multiple times. A client must match any cidr_allow and not match any
++cidr_deny to be allowed access.
++
++	cidr_deny 192.0.2.42/32
++
++See L<< Net::Server >> for details.
++
+ =item B<< host IP >>
+ 
+ The IP number of the interface munin-node should listen on.  By
