@@ -7,9 +7,9 @@ Bug-Debian: http://bugs.debian.org/545465
 Forwarded: no
 Index: munin-1.2.6/node/node.d/ejabberd_.in
 ===================================================================
---- /dev/null	1970-01-01 00:00:00.000000000 +0000
-+++ munin-1.2.6/node/node.d/ejabberd_.in	2009-05-29 13:19:40.000000000 +0200
-@@ -0,0 +1,247 @@
+--- /dev/null	2009-04-28 16:57:19.000000000 +0300
++++ munin-1.2.6/node/node.d/ejabberd_.in	2009-09-18 12:09:25.085871346 +0300
+@@ -0,0 +1,251 @@
 +#!/bin/bash
 +# 
 +# Munin plugin for ejabberd2.
@@ -18,7 +18,7 @@ Index: munin-1.2.6/node/node.d/ejabberd_.in
 +# Based on ejabberd-plugin by Christian Dröge <Christian@draugr.de>
 +#
 +# Status, memory, threads, uptime, usersindays, ejabberd2 and other code
-+# optimisaton by Peter Viskup <skupko.sk@gmail.com>
++# optimisation by Peter Viskup <skupko.sk@gmail.com>
 +#
 +# As connected users, registered users and server-connections have somewhat
 +# different scales, this plugin uses munins suggest feature to create three
@@ -33,26 +33,29 @@ Index: munin-1.2.6/node/node.d/ejabberd_.in
 +# ejabberd_usersindays
 +# ejabberd_uptime
 +#
-+# use ln -s ejabberd ejabberd_(connections|users|registrations) 
++# use command
++# ln -s ejabberd_ ejabberd_(connections|memory|registrations|statuses|threads|uptime|users|usersindays) 
 +# to activate.
 +#
 +# If the autodetect-feature for vhosts breaks, you can set  
 +# """
-+# [ejabberd*]
++# [ejabberd_*]
 +# env.vhosts foo.com bar.com
 +# """
 +# in plugin-conf.d/munin-node to override it.
 +# (user root may also be smart/not so smart depending on your setup.)
++# Be aware that datasource name of rrdtool is restricted to 19 characters maximum. It could lead to not working plugin if vhost string is too long.
++# http://oss.oetiker.ch/rrdtool/doc/rrdcreate.en.html
 +#
 +# For monitoring user statuses - define statuses environment variable:
 +# (you can monitor only some of them)
-+# [ejabberd*]
++# [ejabberd_*]
 +# env.statuses available away chat xa
 +#
-+# For usersindays statistics define days environtment variable
-+# Be carfull on high loaded servers, because it will plot all days in one
++# For usersindays statistics define days environment variable
++# Be careful on high loaded servers, because it will plot all days in one
 +# graph.
-+# [ejabberd*]
++# [ejabberd_*]
 +# env.days 1 7 30
 +#
 +#%# family=contrib
@@ -96,8 +99,9 @@ Index: munin-1.2.6/node/node.d/ejabberd_.in
 +fi
 +
 +# get ejabberd PID
++# in GNU/Linux Debian Lenny release the pidof command can be executed only by root
 +#EJPID=$(pidof -s /usr/lib/erlang/erts-5.6.3/bin/beam.smp)
-+EJPID=$(ps -ef | awk '/\/bin\/beam.smp/ && !/awk/ {print $2}')
++EJPID=$(ps -ef | awk '/ejabberd/ && /\/bin\/beam(.smp)?/ {print $2}')
 +
 +if [ -z "$vhosts" ]; then
 +    echo "No vhosts to sample." > /dev/stderr
@@ -134,14 +138,14 @@ Index: munin-1.2.6/node/node.d/ejabberd_.in
 +    echo 'graph_info This graph shows a statistic of ejabberd'
 +
 +    if [ "$MODE" == "connections" ]; then
-+	echo 'graph_title ejabberd server-to-server conections'
++	echo 'graph_title Server-to-server conections'
 +	echo 'graph_vlabel s2s'
 +        echo 's2s_connections_out.label incoming s2s connections'
 +        echo 's2s_connections_out.info Number of outgoing server to server connections'
 +        echo 's2s_connections_in.label outgoing s2s connections'
 +        echo 's2s_connections_in.info Number of incoming server to server connections'
 +    elif [ "$MODE" == "users" ]; then
-+	echo 'graph_title ejabberd connected users'
++	echo 'graph_title Connected users'
 +	echo 'graph_vlabel users'
 +	for host in $vhosts; do
 +	    formathost=$(echo $host | tr '.' '_')
@@ -149,7 +153,7 @@ Index: munin-1.2.6/node/node.d/ejabberd_.in
 +	    echo "connected_unique_users_$formathost.label $host unique connected users";
 +	done;
 +    elif [ "$MODE" == "registrations" ]; then
-+	echo 'graph_title ejabberd registrations'
++	echo 'graph_title Number of registered users'
 +	echo 'graph_vlabel users'
 +	for host in $vhosts; do
 +	    formathost=$(echo $host | tr '.' '_')
@@ -157,13 +161,13 @@ Index: munin-1.2.6/node/node.d/ejabberd_.in
 +	    echo "registered_$formathost.info Registered users for vhost $host"
 +	done;
 +    elif [ "$MODE" == "statuses" ]; then
-+	echo 'graph_title users with statuses'
++	echo 'graph_title Users with statuses'
 +	echo 'graph_vlabel users'
 +	for host in $vhosts; do
 +		for status in $statuses; do
 +			formathost=$(echo $host | tr '.' '_')
 +		   echo "status_${formathost}_${status}.label $status on $host"; 
-+	  	 	echo "status_${formathost}_${status}.info Users with status $status on $host [xa=not available, dnd=(do not disturb) or (busy), chat=free for chat]";
++	  	 	echo "status_${formathost}_${status}.info Number of users with status $status on $host [available, away, xa=not available, dnd=(do not disturb) or (busy), chat=free for chat]";
 +		done;
 +	done;
 +    elif [ "$MODE" == "threads" ]; then
@@ -257,4 +261,3 @@ Index: munin-1.2.6/node/node.d/ejabberd_.in
 +	echo "uptime.value $($EJCTL stats uptime-seconds | awk '{printf "%.2f", $1/86400}')"
 +fi
 +
-
