@@ -6,6 +6,36 @@ munin (1.4.0-dev+svn2484-1) UNRELEASED; urgency=low
   * Added suggests to ruby for munin-node.
   * Added depends to liblog-log4perl-perl for munin.
   * Updated new manpages names for munin-node.manpages.
+  * Removed the following patches as they are already included in trunk:
+    - 100-node.d-tomcat_access.patch  
+    - 110-node.d-tomcat_jvm.patch 
+    - 120-node.d-tomcat_threads.patch 
+    - 130-node.d-tomcat_volume.patch
+    - 140-node.d-ups_.patch
+    - 160-node.d-postgres-plugins.patch
+    - 200-node-plugins.history.patch
+    - 210-munindoc-manpage.patch
+    - 211-munin-manpage.patch
+    - 220-Makefile.patch
+    - 231-exim_mailstats.patch
+    - 232-ntp_offset.patch
+    - 234-smart_.patch
+    - 270-Plugin.pm-typo.patch
+    - 310-node-configure_bugfix
+    - 330-courier-typo
+    - 340-nfsd-fix.patch
+    - 350-munin-run-usage-fix.patch
+    - 380-munin-graph-utf8.patch
+    - 410-muninnodeconf-manpage.patch
+    - 450-munin-cgi-graph.patch
+    - 480-node.d-apache-asterisk.patch
+    - 490-node.d-asterisk-if.in
+    - 520-node.d-nut-plugins
+    - 540-node.d-acpi-lenny
+    - 571-node.d-postfix-mailstats.patch
+    - 572-node.d-postfix-mailstats.patch
+    - 600-munin-node-conf-setsid.patch
+    - 610-plugin-cpu-fix-max.patch
 
  -- Holger Levsen <holger@debian.org>  Fri, 25 Sep 2009 11:33:05 +0300
 
