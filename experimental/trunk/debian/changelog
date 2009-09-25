@@ -1,8 +1,50 @@
-munin (1.3.5+svn2476-1) unstable; urgency=low
+munin (1.3.5+svn2483-1) UNRELEASED; urgency=low
 
-  * Initial version of munin svn from trunk 19 Sep 2009
+  * Initial version of munin trunk for experimental
 
- -- Tom Feiner <feiner.tom@gmail.com>  Sat, 19 Sep 2009 11:41:29 +0300
+ -- Tom Feiner <feiner.tom@gmail.com>  Fri, 25 Sep 2009 11:33:05 +0300
+
+munin (1.2.6-17) UNRELEASED; urgency=low
+
+  * Adding Tom to uploaders. 
+
+ -- Holger Levsen <holger@debian.org>  Fri, 25 Sep 2009 08:18:20 +0000
+
+munin (1.2.6-16) unstable; urgency=low
+
+  [ Holger Levsen ]
+  * Bump standards-version to 3.8.3, no changes necessary. 
+
+  [ Tom Feiner ]
+  * Add python to munin-plugins-extra suggests, as ipmi_sensor_ needs it.
+    (Closes: #545967)
+  * Updated ejabberd plugin, thanks to Peter Viskup. (Closes: #545465)
+  * Add suggests to libnet-telnet-perl for munin-plugins-extra as the
+    asterisk plugins needs it. (Closes: #532955)
+  * Changed mysql* plugins options to use /etc/mysql/debian.cnf
+    exclusively. /etc/my.cnf /etc/mysql/my.cnf /usr/etc/my.cnf 
+    ~/.my.cnf (including /root/.my.cnf) mysql configuration files
+    will now be ignored. (Closes: #408452)
+
+ -- Holger Levsen <holger@debian.org>  Fri, 18 Sep 2009 10:34:33 +0000
+
+munin (1.2.6-15) unstable; urgency=low
+
+  [ Matthias Schmitz ]
+  * Add the linux_diskstats_ plugin from Michael Renner. (Closes: #522561)
+  * Provide an ipmi_sensor_ plugin. (Closes: #503936) 
+  * postfix_mailstats: Don't fall back to a logfile we already determined not
+    to exist. Thanks to Ulrik Haugen and Niels Thykier! (Closes: #532876)
+  * dhcpd3: Set Debian specific path to configuration and lease file. 
+    Thanks to Tom Feiner! (Closes: #543979)
+  * hddtemp_smartctl: Add capability to detect scsi/sata disks. Thanks to
+    Thorsten Gunkel for bug report and patch! (Closes: #497400)
+
+  [ Holger Levsen ]
+  * Add libcrypt-ssleay-perl to munin-nodes suggests as the apache plugins
+    need it for https URLs. (Closes: #545097)
+
+ -- Holger Levsen <holger@debian.org>  Sun, 06 Sep 2009 15:31:54 +0200
 
 munin (1.2.6-14) unstable; urgency=low
 
