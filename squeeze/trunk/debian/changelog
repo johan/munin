@@ -1,3 +1,9 @@
+munin (1.2.6-17) UNRELEASED; urgency=low
+
+  * Adding Tom to uploaders. 
+
+ -- Holger Levsen <holger@debian.org>  Fri, 25 Sep 2009 08:18:20 +0000
+
 munin (1.2.6-16) unstable; urgency=low
 
   [ Holger Levsen ]
