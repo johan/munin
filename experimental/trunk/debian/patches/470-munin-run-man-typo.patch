@@ -1,0 +1,16 @@
+Description: Fix typo in munin-run manpage
+Origin: other, http://bugs.debian.org/514559
+Bug-Debian: http://bugs.debian.org/514559
+Index: munin-1.2.6/node/munin-run.in
+===================================================================
+--- munin-1.2.6.orig/node/munin-run.in	2009-02-26 22:55:18.000000000 +0100
++++ munin-1.2.6/node/munin-run.in	2009-02-26 22:55:59.000000000 +0100
+@@ -731,7 +731,7 @@
+ =head1 DESCRIPTION
+ 
+ Munin-node is a daemon that Munin connects to fetch data.  This data
+-is stored in .rrd-files on the central server , and later graphed and
++is stored in .rrd-files on the central server, and later graphed and
+ htmlified.
+ 
+ munin-run is a perlscript to run the plugins used by the munin-node
