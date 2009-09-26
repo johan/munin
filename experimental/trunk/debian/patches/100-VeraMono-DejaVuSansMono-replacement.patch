@@ -1,0 +1,28 @@
+Description: Debian spesific patch, to use DejaVuSansMono.ttf,
+ provided by the ttf-dejavu package, instead of the bundled 
+ VeraMono.ttf font which is included in muinin source.
+Origin: other
+Bug-Debian: http://bugs.debian.org/548508
+Forwarded: no
+Author: Tom Feiner <feiner.tom@gmail.com>
+Last-Update: 2009-09-26
+Index: munin-1.4.0/master/_bin/munin-graph.in
+===================================================================
+--- munin-1.4.0/master/_bin/munin-graph.in	(revision 2488)
++++ munin-1.4.0/master/_bin/munin-graph.in	(working copy)
+@@ -867,12 +867,12 @@
+   		      '--font' ,'LEGEND:7:monospace');
+ 	    } else {
+ 		push (@complete,
+-  		      '--font' ,'LEGEND:7:@@LIBDIR@@/VeraMono.ttf');
++  		      '--font' ,'LEGEND:7:/usr/share/fonts/truetype/ttf-dejavu/DejaVuSansMono.ttf');
+ 	    }
+ 
+ 	    push (@complete,
+-		  '--font' ,'UNIT:7:@@LIBDIR@@/VeraMono.ttf',
+-		  '--font' ,'AXIS:7:@@LIBDIR@@/VeraMono.ttf');
++		  '--font' ,'UNIT:7:/usr/share/fonts/truetype/ttf-dejavu/DejaVuSansMono.ttf',
++		  '--font' ,'AXIS:7:/usr/share/fonts/truetype/ttf-dejavu/DejaVuSansMono.ttf');
+ 	}
+ 	push(@complete,'-W', $watermark) if $RRDs::VERSION >= 1.2;
+ 
