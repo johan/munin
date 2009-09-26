@@ -1,4 +1,4 @@
-munin (1.4.0-dev+svn2484-1) UNRELEASED; urgency=low
+munin (1.4.0~svn2484-1) UNRELEASED; urgency=low
 
   [  Tom Feiner ]
   * Initial version of munin trunk for experimental.
