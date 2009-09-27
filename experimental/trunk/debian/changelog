@@ -7,6 +7,8 @@ munin (1.4.0~svn2484-1) UNRELEASED; urgency=low
   * Added depends to liblog-log4perl-perl for munin.
   * Updated new manpages names for munin-node.manpages.
   * Removed patches that are already included in trunk.
+  * Changed the use of VeraMono.ttf in munin-graph to the 
+    debian provided equivalent font. (Closes: #548508)
 
  -- Holger Levsen <holger@debian.org>  Fri, 25 Sep 2009 11:33:05 +0300
 
