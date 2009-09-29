@@ -1,6 +1,10 @@
 munin (1.2.6-17) UNRELEASED; urgency=low
 
+  [ Holger Levsen ]
   * Adding Tom to uploaders. 
+
+  [ Tom Feiner ]
+  * Added hddtemp2 configuration to run as root. (Closes: #548906)
 
  -- Holger Levsen <holger@debian.org>  Fri, 25 Sep 2009 08:18:20 +0000
 
