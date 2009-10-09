@@ -1,4 +1,4 @@
-munin (1.4.0~svn2484-1) UNRELEASED; urgency=low
+munin (1.4.0~svn2555-1) UNRELEASED; urgency=low
 
   [  Tom Feiner ]
   * Initial version of munin trunk for experimental.
@@ -10,7 +10,7 @@ munin (1.4.0~svn2484-1) UNRELEASED; urgency=low
   * Changed the use of VeraMono.ttf in munin-graph to the 
     debian provided equivalent font. (Closes: #548508)
 
- -- Tom Feiner <feiner.tom@gmail.com>  Fri, 25 Sep 2009 11:33:05 +0300
+ -- Tom Feiner <feiner.tom@gmail.com>  Fri, 9 Oct 2009 20:05:25 +0300
 
 munin (1.2.6-17) UNRELEASED; urgency=low
 
