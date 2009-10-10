@@ -4,6 +4,8 @@ munin (1.4.0~svn2555-1) UNRELEASED; urgency=low
   * Initial version of munin trunk for experimental.
   * debian/rule - make target names have changed.
   * Added suggests to ruby for munin-node.
+  * Added suggests to libtext-csv-xs-perl for munin-node, required by
+    the new zimbra plugin.
   * Added depends to liblog-log4perl-perl for munin.
   * Updated new manpages names for munin-node.manpages.
   * Removed patches that are already included in trunk.
