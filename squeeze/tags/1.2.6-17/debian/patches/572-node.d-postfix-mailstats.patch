@@ -1,0 +1,16 @@
+Origin: upstream, http://munin-monitoring.org/changeset/2380
+Bug-Debian: http://bugs.debian.org/532876
+
+Index: munin-1.2.6/node/node.d/postfix_mailstats.in
+===================================================================
+--- munin-1.2.6.orig/node/node.d/postfix_mailstats.in	2009-08-30 02:23:32.000000000 +0200
++++ munin-1.2.6/node/node.d/postfix_mailstats.in	2009-08-30 02:24:03.000000000 +0200
+@@ -81,7 +81,7 @@
+ }
+ else
+ {
+-    $rotlogfile = $logfile . ".0";
++    $rotlogfile = "/dev/null";
+ }
+ 
+ if (-f "$statefile")

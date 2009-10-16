@@ -1,0 +1,17 @@
+Description: Patch to allow colons in plugin names, to enable support for IPv6 addresses.
+Origin: other, http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=499391
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=499391
+Forwarded: no
+Index: munin-1.2.6/node/munin-node.in
+===================================================================
+--- munin-1.2.6.orig/node/munin-node.in	2008-09-23 16:13:56.000000000 +0200
++++ munin-1.2.6/node/munin-node.in	2008-09-23 16:14:14.000000000 +0200
+@@ -269,7 +269,7 @@
+     for my $file (grep { -f "$servicedir/$_" } readdir(DIR)) {
+ 	next if $file =~ m/^\./; # Hidden files
+ 	next if $file =~ m/.conf$/; # Config files
+-	next if $file !~ m/^([-\w.]+)$/; # Skip if any weird chars
++	next if $file !~ m/^([-\w.:]+)$/; # Skip if any weird chars
+ 	$file = $1; # Not tainted anymore.
+ 	foreach my $regex (@ignores)
+ 	{

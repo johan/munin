@@ -1,0 +1,18 @@
+Description: Patch to change the value of line_volt.max from 200 to 300, to
+ handle graphing of volt values above 200 (220 is common in much of the world).
+Origin: other, http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=511781
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=511781
+Forwarded: no
+Index: munin-1.2.6/node/node.d/apc_nis.in
+===================================================================
+--- munin-1.2.6.orig/node/node.d/apc_nis.in	2009-01-16 19:07:43.000000000 +0100
++++ munin-1.2.6/node/node.d/apc_nis.in	2009-01-16 19:08:28.000000000 +0100
+@@ -35,7 +35,7 @@
+ 	print "battery_charge.max 200\n";
+ 	print "line_volt.label line (V)\n";
+ 	print "line_volt.type GAUGE\n";
+-	print "line_volt.max 200\n";
++	print "line_volt.max 300\n";
+ 	print "load.label ups load (%)\n";
+ 	print "load.type GAUGE\n";
+ 	print "load.max 200\n";

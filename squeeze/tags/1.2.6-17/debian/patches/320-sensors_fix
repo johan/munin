@@ -1,0 +1,35 @@
+Description: sensors plugin: don't output errors on autoconf and suggest if no
+ sensors binary is installed.
+Origin: other, http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=491473
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=491473
+Index: munin-1.2.6/node/node.d.linux/sensors_.in
+===================================================================
+--- munin-1.2.6.orig/node/node.d.linux/sensors_.in	2008-07-21 00:11:47.000000000 +0200
++++ munin-1.2.6/node/node.d.linux/sensors_.in	2008-07-21 00:13:41.000000000 +0200
+@@ -88,7 +88,7 @@
+ 
+ if ( defined $ARGV[0] and $ARGV[0] eq 'autoconf' ) {
+   # Now see if "sensors" can run
+-  my $text = `$SENSORS`;
++  my $text = `$SENSORS 2>/dev/null`;
+   if ($?) {
+     if ($? == -1) {
+       print "no (program $SENSORS not found)\n";
+@@ -108,7 +108,16 @@
+ }
+ 
+ if (defined $ARGV[0] and $ARGV[0] eq 'suggest') {
+-  my $text = `$SENSORS`;
++  my $text = `$SENSORS 2>/dev/null`;
++  if ($?) {
++    if ($? == -1) {
++      print "no (program $SENSORS not found)\n";
++    } else {
++      print "no (program $SENSORS died)\n";
++    }
++    exit 1;
++  }
++
+   foreach my $func (keys %config) {
+     print $func, "\n" if $text =~ $config{$func}->{regex};
+   }
