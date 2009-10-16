@@ -16,10 +16,13 @@ munin (1.4.0~svn2555-1) UNRELEASED; urgency=low
 
 munin (1.2.6-17) unstable; urgency=low
  
-   [ Holger Levsen ]
-   * Adding Tom to uploaders. 
-   * Apply patch by Tom Feiner to not make the automatic plugin detection fail
+  [ Holger Levsen ]
+  * Adding Tom to uploaders. 
+  * Apply patch by Tom Feiner to not make the automatic plugin detection fail
     if one plugin has an error. (Closes: #539886)
+
+  [ Tom Feiner ]
+  * Added hddtemp2 configuration to run as root. (Closes: #548906)
 
  -- Holger Levsen <holger@debian.org>  Fri, 16 Oct 2009 15:28:51 +0000
 
