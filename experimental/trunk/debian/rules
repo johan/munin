@@ -6,7 +6,7 @@ MAKEOPTS = CONFIG=debian/Makefile.config INSTALL_PLUGINS="auto manual snmpauto c
 
 include /usr/share/quilt/quilt.make
 
-buildpackages=munin munin-node munin-plugins-extra
+buildpackages=munin-common munin munin-node munin-plugins-extra
 
 # generate -pfoo commandline for debhelper
 dhbuildpackages=$(addprefix -p,$(buildpackages))
@@ -20,6 +20,9 @@ build-stamp: $(QUILT_STAMPFN)
 #	$(MAKE) build-doc $(MAKEOPTS)
 #	$(MAKE) build-man $(MAKEOPTS)
 	
+	$(MAKE) install-common-prime $(MAKEOPTS) \
+		DESTDIR=`pwd`/debian/munin-common
+
 	$(MAKE) install-master-prime $(MAKEOPTS) \
 		DESTDIR=`pwd`/debian/munin
 
@@ -27,9 +30,11 @@ build-stamp: $(QUILT_STAMPFN)
 	# the ttf-dejavu package. http://bugs.debian.org/548508
 	rm `pwd`/debian/munin/usr/share/munin/VeraMono.ttf
 	
-	$(MAKE) install-common-prime install-node-prime install-plugins-prime $(MAKEOPTS) \
+
+	$(MAKE) install-node-prime install-plugins-prime $(MAKEOPTS) \
 		DESTDIR=`pwd`/debian/munin-node
 	
+
 	install -D -m0644 debian/plugins.conf \
 		$(CURDIR)/debian/munin-node/etc/munin/plugin-conf.d/munin-node
 
