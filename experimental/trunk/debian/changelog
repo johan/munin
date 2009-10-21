@@ -14,7 +14,8 @@ munin (1.4.0~svn2555-1) UNRELEASED; urgency=low
   * Removed patches that are already included in trunk.
   * Changed the use of VeraMono.ttf in munin-graph to the 
     debian provided equivalent font. (Closes: #548508)
-  * Improve apache_* plugins output in errors. (Closes: #542477)
+  * plugin: apache_* improve output in errors. (Closes: #542477)
+  * plugin: exim_mailqueue show frozen count. (Closes: #299266)
 
  -- Tom Feiner <feiner.tom@gmail.com>  Tue, 20 Oct 2009 22:48:53 +0200
 
