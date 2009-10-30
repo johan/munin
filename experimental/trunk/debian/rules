@@ -17,8 +17,6 @@ build-stamp: $(QUILT_STAMPFN)
 	dh_installdirs
 	
 	$(MAKE) build     $(MAKEOPTS)
-#	$(MAKE) build-doc $(MAKEOPTS)
-#	$(MAKE) build-man $(MAKEOPTS)
 	
 	$(MAKE) install-common-prime $(MAKEOPTS) \
 		DESTDIR=`pwd`/debian/munin-common
