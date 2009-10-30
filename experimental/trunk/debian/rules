@@ -32,10 +32,6 @@ build-stamp: $(QUILT_STAMPFN)
 	$(MAKE) install-node-prime install-plugins-prime $(MAKEOPTS) \
 		DESTDIR=`pwd`/debian/munin-node
 	
-	install -D -m0644 build/node/extras/munin-bash-completion \
-		$(CURDIR)/debian/munin-node/etc/bash_completion.d/munin-node
-
-
 	install -D -m0644 debian/plugins.conf \
 		$(CURDIR)/debian/munin-node/etc/munin/plugin-conf.d/munin-node
 
