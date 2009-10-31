@@ -29,7 +29,7 @@ build-stamp: $(QUILT_STAMPFN)
 	rm `pwd`/debian/munin/usr/share/munin/VeraMono.ttf
 	
 
-	$(MAKE) install-node-prime install-plugins-prime $(MAKEOPTS) \
+	$(MAKE) install-node-prime install-munindoc install-plugins-prime $(MAKEOPTS) \
 		DESTDIR=`pwd`/debian/munin-node
 	
 	install -D -m0644 debian/plugins.conf \
