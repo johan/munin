@@ -1,4 +1,4 @@
-munin (1.4.0~svn2555-1) UNRELEASED; urgency=low
+munin (1.4.0~svn2790-1) UNRELEASED; urgency=low
 
   [  Tom Feiner ]
   * Initial version of munin trunk for experimental.
@@ -19,9 +19,10 @@ munin (1.4.0~svn2555-1) UNRELEASED; urgency=low
   * plugin: exim_mailqueue show frozen count. (Closes: #299266)
   * plugin: memory. Fix negative values in memory usage. (Closes: #257827)
   * plugin: enhanced ping_ allows for multiple host statistics. (Closes: 312518)
-  * improve ignore_file in /etc/munin/munin-node.conf. (Closes: 518401)
+  * Improve ignore_file in /etc/munin/munin-node.conf. (Closes: 518401)
+  * Added new binary package munin-java-plugins.
 
- -- Tom Feiner <feiner.tom@gmail.com>  Tue, 20 Oct 2009 22:48:53 +0200
+ -- Tom Feiner <feiner.tom@gmail.com>  Tue, 01 Nov 2009 00:07:08 +0200
 
 munin (1.2.6-17) unstable; urgency=low
  
