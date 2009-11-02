@@ -55,7 +55,7 @@ Description: network-wide graphing framework (user contributed plugins for node)
 
 Package: munin-java-plugins
 Architecture: all
-Depends: default-jre-headless | java2-runtime-headless
+Depends: ${misc:Depends}, default-jre-headless | java2-runtime-headless
 Suggests: munin, munin-node, java-virtual-machine
 Description: network-wide graphing framework (grapher/gatherer)
  Munin is a highly flexible and powerful solution used to create graphs of
