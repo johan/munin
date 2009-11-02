@@ -20,15 +20,25 @@ fixperms() {
 	dpkg-statoverride --list /var/log/munin >/dev/null || \
 		dpkg-statoverride --update --add munin adm 0750 /var/log/munin
 	dpkg-statoverride --list /var/www/munin >/dev/null || \
-		dpkg-statoverride --update --add munin munin 0755 /var/www/munin
+		dpkg-statoverride --update --add munin munin 0755 /var/lib/munin/www
 	dpkg-statoverride --list /var/lib/munin >/dev/null || \
 		dpkg-statoverride --update --add munin munin 0755 /var/lib/munin
 }
+
+apache_install() {
+        webserver=apache2
+        if [ -d /etc/$webserver/conf.d ] && [ ! -e /etc/$webserver/conf.d/munin.conf ]; then
+                ln -s ../../munin/apache.conf /etc/$webserver/conf.d/munin.conf
+        fi
+	invoke-rc.d $webserver reload 3>/dev/null || true
+}
+
 
 case "$1" in
 	configure)
 		add_munin_system_user
 		fixperms
+		apache_install
 		;;
 	abort-upgrade|abort-deconfigure|abort-remove)
 		:
