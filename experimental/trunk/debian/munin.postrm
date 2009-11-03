@@ -24,7 +24,7 @@ if [ "$1" = "purge" ]; then
 	rm -f /var/log/munin/munin-html.log*
 	rm -f /var/log/munin/munin-limits.log*
 
-	dpkg-statoverride --remove /var/www/munin
+	dpkg-statoverride --remove /var/cache/munin/www
 
 	# These are shared with munin-node, so only remove them if munin-node
 	# isn't installed (or already purged).
@@ -34,7 +34,7 @@ if [ "$1" = "purge" ]; then
 		dpkg-statoverride --remove /var/lib/munin
 	fi
 	
-	delete_dir_if_empty /var/www/munin
+	delete_dir_if_empty /var/cache/munin/www
 	delete_dir_if_empty /var/lib/munin
 	delete_dir_if_empty /var/log/munin
 	delete_dir_if_empty /etc/munin/templates
