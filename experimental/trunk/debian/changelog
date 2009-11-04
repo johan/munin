@@ -5,6 +5,12 @@ munin (1.4.0~svn2790-1) UNRELEASED; urgency=low
   * Add new binary package: munin-common, which contains code shared by
     munin and munin-node. Added depends on munin-common to munin,
     munin-node.
+  * Added new binary package munin-java-plugins.
+  * Move htmldir to /var/cache/munin/www. (Closes: #553555)
+    Theres still work to be done implementing debconf presenting an 
+    option where to install the htmldir, and possibly support more webservers 
+    by default. Also we need to deal with upgrades somehow and describe this
+    in NEWS.Debian.
   * debian/rule - make target names have changed.
   * Added suggests to ruby for munin-node.
   * Added suggests to libtext-csv-xs-perl for munin-node, required by
@@ -20,8 +26,7 @@ munin (1.4.0~svn2790-1) UNRELEASED; urgency=low
   * plugin: memory. Fix negative values in memory usage. (Closes: #257827)
   * plugin: enhanced ping_ allows for multiple host statistics. (Closes: 312518)
   * Improve ignore_file in /etc/munin/munin-node.conf. (Closes: 518401)
-  * Added new binary package munin-java-plugins.
-
+ 
  -- Tom Feiner <feiner.tom@gmail.com>  Tue, 01 Nov 2009 00:07:08 +0200
 
 munin (1.2.6-17) unstable; urgency=low
