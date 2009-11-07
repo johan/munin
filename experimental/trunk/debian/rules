@@ -27,6 +27,10 @@ build-stamp: $(QUILT_STAMPFN)
 	install -D -m0644 debian/munin.apache.conf \
 		$(CURDIR)/debian/munin/etc/munin/apache.conf
 
+	# Remove default .htaccess file from installation, as we include it
+	# in the default apache2/conf.d/munin configuration
+	rm $(CURDIR)/debian/munin/var/cache/munin/www/.htaccess
+
 	# Remove bundled VeraMono.ttf, debian gets this font from 
 	# the ttf-dejavu package. http://bugs.debian.org/548508
 	rm `pwd`/debian/munin/usr/share/munin/VeraMono.ttf
