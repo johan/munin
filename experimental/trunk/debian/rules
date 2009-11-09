@@ -35,7 +35,7 @@ build-stamp: $(QUILT_STAMPFN)
 	# the ttf-dejavu package. http://bugs.debian.org/548508
 	rm `pwd`/debian/munin/usr/share/munin/VeraMono.ttf
 	
-	$(MAKE) install-node-prime install-munindoc install-plugins-prime $(MAKEOPTS) \
+	$(MAKE) install-node-prime install-plugins-prime $(MAKEOPTS) \
 		DESTDIR=`pwd`/debian/munin-node
 	
 	$(MAKE) install-plugins-java $(MAKEOPTS) \
