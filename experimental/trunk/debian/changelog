@@ -28,8 +28,9 @@ munin (1.4.0~alpha+svn2902-1) UNRELEASED; urgency=low
   * plugin: memory. Fix negative values in memory usage. (Closes: #257827)
   * plugin: enhanced ping_ allows for multiple host statistics. (Closes: 312518)
   * Improve ignore_file in /etc/munin/munin-node.conf. (Closes: 518401)
+  * munin-node logrotate now rotates munin-node.log with munin user ownership.
  
- -- Tom Feiner <feiner.tom@gmail.com>  Sat, 07 Nov 2009 20:51:52 +0200
+ -- Tom Feiner <feiner.tom@gmail.com>  Sat, 10 Nov 2009 15:02:02 +0200
 
 munin (1.2.6-17) unstable; urgency=low
  
