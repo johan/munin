@@ -1,3 +1,16 @@
+munin (1.4.0~alpha2-1) UNRELEASED; urgency=low
+
+  * Move htmldir to /var/cache/munin/www. Note that we currently don't
+    have a proper upgrade mechanism in place. When upgrading from a 
+    previous version of munin, you'll need to change /etc/munin/munin.conf
+    htmldir parameter, from /var/www/munin, to /var/cache/munin/www.
+  * Added new binary package munin-java-plugins.
+  * Add new binary package: munin-common, which contains code shared by
+    munin and munin-node. Added depends on munin-common to munin,
+    munin-node.
+
+ -- Tom Feiner <feiner.tom@gmail.com>  Sat, 14 Nov 2009 10:58:31 +0200
+
 munin (1.2.6-2) unstable; urgency=low
 
   * Build the binary package 'munin-plugins-extra' with user contributed

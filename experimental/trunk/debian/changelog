@@ -1,7 +1,7 @@
-munin (1.4.0~alpha+svn2902-1) UNRELEASED; urgency=low
+munin (1.4.0~alpha2-1) UNRELEASED; urgency=low
 
   [  Tom Feiner ]
-  * Initial version of munin 1.4.0 alpha for experimental.
+  * Initial version of munin 1.4.0 alpha2 for experimental.
   * Add new binary package: munin-common, which contains code shared by
     munin and munin-node. Added depends on munin-common to munin,
     munin-node.
@@ -31,8 +31,9 @@ munin (1.4.0~alpha+svn2902-1) UNRELEASED; urgency=low
   * plugin: enhanced ping_ allows for multiple host statistics. (Closes: 312518)
   * Improve ignore_file in /etc/munin/munin-node.conf. (Closes: 518401)
   * munin-node logrotate now rotates munin-node.log with munin user ownership.
- 
- -- Tom Feiner <feiner.tom@gmail.com>  Wed, 11 Nov 2009 08:54:56 +0000
+
+
+ -- Tom Feiner <feiner.tom@gmail.com>  Sat, 14 Nov 2009 10:57:29 +0200
 
 munin (1.2.6-17) unstable; urgency=low
  
