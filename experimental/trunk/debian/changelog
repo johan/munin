@@ -1,7 +1,7 @@
 munin (1.4.0~alpha2-1) UNRELEASED; urgency=low
 
   [  Tom Feiner ]
-  * Initial version of munin 1.4.0 alpha2 for experimental.
+  * Initial version of munin 1.4.0 alpha2 for experimental. (Closes: #535691)
   * Add new binary package: munin-common, which contains code shared by
     munin and munin-node. Added depends on munin-common to munin,
     munin-node.
