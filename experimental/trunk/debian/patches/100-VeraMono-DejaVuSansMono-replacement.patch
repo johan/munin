@@ -1,4 +1,4 @@
-Description: Debian spesific patch, to use DejaVuSansMono.ttf,
+Description: Debian specific patch, to use DejaVuSansMono.ttf,
  provided by the ttf-dejavu package, instead of the bundled 
  VeraMono.ttf font which is included in muinin source.
 Origin: other
