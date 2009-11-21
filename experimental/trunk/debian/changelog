@@ -35,7 +35,7 @@ munin (1.4.0~beta-1) experimental; urgency=low
  -- Tom Feiner <feiner.tom@gmail.com>  Sat, 21 Nov 2009 09:59:07 +0200
 
 munin (1.2.6-17) unstable; urgency=low
- 
+
   [ Holger Levsen ]
   * Adding Tom to uploaders. 
   * Apply patch by Tom Feiner to not make the automatic plugin detection fail
