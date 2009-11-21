@@ -62,7 +62,8 @@ Description: network-wide graphing framework (grapher/gatherer)
  virtually everything imaginable throughout your network, while still
  maintaining a rattling ease of installation and configuration.
  .
- This package contains the java based plugins that are used by munin-node.
+ This package contains the java based plugins that are used by munin-node to 
+ monitor Java Management Extensions (JMX). 
  .
  Munin is written in Perl, and relies heavily on Tobi Oetiker's excellent
  RRDtool. To see a real example of Munin in action, you can follow a link
