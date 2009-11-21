@@ -1,7 +1,7 @@
-munin (1.4.0~alpha2-1) UNRELEASED; urgency=low
+munin (1.4.0~beta-1) UNRELEASED; urgency=low
 
   [  Tom Feiner ]
-  * Initial version of munin 1.4.0 alpha2 for experimental. (Closes: #535691)
+  * Initial version of munin 1.4.0 beta for experimental. (Closes: #535691)
   * Add new binary package: munin-common, which contains code shared by
     munin and munin-node. Added depends on munin-common to munin,
     munin-node.
@@ -32,8 +32,7 @@ munin (1.4.0~alpha2-1) UNRELEASED; urgency=low
   * Improve ignore_file in /etc/munin/munin-node.conf. (Closes: 518401)
   * munin-node logrotate now rotates munin-node.log with munin user ownership.
 
-
- -- Tom Feiner <feiner.tom@gmail.com>  Sat, 14 Nov 2009 10:57:29 +0200
+ -- Tom Feiner <feiner.tom@gmail.com>  Sat, 21 Nov 2009 09:59:07 +0200
 
 munin (1.2.6-17) unstable; urgency=low
  
