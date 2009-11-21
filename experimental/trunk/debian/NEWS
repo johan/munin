@@ -1,4 +1,4 @@
-munin (1.4.0~beta-1) UNRELEASED; urgency=low
+munin (1.4.0~beta-1) experimental; urgency=low
 
   * Move htmldir to /var/cache/munin/www. Note that we currently don't
     have a proper upgrade mechanism in place. When upgrading from a 

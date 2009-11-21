@@ -1,4 +1,4 @@
-munin (1.4.0~beta-1) UNRELEASED; urgency=low
+munin (1.4.0~beta-1) experimental; urgency=low
 
   [  Tom Feiner ]
   * Initial version of munin 1.4.0 beta for experimental. (Closes: #535691)
