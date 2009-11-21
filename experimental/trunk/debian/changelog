@@ -1,6 +1,5 @@
 munin (1.4.0~beta-1) experimental; urgency=low
 
-  [  Tom Feiner ]
   * Initial version of munin 1.4.0 beta for experimental. (Closes: #535691)
   * Add new binary package: munin-common, which contains code shared by
     munin and munin-node. Added depends on munin-common to munin,
