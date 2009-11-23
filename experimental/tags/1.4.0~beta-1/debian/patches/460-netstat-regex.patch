@@ -1,0 +1,15 @@
+Description: fix regex to only match openened connections.  Not committed upstream.
+Origin: other, http://bugs.debian.org/507069
+Bug-Debian: http://bugs.debian.org/507069
+Forwarded: no
+Index: munin-1.2.6/node/node.d.linux/netstat.in
+===================================================================
+--- munin-1.2.6.orig/node/node.d.linux/netstat.in	2009-02-26 23:03:35.000000000 +0100
++++ munin-1.2.6/node/node.d.linux/netstat.in	2009-02-26 23:04:34.000000000 +0100
+@@ -71,5 +71,5 @@
+ 	exit 0
+ fi
+ 
+-netstat -s | awk '/active connections/ { print "active.value " $1 } /passive connection ope/ { print "passive.value " $1 } /failed connection/ { print "failed.value " $1 } /connection resets/ { print "resets.value " $1 } /connections established/ { print "established.value " $1 }'
++netstat -s | awk '/active connections opening/ { print "active.value " $1 } /passive connection opening/ { print "passive.value " $1 } /failed connection/ { print "failed.value " $1 } /connection resets/ { print "resets.value " $1 } /connections established/ { print "established.value " $1 }'
+ 
