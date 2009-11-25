@@ -1,3 +1,12 @@
+munin (1.2.6-10~lenny2) stable-proposed-updates; urgency=low
+
+  * Apply patch by Brian De Wolf (taken from upstream trunk r2352 and 
+    1.2.6-14 from Debian squeeze) to fix gaps in graphs of the cpu plugin due
+    to changes in the way the kernel reports cpu usage. 
+    (Closes: #535575, #554003)
+
+ -- Holger Levsen <holger@debian.org>  Wed, 25 Nov 2009 10:51:26 +0100
+
 munin (1.2.6-10~lenny1) stable-proposed-updates; urgency=low
 
   * Rebuild for stable-proposed-updates.

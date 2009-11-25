@@ -40,3 +40,4 @@
 440-node.d.linux-iostat.patch
 450-munin-cgi-graph.patch
 460-munin-cgi-graph-mkdir.patch
+610-plugin-cpu-fix-max.patch
