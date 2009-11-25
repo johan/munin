@@ -1,3 +1,9 @@
+munin (1.4.0~beta-2) UNRELEASED; urgency=low
+
+  * Update homepage field in debian/control. 
+
+ -- Holger Levsen <holger@debian.org>  Wed, 25 Nov 2009 09:28:04 +0100
+
 munin (1.4.0~beta-1) experimental; urgency=low
 
   * Initial version of munin 1.4.0 beta for experimental. (Closes: #535691)
