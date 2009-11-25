@@ -1,8 +1,12 @@
 munin (1.4.0~beta-2) UNRELEASED; urgency=low
 
+  [ Holger Levsen ]
   * Update homepage field in debian/control. 
 
- -- Holger Levsen <holger@debian.org>  Wed, 25 Nov 2009 09:28:04 +0100
+  [ Tom Feiner ]
+  * Added default postgres_* configuration to plugins.conf
+
+ -- Holger Levsen <holger@debian.org>  Wed, 25 Nov 2009 13:11:28 +0000
 
 munin (1.4.0~beta-1) experimental; urgency=low
 
