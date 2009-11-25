@@ -8,6 +8,8 @@ munin (1.4.0~beta-1) experimental; urgency=low
   * Add new binary package: munin-common, which contains code shared by
     munin and munin-node. Added depends on munin-common to munin,
     munin-node.
+  * munin-node-configure-snmp command is no longer available, use 
+    munin-node-configure --snmp to configure snmp hosts.
 
  -- Tom Feiner <feiner.tom@gmail.com>  Sat, 14 Nov 2009 10:58:31 +0200
 
