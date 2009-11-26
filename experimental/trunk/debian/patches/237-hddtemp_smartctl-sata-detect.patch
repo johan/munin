@@ -1,3 +1,15 @@
+Description: Add auto detection of SATA disks to hddtemp_smartctl
+ Upstream wants to test this bug on older systems before including it in trunk
+ as they want munin 1.4 compatible with older systems like RHEL4.
+ .
+ As we know that lenny, and onwards has smartmontools 5.38 or higher,
+ that is needed for this patch to work, we can include it in the debian package
+ even if its not included upstream.
+Origin: other
+Bug-Debian: http://bugs.debian.org/497400
+Forwarded: no
+Author: Thorsten Gunkel <tgunkel-lists@tgunkel.de>
+Last-Update: 2009-11-26
 Index: munin-1.4.0/plugins/node.d/hddtemp_smartctl.in
 ===================================================================
 --- munin-1.4.0.orig/plugins/node.d/hddtemp_smartctl.in	2009-08-31 23:04:36.000000000 +0200
