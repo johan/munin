@@ -5,6 +5,7 @@ munin (1.4.0~beta-2) UNRELEASED; urgency=low
 
   [ Tom Feiner ]
   * Added default postgres_* configuration to plugins.conf
+  * Add Announce-1.4.0, UPGRADING to the package documents. 
 
  -- Holger Levsen <holger@debian.org>  Wed, 25 Nov 2009 13:11:28 +0000
 
