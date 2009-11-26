@@ -1,7 +1,7 @@
-Index: munin-1.2.6/node/node.d/hddtemp_smartctl.in
+Index: munin-1.4.0/plugins/node.d/hddtemp_smartctl.in
 ===================================================================
---- munin-1.2.6.orig/node/node.d/hddtemp_smartctl.in	2009-08-31 23:04:36.000000000 +0200
-+++ munin-1.2.6/node/node.d/hddtemp_smartctl.in	2009-08-31 23:08:02.000000000 +0200
+--- munin-1.4.0.orig/plugins/node.d/hddtemp_smartctl.in	2009-08-31 23:04:36.000000000 +0200
++++ munin-1.4.0/plugins/node.d/hddtemp_smartctl.in	2009-08-31 23:08:02.000000000 +0200
 @@ -92,14 +92,25 @@
  
  # Try to get a default set of drives
