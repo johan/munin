@@ -12,6 +12,15 @@ munin (1.4.0~beta-2) UNRELEASED; urgency=low
 munin (1.4.0~beta-1) experimental; urgency=low
 
   * Initial version of munin 1.4.0 beta for experimental. (Closes: #535691)
+    New features include: 
+    - Better scalability (multigraph support)
+    - Better security through TLS (SSL)
+    - Better looking HTML templates
+    - "includedir" in munin.conf to allow drop-in configuration
+    - More than 100 new plugins
+    - bugfixes
+    Please refer to the Announce-1.4.0, changelog for the full details.
+     
   * Add new binary package: munin-common, which contains code shared by
     munin and munin-node. Added depends on munin-common to munin,
     munin-node.
