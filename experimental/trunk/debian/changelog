@@ -1,18 +1,6 @@
-munin (1.4.0~beta-2) UNRELEASED; urgency=low
+munin (1.4.0-1) UNRELEASED; urgency=low
 
-  [ Holger Levsen ]
-  * Update homepage field in debian/control. 
-
-  [ Tom Feiner ]
-  * Added default postgres_* configuration to plugins.conf
-  * Add Announce-1.4.0, UPGRADING to the package documents. 
-  * Added build/resources/apache-cgi.conf to munin.docs
-
- -- Holger Levsen <holger@debian.org>  Wed, 25 Nov 2009 13:11:28 +0000
-
-munin (1.4.0~beta-1) experimental; urgency=low
-
-  * Initial version of munin 1.4.0 beta for experimental. (Closes: #535691)
+  * Initial upload of munin 1.4.0 to Debian unstable. (Closes: #535691)
     New features include: 
     - Better scalability (multigraph support)
     - Better security through TLS (SSL)
@@ -21,38 +9,44 @@ munin (1.4.0~beta-1) experimental; urgency=low
     - More than 100 new plugins
     - bugfixes
     Please refer to the Announce-1.4.0, changelog for the full details.
-     
+  * Remove 62 patches that have been merged in trunk.
+  * Move htmldir to /var/cache/munin/www. (Closes: #553555)
+    If you are upgrading, read NEWS.Debian.
+    Theres still work to be done implementing debconf presenting an option
+    where to install the htmldir, and possibly support more webservers by 
+    default. 
   * Add new binary package: munin-common, which contains code shared by
     munin and munin-node. Added depends on munin-common to munin,
     munin-node.
-  * Added new binary package munin-java-plugins.
-  * Move htmldir to /var/cache/munin/www. (Closes: #553555)
-    Theres still work to be done implementing debconf presenting an 
-    option where to install the htmldir, and possibly support more webservers 
-    by default. Also we need to deal with upgrades somehow and describe this
-    in NEWS.Debian.
+  * Add new binary package munin-java-plugins.
   * debian/rule - make target names have changed.
-  * Added suggests to ruby for munin-node.
-  * Added suggests to libtext-csv-xs-perl for munin-node, required by
+  * Add depends to liblog-log4perl-perl for munin.
+  * Add suggests to libtext-csv-xs-perl for munin-node, required by
     the new zimbra plugin.
-  * Added suggests to libxml-simple-perl for munin-node, required by
+  * Add suggests to libxml-simple-perl for munin-node, required by
     the tomcat_* plugins.
-  * Added suggests to libdbd-mysql-perl,libcache-cache-perl for munin-node
+  * Add suggests to libdbd-mysql-perl,libcache-cache-perl for munin-node
     required by the new mysql_ plugin.
-  * Added depends to liblog-log4perl-perl for munin.
-  * Updated new manpages names for munin-node.manpages.
-  * Removed patches that are already included in trunk.
-  * Changed the use of VeraMono.ttf in munin-graph to the 
-    debian provided equivalent font. (Closes: #548508)
-  * Fixed current value of graph_total always 0. (Closes: #406505)
+  * Add suggests to ruby for munin-node.
+  * Update new manpages names for munin-node.manpages.
+  * Change the use of VeraMono.ttf in munin-graph to the 
+    equivalent font provided by a Debian package. (Closes: #548508)
+  * Fix current value of graph_total always 0. (Closes: #406505)
   * plugin: apache_* improve output in errors. (Closes: #542477)
   * plugin: exim_mailqueue show frozen count. (Closes: #299266)
   * plugin: memory. Fix negative values in memory usage. (Closes: #257827)
   * plugin: enhanced ping_ allows for multiple host statistics. (Closes: 312518)
   * Improve ignore_file in /etc/munin/munin-node.conf. (Closes: 518401)
   * munin-node logrotate now rotates munin-node.log with munin user ownership.
+  * Add default postgres_* configuration to plugins.conf
+  * Add Announce-1.4.0, UPGRADING to the package documents. 
+  * Add build/resources/apache-cgi.conf to munin.docs
 
- -- Tom Feiner <feiner.tom@gmail.com>  Sat, 21 Nov 2009 09:59:07 +0200
+  [ Holger Levsen ]
+  * Update homepage field in debian/control.
+  * Improve debian/changelog. 
+
+ -- Tom Feiner <feiner.tom@gmail.com>  Sat, 28 Nov 2009 09:59:07 +0200
 
 munin (1.2.6-17) unstable; urgency=low
 
