@@ -38,15 +38,17 @@ munin (1.4.0-1) UNRELEASED; urgency=low
   * plugin: enhanced ping_ allows for multiple host statistics. (Closes: 312518)
   * Improve ignore_file in /etc/munin/munin-node.conf. (Closes: 518401)
   * munin-node logrotate now rotates munin-node.log with munin user ownership.
-  * Add default postgres_* configuration to plugins.conf
+  * Add default postgres_* configuration to plugins.conf.
   * Add Announce-1.4.0, UPGRADING to the package documents. 
-  * Add build/resources/apache-cgi.conf to munin.docs
+  * Add build/resources/apache-cgi.conf to munin.docs.
+  * 1.4.0 contains the fix for squid_traffic bytes from cache too 
+    low. (Closes: 557385)
 
   [ Holger Levsen ]
   * Update homepage field in debian/control.
   * Improve debian/changelog. 
 
- -- Tom Feiner <feiner.tom@gmail.com>  Sat, 28 Nov 2009 09:59:07 +0200
+ -- Tom Feiner <feiner.tom@gmail.com>  Sat, 28 Nov 2009 17:20:53 +0200
 
 munin (1.2.6-17) unstable; urgency=low
 
