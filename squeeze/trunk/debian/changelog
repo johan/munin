@@ -1,4 +1,4 @@
-munin (1.4.0-1) UNRELEASED; urgency=low
+munin (1.4.0-1) unstable; urgency=low
 
   * Initial upload of munin 1.4.0 to Debian unstable. (Closes: #535691)
     New features include: 
