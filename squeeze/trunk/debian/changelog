@@ -1,3 +1,15 @@
+munin (1.4.0-2) unstable; urgency=low
+
+  * Change short description of munin-common, munin-java-plugins to solve
+    lintian info tag: duplicate-short-description.
+  * Move default-jdk from Build-Depends to Build-Depends-Indep. This solves
+    lintian info tag: build-depends-without-arch-dep.
+  * Change the order of Depends for munin-java-plugins to put a non-virtual
+    package first. This solves lintian warning 
+    virtual-package-depends-without-real-package-depends.
+
+ -- Tom Feiner <feiner.tom@gmail.com>  Tue, 01 Dec 2009 21:55:28 +0200
+
 munin (1.4.0-1) unstable; urgency=low
 
   * Initial upload of munin 1.4.0 to Debian unstable. (Closes: #535691)
