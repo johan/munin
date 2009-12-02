@@ -1,6 +1,6 @@
 munin (1.4.0-2) unstable; urgency=low
 
-  * Improv short description of munin-common and munin-java-plugins.
+  * Improve short description of munin-common and munin-java-plugins.
   * Move default-jdk from Build-Depends to Build-Depends-Indep. 
   * Change the order of Depends for munin-java-plugins to put a non-virtual
     package first. 
