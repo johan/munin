@@ -1,9 +1,15 @@
-munin (1.4.0-2) unstable; urgency=low
+munin (1.4.0-2) UNRELEASED; urgency=low
 
+  [ Tom Feiner ]
   * Improve short description of munin-common and munin-java-plugins.
   * Move default-jdk from Build-Depends to Build-Depends-Indep. 
   * Change the order of Depends for munin-java-plugins to put a non-virtual
     package first. 
+
+  [ Holger Levsen ]
+  * debian/control: Add a "Replaces: munin-plugins-extra" to munin-node, as
+    some plugins have become official and thus moved to the other binary
+    package. Thanks to Gregor Hermann. (Closes: #559062)
 
  -- Tom Feiner <feiner.tom@gmail.com>  Tue, 01 Dec 2009 21:55:28 +0200
 
