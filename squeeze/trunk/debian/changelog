@@ -1,10 +1,13 @@
-munin (1.4.0-2) UNRELEASED; urgency=low
+munin (1.4.0-2) unstable; urgency=low
 
   [ Tom Feiner ]
   * Improve short description of munin-common and munin-java-plugins.
   * Move default-jdk from Build-Depends to Build-Depends-Indep. 
   * Change the order of Depends for munin-java-plugins to put a non-virtual
     package first. 
+
+  [ Stig Sandbeck Mathisen ]
+  * Update munin-node plugin configuration for postfix. (Closes: #559165)
 
   [ Holger Levsen ]
   * debian/control: Add a "Replaces: munin-plugins-extra" to munin-node, as
@@ -13,10 +16,7 @@ munin (1.4.0-2) UNRELEASED; urgency=low
   * munin.postrm: Cleanup the link in /etc/$webserver/conf.d - thanks to
     Andreas Tille for spotting this.
 
-  [ Stig Sandbeck Mathisen ]
-  * Update munin-node plugin configuration for postfix (Closes: #559165)
-
- -- Stig Sandbeck Mathisen <ssm@debian.org>  Thu, 03 Dec 2009 12:02:26 +0100
+ -- Holger Levsen <holger@debian.org>  Thu, 03 Dec 2009 13:57:10 +0100
 
 munin (1.4.0-1) unstable; urgency=low
 
