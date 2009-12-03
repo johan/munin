@@ -26,6 +26,7 @@ fixperms() {
 }
 
 apache_install() {
+	# if you add more webservers here, dont forget to also remove them in postrm
         webserver=apache2
         if [ -d /etc/$webserver/conf.d ] && [ ! -e /etc/$webserver/conf.d/munin ]; then
                 ln -s ../../munin/apache.conf /etc/$webserver/conf.d/munin
