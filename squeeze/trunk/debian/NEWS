@@ -1,4 +1,4 @@
-munin (1.4.0~beta-1) experimental; urgency=low
+munin (1.4.0-1) unstable; urgency=low
 
   * Move htmldir to /var/cache/munin/www. Note that we currently don't
     have a proper upgrade mechanism in place. When upgrading from a 
@@ -10,8 +10,11 @@ munin (1.4.0~beta-1) experimental; urgency=low
     munin-node.
   * munin-node-configure-snmp command is no longer available, use 
     munin-node-configure --snmp to configure snmp hosts.
+  * If upgrading from 1.2.6, please review the 
+    /usr/share/doc/munin/UPGRADING file as there is an issue with truncated
+    field names in plugins (especially with the df plugin).
 
- -- Tom Feiner <feiner.tom@gmail.com>  Sat, 14 Nov 2009 10:58:31 +0200
+ -- Tom Feiner <feiner.tom@gmail.com>  Fri, 04 Dec 2009 18:29:16 +0200
 
 munin (1.2.6-2) unstable; urgency=low
 
