@@ -1,5 +1,6 @@
 munin (1.4.1-2) UNRELEASED; urgency=low
 
+  * Add link to UPGRADING file in NEWS.
   * Remove use of multiple groups from default plugins configuration
     (Closes: #559286)
 
