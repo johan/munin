@@ -1,8 +1,8 @@
-munin (1.4.1-1) UNRELEASED; urgency=low
+munin (1.4.1-1) unstable; urgency=low
 
-  * New upstream version
+  * New upstream version with 18 bugfixes and small enhancements.
 
- -- Stig Sandbeck Mathisen <ssm@debian.org>  Fri, 04 Dec 2009 12:34:29 +0100
+ -- Stig Sandbeck Mathisen <ssm@debian.org>  Fri, 04 Dec 2009 15:48:53 +0100
 
 munin (1.4.0-2) unstable; urgency=low
 
