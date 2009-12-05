@@ -1,4 +1,4 @@
-munin (1.4.1-2) UNRELEASED; urgency=low
+munin (1.4.1-2) unstable; urgency=low
 
   * Add link to UPGRADING file in NEWS.
   * Remove use of multiple groups from default plugins configuration.
