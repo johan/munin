@@ -12,7 +12,7 @@ Vcs-Browser: http://munin.projects.linpro.no/browser
 
 Package: munin-node
 Architecture: all
-Depends: ${perl:Depends}, ${misc:Depends}, libnet-server-perl, procps, adduser, lsb-base (>= 3.2-4), gawk, munin-common
+Depends: ${perl:Depends}, ${misc:Depends}, libnet-server-perl, procps, adduser, lsb-base (>= 3.2-4), gawk, munin-common (= ${binary:Version})
 Replaces: munin-plugins-extra
 Recommends: libnet-snmp-perl
 Suggests: munin, munin-plugins-extra, munin-java-plugins, libwww-perl, liblwp-useragent-determined-perl, libnet-irc-perl, mysql-client, smartmontools (>= 5.37-6~bpo40+1), acpi | lm-sensors, python, ruby, ethtool, libdbd-pg-perl,libdbd-mysql-perl,libcache-cache-perl, net-tools, hdparm, libcrypt-ssleay-perl, libtext-csv-xs-perl, libxml-simple-perl
@@ -72,7 +72,7 @@ Description: network-wide graphing framework (java plugins for node)
 
 Package: munin
 Architecture: all
-Depends: ${perl:Depends}, ${misc:Depends}, perl-modules | libparse-recdescent-perl, librrds-perl, libhtml-template-perl, libdigest-md5-perl, libtime-hires-perl, libstorable-perl, rrdtool, adduser, liblog-log4perl-perl, ttf-dejavu, munin-common, cron
+Depends: ${perl:Depends}, ${misc:Depends}, perl-modules | libparse-recdescent-perl, librrds-perl, libhtml-template-perl, libdigest-md5-perl, libtime-hires-perl, libstorable-perl, rrdtool, adduser, liblog-log4perl-perl, ttf-dejavu, munin-common (= ${binary:Version}), cron
 Recommends: munin-node, libdate-manip-perl
 Suggests: www-browser, httpd
 Description: network-wide graphing framework (grapher/gatherer)
