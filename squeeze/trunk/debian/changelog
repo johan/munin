@@ -78,6 +78,8 @@ munin (1.4.0-1) unstable; urgency=low
   * plugin: snmp__if_ uses 64bit counters now. (Closes: #499554)
   * Improve ignore_file in /etc/munin/munin-node.conf. (Closes: #518401)
   * munin-node logrotate now rotates munin-node.log with munin user ownership.
+  * munin-graph now checks if in cgi-mode and thus munin-cron doesn't need to
+    be modified anymore for cgi-mode. (Closes: #498842)
   * Add default postgres_* configuration to plugins.conf.
   * Add Announce-1.4.0, UPGRADING to the package documents. 
   * Add build/resources/apache-cgi.conf to munin.docs.
