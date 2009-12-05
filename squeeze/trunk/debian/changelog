@@ -75,6 +75,7 @@ munin (1.4.0-1) unstable; urgency=low
   * plugin: exim_mailqueue show frozen count. (Closes: #299266)
   * plugin: memory. Fix negative values in memory usage. (Closes: #257827)
   * plugin: enhanced ping_ allows for multiple host statistics. (Closes: #312518)
+  * plugin: snmp__if_ uses 64bit counters now. (Closes: #499554)
   * Improve ignore_file in /etc/munin/munin-node.conf. (Closes: #518401)
   * munin-node logrotate now rotates munin-node.log with munin user ownership.
   * Add default postgres_* configuration to plugins.conf.
