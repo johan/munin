@@ -72,16 +72,18 @@ munin (1.4.0-1) unstable; urgency=low
   * plugin: apache_* improve output in errors. (Closes: #542477)
   * plugin: exim_mailqueue show frozen count. (Closes: #299266)
   * plugin: memory. Fix negative values in memory usage. (Closes: #257827)
-  * plugin: enhanced ping_ allows for multiple host statistics. (Closes: 312518)
-  * Improve ignore_file in /etc/munin/munin-node.conf. (Closes: 518401)
+  * plugin: enhanced ping_ allows for multiple host statistics. (Closes: #312518)
+  * Improve ignore_file in /etc/munin/munin-node.conf. (Closes: #518401)
   * munin-node logrotate now rotates munin-node.log with munin user ownership.
   * Add default postgres_* configuration to plugins.conf.
   * Add Announce-1.4.0, UPGRADING to the package documents. 
   * Add build/resources/apache-cgi.conf to munin.docs.
   * 1.4.0 contains the fix for squid_traffic bytes from cache too 
-    low. (Closes: 557385)
+    low. (Closes: #557385)
   * munin-node: improve ignore_file in /etc/munin/munin-node.conf.
-    (Closes: 546149)
+    (Closes: #546149)
+  * munin-node: iostat plugin does not print values for Xen domU disks.
+    (Closes: #552034)
 
   [ Holger Levsen ]
   * Update homepage field in debian/control.
