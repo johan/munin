@@ -5,13 +5,13 @@ munin (1.4.1-2) UNRELEASED; urgency=low
     (Closes: #559286)
   * Added depends on the same version of munin-common to munin, munin-node.
   * Added watch file.
-  * 1.4.0 broke graphing of sensors_fan. (Closes: #559188)
 
  -- Tom Feiner <feiner.tom@gmail.com>  Sat, 05 Dec 2009 10:39:51 +0200
 
 munin (1.4.1-1) unstable; urgency=low
 
   * New upstream version with 18 bugfixes and small enhancements.
+  * 1.4.0 broke graphing of sensors_fan. (Closes: #559188)
 
  -- Stig Sandbeck Mathisen <ssm@debian.org>  Fri, 04 Dec 2009 15:48:53 +0100
 
