@@ -1,10 +1,11 @@
 munin (1.4.1-2) UNRELEASED; urgency=low
 
   * Add link to UPGRADING file in NEWS.
-  * Remove use of multiple groups from default plugins configuration
+  * Remove use of multiple groups from default plugins configuration.
     (Closes: #559286)
   * Added depends on the same version of munin-common to munin, munin-node.
   * Added watch file.
+  * 1.4.0 broke graphing of sensors_fan. (Closes: #559188)
 
  -- Tom Feiner <feiner.tom@gmail.com>  Sat, 05 Dec 2009 10:39:51 +0200
 
