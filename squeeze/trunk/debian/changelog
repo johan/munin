@@ -68,6 +68,8 @@ munin (1.4.0-1) unstable; urgency=low
   * Update new manpages names for munin-node.manpages.
   * Change the use of VeraMono.ttf in munin-graph to the 
     equivalent font provided by a Debian package. (Closes: #548508)
+  * munin.conf has a "includedir" directive now, to include config file
+    snipplets. (Closes: #425416)
   * Fix current value of graph_total always 0. (Closes: #406505)
   * plugin: apache_* improve output in errors. (Closes: #542477)
   * plugin: exim_mailqueue show frozen count. (Closes: #299266)
