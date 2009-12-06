@@ -1,3 +1,10 @@
+munin (1.4.1-3) UNRELEASED; urgency=low
+
+  [ Tom Feiner ]
+  * Added debugfs to df exclude list in default plugin configuration.
+
+ -- Holger Levsen <holger@debian.org>  Sun, 06 Dec 2009 15:21:19 +0100
+
 munin (1.4.1-2) unstable; urgency=low
 
   * Add link to UPGRADING file in NEWS.
