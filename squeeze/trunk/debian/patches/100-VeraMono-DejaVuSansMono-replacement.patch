@@ -1,11 +1,16 @@
 Description: Debian specific patch, to use DejaVuSansMono.ttf,
  provided by the ttf-dejavu package, instead of the bundled 
  VeraMono.ttf font which is included in muinin source.
+
+ Note that since r3211 (which will be included in munin 1.4.2) 
+ VeraMono.ttf was removed, but DejaVuSansMono is provided instead.
+ So when munin 1.4.2 will be packaged, we will need to remove 
+ DejaVuSansMono.ttf instead of removing VeraMono.ttf like we do today.
 Origin: other
 Bug-Debian: http://bugs.debian.org/548508
 Forwarded: no
 Author: Tom Feiner <feiner.tom@gmail.com>
-Last-Update: 2009-10-30
+Last-Update: 2009-12-10
 Index: munin-1.4.0/master/lib/Munin/Master/GraphOld.pm
 ===================================================================
 --- munin-1.4.0/master/lib/Munin/Master/GraphOld.pm	(revision 2772)
