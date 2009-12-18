@@ -1,16 +1,18 @@
-munin (1.4.2-1) UNRELEASED; urgency=low
+munin (1.4.2-1) unstable; urgency=low
 
   [ Tom Feiner ]
   * New upstream release. Mainly bugfixes.
-  * Added debugfs to df exclude list in default plugin configuration.
-  * Changed default group for plugin exim_mailqueue from Debian-exim to
-    adm. (Closes: #559674)
-  * Empty /etc/munin/munin-conf.d/ directory causes munin-cron to spew 
-    warnings to cron (Closes: #559624).
-  * SQL Syntax Error inside postgres_querylength_ (Closes: #559426)
-  * Added patch 101-GraphOld-typo-r3235.patch to fix a typo in munin 
+   * includes fix for SQL Syntax Error inside postgres_querylength_ 
+     (Closes: #559426)
+  * Add debugfs to df exclude list in default plugin configuration.
+  * Change default group for plugin exim_mailqueue from Debian-exim to adm.
+    (Closes: #559674)
+  * Include upstream fix which didn't make it into 1.4.2 for empty 
+    /etc/munin/munin-conf.d/ directory causing munin-cron to spew warnings to
+    cron (Closes: #559624).
+  * Add patch 101-GraphOld-typo-r3235.patch to fix a typo in munin 
     1.4.2 which stop some graphs from being graphed.
-  * Removed 100-VeraMono-DejaVuSansMono-replacement.patch as it's not
+  * Remove 100-VeraMono-DejaVuSansMono-replacement.patch as it's not
     needed anymore.
 
  -- Tom Feiner <feiner.tom@gmail.com>  Fri, 18 Dec 2009 10:26:52 +0200
@@ -20,8 +22,8 @@ munin (1.4.1-2) unstable; urgency=low
   * Add link to UPGRADING file in NEWS.
   * Remove use of multiple groups from default plugins configuration.
     (Closes: #559286)
-  * Added depends on the same version of munin-common to munin, munin-node.
-  * Added watch file.
+  * Add depends on the same version of munin-common to munin, munin-node.
+  * Add watch file.
 
  -- Tom Feiner <feiner.tom@gmail.com>  Sat, 05 Dec 2009 10:39:51 +0200
 
