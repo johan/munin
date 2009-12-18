@@ -1,8 +1,7 @@
 munin (1.4.2-1) unstable; urgency=low
 
-  [ Tom Feiner ]
   * New upstream release. Mainly bugfixes.
-   * includes fix for SQL Syntax Error inside postgres_querylength_ 
+  * includes fix for SQL Syntax Error inside postgres_querylength_ 
      (Closes: #559426)
   * Add debugfs to df exclude list in default plugin configuration.
   * Change default group for plugin exim_mailqueue from Debian-exim to adm.
