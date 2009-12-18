@@ -1,0 +1,33 @@
+Description: Empty /etc/munin/munin-conf.d/ directory causes munin-cron to 
+ spew warnings to cron.
+ .
+ This fix did not make it into munin 1.4.2 release, but it was fixed after
+ the release (in r3236). Once we release 1.4.3, this patch can be removed.
+Origin: upstream
+Bug-Debian: http://bugs.debian.org/559624
+Forwarded: no need (taken from upstream trunk r3236)
+Author: Tom Feiner <feiner.tom@gmail.com
+Last-Update: 2009-12-18
+Index: munin-1.4.2/master/lib/Munin/Master/Utils.pm
+===================================================================
+--- munin-1.4.2/master/lib/Munin/Master/Utils.pm (revision 3148)
++++ munin-1.4.2/master/lib/Munin/Master/Utils.pm (revision 3236)
+@@ -785,6 +785,5 @@
+ 	opendir($DIR, $dirname) or
+ 	    WARN "[Warning] Could not open includedir directory $dirname: $OS_ERROR\n";
+-	my @files = grep { ! /^\.|~$/ } readdir($DIR) or
+-	    WARN "[Warning] Error reading includedir directory $dirname: $OS_ERROR\n";
++	my @files = grep { ! /^\.|~$/ } readdir($DIR);
+ 	closedir($DIR);
+ 
+Index: munin-1.4.2/master/_bin/munin-update.in
+===================================================================
+--- munin-1.4.2/master/_bin/munin-update.in (revision 3088)
++++ munin-1.4.2/master/_bin/munin-update.in (revision 3236)
+@@ -54,6 +54,5 @@
+ 	opendir($DIR, $dirname) or
+ 	    WARN "[Warning] Could not open includedir directory $dirname: $OS_ERROR\n";
+-	my @files = grep { ! /^\.|~$/ } readdir($DIR) or
+-	    WARN "[Warning] Error reading includedir directory $dirname: $OS_ERROR\n";
++	my @files = grep { ! /^\.|~$/ } readdir($DIR);
+ 	closedir($DIR);
