@@ -1,3 +1,9 @@
+munin (1.4.2-2) unstable; urgency=low
+
+  * Fix lintian warnings regarding DejaVuSans.ttf.
+
+ -- Tom Feiner <feiner.tom@gmail.com>  Sun, 20 Dec 2009 20:26:41 +0200
+
 munin (1.4.2-1) unstable; urgency=low
 
   * New upstream release. Mainly bugfixes.
