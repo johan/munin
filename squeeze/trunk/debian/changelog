@@ -1,4 +1,4 @@
-munin (1.4.2-2) unstable; urgency=low
+munin (1.4.2-2) UNRELEASED; urgency=low
 
   * Fix lintian warnings regarding DejaVuSans.ttf.
 
