@@ -3,7 +3,6 @@ munin (1.4.2-2) unstable; urgency=low
   * Fix lintian warnings regarding DejaVuSans.ttf.
   * /etc/munin/apache.conf uses <IfModule mod_expires>, 
     should use <IfModule mod_expires.c>. (Closes: #561984)
-  * Add vserver plugins autoconf/suggest support. (Closes: #561682)
   * Fix group for exim_mailqueue plugin. Closes: #562097).
 
  -- Tom Feiner <feiner.tom@gmail.com>  Thu, 24 Dec 2009 08:50:58 +0200
