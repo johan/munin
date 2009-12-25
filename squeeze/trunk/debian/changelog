@@ -1,3 +1,9 @@
+munin (1.4.2-3) UNRELEASED; urgency=low
+
+  * Typo in /etc/munin/apache.conf. (Closes: #562537)
+
+ -- Tom Feiner <feiner.tom@gmail.com>  Fri, 25 Dec 2009 19:42:48 +0200
+
 munin (1.4.2-2) unstable; urgency=low
 
   * Fix lintian warnings regarding DejaVuSans.ttf.
