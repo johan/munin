@@ -2,8 +2,10 @@ munin (1.4.3-1) unstable; urgency=low
 
   * New upstream release. Mainly bugfixes.
   * Fix typo in /etc/munin/apache.conf. (Closes: #562537)
+  * Added /var/log/munin-node-configure.log to munin-node.postrm so it will
+    be removed upon purge.
 
- -- Tom Feiner <feiner.tom@gmail.com>  Sun, 03 Jan 2010 09:26:50 +0200
+ -- Tom Feiner <feiner.tom@gmail.com>  Sun, 03 Jan 2010 09:35:01 +0200
 
 munin (1.4.2-2) unstable; urgency=low
 
