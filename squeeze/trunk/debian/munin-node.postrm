@@ -20,6 +20,7 @@ if [ "$1" = "purge" ]; then
 
 	rm -f /var/lib/munin/plugin-state/*.state
 	rm -f /var/log/munin/munin-node.log*
+	rm -f /var/log/munin/munin-node-configure.log*
 
 	dpkg-statoverride --remove /var/lib/munin/plugin-state
 
