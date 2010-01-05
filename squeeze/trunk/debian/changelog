@@ -1,15 +1,18 @@
+munin (1.4.3-2) UNRELEASED; urgency=low
+
+  * Add versioned dependency for librrds-perl.
+    If used with librrds-perl 1.2 or older, the font path is wrong.
+
+ -- Stig Sandbeck Mathisen <ssm@debian.org>  Tue, 05 Jan 2010 09:15:53 +0100
+
 munin (1.4.3-1) unstable; urgency=low
 
-  [ Tom Feiner ]
   * New upstream release. Mainly bugfixes.
   * Fix typo in /etc/munin/apache.conf. (Closes: #562537)
   * Added /var/log/munin-node-configure.log to munin-node.postrm so it will
     be removed upon purge.
 
-  [ Stig Sandbeck Mathisen ]
-  * Add versioned dependency for librrds-perl
-
- -- Stig Sandbeck Mathisen <ssm@debian.org>  Tue, 05 Jan 2010 08:55:50 +0100
+ -- Tom Feiner <feiner.tom@gmail.com>  Sun, 03 Jan 2010 09:35:01 +0200
 
 munin (1.4.2-2) unstable; urgency=low
 
