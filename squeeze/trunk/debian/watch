@@ -1,2 +1,2 @@
 version=3
-http://sf.net/munin/ munin_(.+)\.tar\.gz
+http://sf.net/munin/ munin-([\d+\.]+)\.tar\.gz
