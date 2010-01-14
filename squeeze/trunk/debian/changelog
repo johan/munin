@@ -1,4 +1,4 @@
-munin (1.4.3-2) UNRELEASED; urgency=low
+munin (1.4.3-2) unstable; urgency=low
 
   [ Stig Sandbeck Mathisen ]
   * Add versioned dependency for librrds-perl.
@@ -9,7 +9,7 @@ munin (1.4.3-2) UNRELEASED; urgency=low
   * Add patch from munin ticket #828, to suppress "occasional" unknown 
     states to avoid alerts. Thanks to Steve Wilson for the patch!
 
- -- Stig Sandbeck Mathisen <ssm@debian.org>  Wed, 13 Jan 2010 14:20:51 +0000
+ -- Holger Levsen <holger@debian.org>  Thu, 14 Jan 2010 12:59:19 +0100
 
 munin (1.4.3-1) unstable; urgency=low
 
