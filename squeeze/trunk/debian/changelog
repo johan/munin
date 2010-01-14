@@ -8,8 +8,10 @@ munin (1.4.3-2) unstable; urgency=low
   * Update watch file.
   * Add patch from munin ticket #828, to suppress "occasional" unknown 
     states to avoid alerts. Thanks to Steve Wilson for the patch!
+  * Removed asterisks from NEWS.Debian and rewrite as non bulleted list, as
+    advised by the developers reference.
 
- -- Holger Levsen <holger@debian.org>  Thu, 14 Jan 2010 12:59:19 +0100
+ -- Holger Levsen <holger@debian.org>  Thu, 14 Jan 2010 12:10:51 +0000
 
 munin (1.4.3-1) unstable; urgency=low
 
