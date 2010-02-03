@@ -1,3 +1,11 @@
+munin (1.4.3-3) UNRELEASED; urgency=low
+
+  * Suggest logtail in munin-node instead of munin-plugins-extra, as amavis
+    plugin is now part of munin-node.
+  * Fix amavis plugin default configuration. (Closes: #567923)
+
+ -- Tom Feiner <feiner.tom@gmail.com>  Wed, 03 Feb 2010 20:54:48 +0200
+
 munin (1.4.3-2) unstable; urgency=low
 
   [ Stig Sandbeck Mathisen ]
