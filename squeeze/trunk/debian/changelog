@@ -6,7 +6,7 @@ munin (1.4.3-3) UNRELEASED; urgency=low
   * Bump standards-version to 3.8.4, no changes necessary. 
   * Remove default limits for the cpu plugin (Closes: #564239)
   * New mysql plugin does not function with default configuration 
-    (Closes: #569047)
+    (Closes: #569047). Thanks to Michael Shuler spotting this!
 
  -- Tom Feiner <feiner.tom@gmail.com>  Tue, 09 Feb 2010 22:47:10 +0200
 
