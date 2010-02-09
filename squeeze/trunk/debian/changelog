@@ -4,8 +4,9 @@ munin (1.4.3-3) UNRELEASED; urgency=low
     plugin is now part of munin-node.
   * Fix amavis plugin default configuration. (Closes: #567923)
   * Bump standards-version to 3.8.4, no changes necessary. 
+  * Remove default limits for the cpu plugin (Closes: #564239)
 
- -- Tom Feiner <feiner.tom@gmail.com>  Wed, 03 Feb 2010 22:01:10 +0200
+ -- Tom Feiner <feiner.tom@gmail.com>  Tue, 09 Feb 2010 21:47:21 +0200
 
 munin (1.4.3-2) unstable; urgency=low
 
