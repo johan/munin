@@ -7,8 +7,9 @@ munin (1.4.3-3) UNRELEASED; urgency=low
   * Remove default limits for the cpu plugin (Closes: #564239)
   * New mysql plugin does not function with default configuration 
     (Closes: #569047). Thanks to Michael Shuler spotting this!
+  * Fix amavis default configuration (Closes: #567923) 
 
- -- Tom Feiner <feiner.tom@gmail.com>  Tue, 09 Feb 2010 22:47:10 +0200
+ -- Tom Feiner <feiner.tom@gmail.com>  Sun, 14 Feb 2010 08:15:16 +0200
 
 munin (1.4.3-2) unstable; urgency=low
 
