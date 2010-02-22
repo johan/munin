@@ -9,8 +9,9 @@ munin (1.4.3-3) UNRELEASED; urgency=low
     (Closes: #569047). Thanks to Michael Shuler spotting this!
   * Fix amavis default configuration (Closes: #567923) 
   * Add default configuration for exim_mailstats for logdir,logname.
+  * Place NEWS file only in munin package (Closes: #567844) 
 
- -- Tom Feiner <feiner.tom@gmail.com>  Sun, 14 Feb 2010 12:31:07 +0000
+ -- Tom Feiner <feiner.tom@gmail.com>  Mon, 22 Feb 2010 22:18:21 +0200
 
 munin (1.4.3-2) unstable; urgency=low
 
