@@ -5,18 +5,32 @@ munin (1.4.4-1) unstable; urgency=low
       alphabetical order (Closes: #564098)
     - munin-cgi-graph: Error "Premature end of script headers: 
       munin-cgi-graph" in in webserver logs (Closes: #570545)
+    - munin-node: diskstats plugin forces width to 450 (Closes: #569541) 
+    - Problems when using localised munin (Closes: #566821)
+    - munin-node: tomcat_* plugins don't work (Closes: #543523)
+    - df_abs: multiple excludes in config file don't work (Closes: #567666)
+    - df_abs: make total graph optional by config option (Closes: #567895)
+    - munin-plugins-extra: plugins/mailman uses an undefined $MUNIN_PLUGSTATE
+      variable (Closes: #568793)
+    - mail_eximstats fails if there is no current state (Closes: #569496)
+    - exim_mailstats doesn't count Completed properly (Closes: #569621)
+    - munin: graphs are created with different sizes and distance 
+      of the columns (Closes: #566293)
+    - Add the tcp plugin to track TCP connection states to 
+      munin-plugins-extra (Closes: #563160)
+    - New mysql plugin does not function with default configuration 
+      (Closes: #569047). Thanks to Michael Shuler spotting this!
+
   * Suggest logtail in munin-node instead of munin-plugins-extra, as amavis
     plugin is now part of munin-node.
   * Bump standards-version to 3.8.4, no changes necessary. 
   * Remove default limits for the cpu plugin (Closes: #564239)
-  * New mysql plugin does not function with default configuration 
-    (Closes: #569047). Thanks to Michael Shuler spotting this!
   * Fix amavis default configuration (Closes: #567923) 
   * Add default configuration for exim_mailstats for logdir,logname.
   * Extend default configuration for df to df*.
   * Place NEWS file only in munin,munin-node packages (Closes: #567844) 
 
- -- Tom Feiner <feiner.tom@gmail.com>  Fri, 26 Feb 2010 14:21:23 +0200
+ -- Tom Feiner <feiner.tom@gmail.com>  Fri, 26 Feb 2010 17:45:45 +0200
 
 munin (1.4.3-2) unstable; urgency=low
 
