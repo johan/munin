@@ -1,0 +1,53 @@
+#! /bin/sh
+
+set -e
+
+prevver="$2"
+
+add_munin_system_user() {
+	if ! getent passwd munin >/dev/null; then
+		adduser --group --system --no-create-home \
+			--home /var/lib/munin munin;
+	fi	
+	# workaround bug (#531021) in xen-tools
+	if ! getent group munin >/dev/null; then
+	        addgroup --system munin
+	        adduser munin munin
+	fi
+}
+
+fixperms() {
+	dpkg-statoverride --list /var/log/munin >/dev/null || \
+		dpkg-statoverride --update --add munin adm 0750 /var/log/munin
+	dpkg-statoverride --list /var/cache/munin/www >/dev/null || \
+		dpkg-statoverride --update --add munin munin 0755 /var/cache/munin/www
+	dpkg-statoverride --list /var/lib/munin >/dev/null || \
+		dpkg-statoverride --update --add munin munin 0755 /var/lib/munin
+}
+
+apache_install() {
+	# if you add more webservers here, dont forget to also remove them in postrm
+        webserver=apache2
+        if [ -d /etc/$webserver/conf.d ] && [ ! -e /etc/$webserver/conf.d/munin ]; then
+                ln -s ../../munin/apache.conf /etc/$webserver/conf.d/munin
+		invoke-rc.d $webserver reload 3>/dev/null || true
+        fi
+}
+
+
+case "$1" in
+	configure)
+		add_munin_system_user
+		fixperms
+		apache_install
+		;;
+	abort-upgrade|abort-deconfigure|abort-remove)
+		:
+		;;
+	*)
+		echo "Called with unknown argument $1, bailing out."
+		exit 1
+		;;
+esac
+
+#DEBHELPER#
