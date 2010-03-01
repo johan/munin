@@ -1,6 +1,10 @@
 munin (1.4.4-1) unstable; urgency=low
 
-  * New upstream release. Mainly bugfixes.
+  * New upstream release. Mainly bugfixes. Including fixes for:
+    - node does not read files in plugin configuration directory in 
+      alphabetical order (Closes: #564098)
+    - munin-cgi-graph: Error "Premature end of script headers: 
+      munin-cgi-graph" in in webserver logs (Closes: #570545)
   * Suggest logtail in munin-node instead of munin-plugins-extra, as amavis
     plugin is now part of munin-node.
   * Bump standards-version to 3.8.4, no changes necessary. 
@@ -9,11 +13,8 @@ munin (1.4.4-1) unstable; urgency=low
     (Closes: #569047). Thanks to Michael Shuler spotting this!
   * Fix amavis default configuration (Closes: #567923) 
   * Add default configuration for exim_mailstats for logdir,logname.
+  * Extend default configuration for df to df*.
   * Place NEWS file only in munin,munin-node packages (Closes: #567844) 
-  * node does not read files in plugin configuration directory in 
-    alphabetical order (Closes: 564098)
-  * munin-cgi-graph: Error "Premature end of script headers: munin-cgi-graph"
-    in in webserver logs (Closes: 570545)
 
  -- Tom Feiner <feiner.tom@gmail.com>  Fri, 26 Feb 2010 14:21:23 +0200
 
