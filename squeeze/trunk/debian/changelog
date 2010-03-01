@@ -3,7 +3,6 @@ munin (1.4.4-1) unstable; urgency=low
   * New upstream release. Mainly bugfixes.
   * Suggest logtail in munin-node instead of munin-plugins-extra, as amavis
     plugin is now part of munin-node.
-  * Fix amavis plugin default configuration. (Closes: #567923)
   * Bump standards-version to 3.8.4, no changes necessary. 
   * Remove default limits for the cpu plugin (Closes: #564239)
   * New mysql plugin does not function with default configuration 
