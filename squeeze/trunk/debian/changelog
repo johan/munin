@@ -1,4 +1,4 @@
-munin (1.4.4-1) UNRELEASED; urgency=low
+munin (1.4.4-1) unstable; urgency=low
 
   * New upstream release. Mainly bugfixes.
   * Suggest logtail in munin-node instead of munin-plugins-extra, as amavis
