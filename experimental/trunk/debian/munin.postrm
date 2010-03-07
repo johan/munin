@@ -30,6 +30,7 @@ if [ "$1" = "purge" ]; then
 	rm -f /var/log/munin/munin-graph.log*
 	rm -f /var/log/munin/munin-html.log*
 	rm -f /var/log/munin/munin-limits.log*
+	rm -f /var/log/munin/munin-cgi-graph.log*
 
 	dpkg-statoverride --remove /var/cache/munin/www
 

@@ -33,3 +33,12 @@
 	notifempty
 	create 640 munin adm
 }
+
+/var/log/munin/munin-cgi-graph.log {
+	daily
+	missingok
+	rotate 7
+	compress
+	notifempty
+	create 640 www-data adm
+}
