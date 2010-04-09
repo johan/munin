@@ -19,8 +19,10 @@ add_munin_system_user() {
 fixperms() {
 	dpkg-statoverride --list /var/log/munin >/dev/null || \
 		dpkg-statoverride --update --add munin adm 0750 /var/log/munin
+	# create munin-cgi-graph.log since www-data cannot create it itself
+	touch /var/log/munin/munin-cgi-graph.log
 	dpkg-statoverride --list /var/log/munin/munin-cgi-graph.log >/dev/null || \
-		dpkg-statoverride --update --add www-data adm 0750 /var/log/munin
+		dpkg-statoverride --update --add www-data adm 0750 /var/log/munin/munin-cgi-graph.log
 	dpkg-statoverride --list /var/cache/munin/www >/dev/null || \
 		dpkg-statoverride --update --add munin munin 0755 /var/cache/munin/www
 	dpkg-statoverride --list /var/lib/munin >/dev/null || \
