@@ -3,8 +3,9 @@ munin (1.4.5-1) UNRELEASED; urgency=low
   * New upstream release. Mainly bugfixes. Including fixes for:
     - plugin: sensors_volt fails to parse all voltages (Closes: #573613)
     - plugin: amavis creates cron error mail (Closes: #574172)
+    - plugin: uptime graph should not scale (Closes: #575180)
 
- -- Tom Feiner <feiner.tom@gmail.com>  Thu, 18 Mar 2010 22:15:50 +0200
+ -- Tom Feiner <feiner.tom@gmail.com>  Thu, 15 Apr 2010 21:40:37 +0300
 
 munin (1.4.4-1) unstable; urgency=low
 
