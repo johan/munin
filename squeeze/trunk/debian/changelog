@@ -6,6 +6,7 @@ munin (1.4.5-1) UNRELEASED; urgency=low
     - plugin: uptime graph should not scale (Closes: #575180)
   * Added patch 100-DejaVu-Fonts-Path.patch, fixing the invisible fonts
     problem in older debian versions. Lowered librrds dependency to 1.2.
+    (Closes: #578782)
 
  -- Tom Feiner <feiner.tom@gmail.com>  Thu, 22 Apr 2010 16:26:53 +0000
 

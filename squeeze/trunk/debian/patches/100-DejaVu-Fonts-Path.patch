@@ -8,7 +8,7 @@ Description: Debian specific patch, to explicitly configure
  http://munin-monitoring.org/changeset/3238.
 
 Origin: other
-Bug-Debian: none
+Bug-Debian: http://bugs.debian.org/578782
 Forwarded: no
 Author: Tom Feiner <feiner.tom@gmail.com>
 Last-Update: 2010-04-22
