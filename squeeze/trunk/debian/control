@@ -15,7 +15,7 @@ Architecture: all
 Depends: ${perl:Depends}, ${misc:Depends}, libnet-server-perl, procps, adduser, lsb-base (>= 3.2-4), gawk, munin-common (= ${binary:Version})
 Replaces: munin-plugins-extra
 Recommends: libnet-snmp-perl
-Suggests: munin, munin-plugins-extra, munin-java-plugins, libwww-perl, liblwp-useragent-determined-perl, libnet-irc-perl, mysql-client, smartmontools (>= 5.37-6~bpo40+1), acpi | lm-sensors, python, ruby, ethtool, libdbd-pg-perl,libdbd-mysql-perl,libcache-cache-perl, net-tools, hdparm, libcrypt-ssleay-perl, libtext-csv-xs-perl, libxml-simple-perl, logtail
+Suggests: munin, munin-plugins-extra, munin-java-plugins, libwww-perl, liblwp-useragent-determined-perl, libnet-irc-perl, mysql-client, smartmontools (>= 5.37-6~bpo40+1), acpi | lm-sensors, python, ruby, ethtool, libdbd-pg-perl,libdbd-mysql-perl,libcache-cache-perl, net-tools, hdparm, libcrypt-ssleay-perl, libtext-csv-xs-perl, libxml-simple-perl, logtail, libnet-ssleay-perl
 Description: network-wide graphing framework (node)
  Munin is a highly flexible and powerful solution used to create graphs of
  virtually everything imaginable throughout your network, while still
@@ -74,7 +74,7 @@ Package: munin
 Architecture: all
 Depends: ${perl:Depends}, ${misc:Depends}, perl-modules | libparse-recdescent-perl, librrds-perl (>= 1.2), libhtml-template-perl, libdigest-md5-perl, libtime-hires-perl, libstorable-perl, rrdtool, adduser, liblog-log4perl-perl, ttf-dejavu, munin-common (= ${binary:Version}), cron
 Recommends: munin-node, libdate-manip-perl
-Suggests: www-browser, httpd
+Suggests: www-browser, httpd, libnet-ssleay-perl
 Description: network-wide graphing framework (grapher/gatherer)
  Munin is a highly flexible and powerful solution used to create graphs of
  virtually everything imaginable throughout your network, while still
