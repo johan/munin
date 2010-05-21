@@ -9,8 +9,10 @@ munin (1.4.5-1) unstable; urgency=low
     problem in older debian versions. Lowered librrds dependency to 1.2.
     (Closes: #578782)
   * max_cgi_graph_jobs in config breaks munin-update (Closes: #581709)
+  * TLS nonfunctional; using tls causes munin update to stop with error
+    (Closes: 580331)
 
- -- Tom Feiner <feiner.tom@gmail.com>  Sat, 15 May 2010 13:02:50 +0300
+ -- Tom Feiner <feiner.tom@gmail.com>  Fri, 21 May 2010 07:36:35 +0300
 
 munin (1.4.4-1) unstable; urgency=low
 
