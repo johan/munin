@@ -14,7 +14,7 @@ munin (1.4.5-1) unstable; urgency=low
   * Suggest libnet-ssleay-perl in munin, munin-node. This package is needed
     in order to enable TLS.
 
- -- Tom Feiner <feiner.tom@gmail.com>  Fri, 21 May 2010 07:45:56 +0300
+ -- Tom Feiner <feiner.tom@gmail.com>  Thu, 03 Jun 2010 07:45:56 +0300
 
 munin (1.4.4-1) unstable; urgency=low
 
