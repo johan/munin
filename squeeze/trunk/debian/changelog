@@ -1,3 +1,9 @@
+munin (1.4.5-2) unstable; urgency=low
+
+  * munin-plugins-extra: conflicts with lenny's munin-node (Closes: #590630)
+
+ -- Tom Feiner <feiner.tom@gmail.com>  Fri, 30 Jul 2010 18:34:46 +0300
+
 munin (1.4.5-1) unstable; urgency=low
 
   * New upstream release. Mainly bugfixes. Including fixes for:
