@@ -42,7 +42,6 @@ Package: munin-plugins-extra
 Architecture: all
 Depends: ${perl:Depends}, ${misc:Depends}, munin-node
 Replaces: munin-node (<< 1.4.0-1)
-Breaks: foo (<< 1.4.0-1)
 Suggests: libnet-netmask-perl, python, libnet-telnet-perl
 Description: network-wide graphing framework (user contributed plugins for node)
  Munin is a highly flexible and powerful solution used to create graphs of
