@@ -2,8 +2,6 @@ munin (1.4.5-2) UNRELEASED; urgency=low
 
   [ Tom Feiner ]
   * munin-plugins-extra: conflicts with lenny's munin-node (Closes: #590630)
-  * Compiling java plugins should be done using javac from /etc/alternatives
-    (Closes: #592864)
   * Bump standards-version to 3.9.1, no changes necessary.
 
  -- Tom Feiner <feiner.tom@gmail.com>  Fri, 13 Aug 2010 16:58:37 +0300
