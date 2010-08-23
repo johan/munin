@@ -1,4 +1,4 @@
-munin (1.4.5-2) UNRELEASED; urgency=low
+munin (1.4.5-2) unstable; urgency=low
 
   [ Tom Feiner ]
   * munin-plugins-extra: conflicts with lenny's munin-node (Closes: #590630)
