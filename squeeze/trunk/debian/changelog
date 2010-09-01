@@ -1,3 +1,11 @@
+munin (1.4.5-3) UNRELEASED; urgency=low
+
+  * Added patch 101-dash-bash-fw_conntrack.patch, fixing fw_conntrack 
+    plugin which reports incorrect values for total.warning 
+    and total.critical (Closes: #594695)
+
+ -- Tom Feiner <feiner.tom@gmail.com> Wed, 01 Sep 2010 22:17:37 +0300
+
 munin (1.4.5-2) unstable; urgency=low
 
   [ Tom Feiner ]
