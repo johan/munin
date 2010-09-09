@@ -1,10 +1,13 @@
 munin (1.4.5-3) UNRELEASED; urgency=low
 
+  [ Tom Feiner ]
   * Added patch 101-dash-bash-fw_conntrack.patch, fixing fw_conntrack 
     plugin which reports incorrect values for total.warning 
     and total.critical (Closes: #594695)
+  * Added patch 102-snort-bashism.patch fixing snort_* config bashism.
+    Thanks to Gerald Turner for the patch (Closes: #595899).
 
- -- Tom Feiner <feiner.tom@gmail.com> Wed, 01 Sep 2010 22:17:37 +0300
+ -- Tom Feiner <feiner.tom@gmail.com>  Thu, 09 Sep 2010 17:10:38 +0300
 
 munin (1.4.5-2) unstable; urgency=low
 
