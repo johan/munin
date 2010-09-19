@@ -14,7 +14,7 @@ Debian-specific information regarding Munin
     On the nodes, /etc/munin/munin-node.conf needs to be edited to allow 
     access from the master node. 
 
-    Plugins reside in /usr/share/munin/plugins/, there usage is activated 
+    Plugins reside in /usr/share/munin/plugins/, their usage is activated 
     by linking them to /etc/munin/plugins/. Plugin configuration is best 
     done in /etc/munin/plugin-conf.d/
 
