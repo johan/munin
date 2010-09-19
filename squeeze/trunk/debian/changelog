@@ -7,6 +7,9 @@ munin (1.4.5-3) UNRELEASED; urgency=low
   * Added patch 102-snort-bashism.patch fixing snort_* config bashism.
     Thanks to Gerald Turner for the patch (Closes: #595899).
 
+  [ Holger Levsen ]
+  * Added some tipps to get started into README.Debian. (Closes: #594528)
+
  -- Tom Feiner <feiner.tom@gmail.com>  Thu, 09 Sep 2010 17:10:38 +0300
 
 munin (1.4.5-2) unstable; urgency=low

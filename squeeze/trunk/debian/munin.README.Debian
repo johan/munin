@@ -1,6 +1,25 @@
 Debian-specific information regarding Munin
 ===========================================
 
+  Getting started
+  ---------------
+
+    Using Munin requires to run a Munin master, which needs the munin
+    package installed and an arbitrary number of Munin nodes, with the
+    munin-node package installed. The master can and should also be a node.
+
+    On the master system point your browser to http://localhost/munin - to
+    customize edit /etc/munin/apache.conf if you are using apache2.
+
+    On the nodes, /etc/munin/munin-node.conf needs to be edited to allow 
+    access from the master node. 
+
+    Plugins reside in /usr/share/munin/plugins/, there usage is activated 
+    by linking them to /etc/munin/plugins/. Plugin configuration is best 
+    done in /etc/munin/plugin-conf.d/
+
+    Further reading: http://munin-monitoring.org/wiki/Documentation
+
   Find the upstream source
   ------------------------
     This Debian package uses the upstream tarball located here:
@@ -18,7 +37,7 @@ Debian-specific information regarding Munin
     are welcome.
     
     If you feel like sending us things that can't be represented in binary (for
-    example beautiful women fluent in assembly, bacillus anthracis, cash,
+    example beautiful people fluent in assembly, bacillus anthracis, cash,
     explosives, and so on), take contact off-list, and we'll find a way of
     arranging the logistics.
   
