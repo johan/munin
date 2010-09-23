@@ -8,12 +8,13 @@ munin (1.4.5-3) UNRELEASED; urgency=low
     Thanks to Gerald Turner for the patch (Closes: #595899).
   * Existence of /etc/apache2/conf.d/ does not mean apache2 is installed.
     (Closes: #581363)
+  * Add patch to adapt ejabberd CLI to ejabberd version found in squeeze.
+    Thanks to Gerald Turner for the patch! (Closes: #597599)
 
   [ Holger Levsen ]
   * Added some tipps to get started into README.Debian. (Closes: #594528)
 
-
- -- Tom Feiner <feiner.tom@gmail.com>  Thu, 23 Sep 2010 14:06:45 +0200
+ -- Tom Feiner <feiner.tom@gmail.com>  Thu, 23 Sep 2010 21:29:18 +0200
 
 munin (1.4.5-2) unstable; urgency=low
 
